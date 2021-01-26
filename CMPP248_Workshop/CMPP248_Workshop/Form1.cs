@@ -13,7 +13,7 @@ namespace CMPP248_Workshop
 {
     public partial class Form1 : Form
     {
-        public travelexpertsDataContext db = new travelexpertsDataContext();
+        travelexpertsDataContext db = new travelexpertsDataContext();
         Package currentPackage;
 
         public Form1()
@@ -64,6 +64,6 @@ namespace CMPP248_Workshop
             packageBindingSource.Clear();
             packageBindingSource.Add(new travelexpertsDataContext().Packages);
 
-            }
         }
     }
+}

@@ -37,9 +37,6 @@ namespace CMPP248_Workshop
             System.Windows.Forms.Label pkgEndDateLabel;
             System.Windows.Forms.Label pkgNameLabel;
             System.Windows.Forms.Label pkgStartDateLabel;
-            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.packages_Products_SuppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.packageIdTextBox = new System.Windows.Forms.TextBox();
             this.pkgAgencyCommissionTextBox = new System.Windows.Forms.TextBox();
             this.pkgBasePriceTextBox = new System.Windows.Forms.TextBox();
@@ -47,10 +44,15 @@ namespace CMPP248_Workshop
             this.pkgEndDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.pkgNameTextBox = new System.Windows.Forms.TextBox();
             this.pkgStartDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnSave = new System.Windows.Forms.Button();
-            this.packages_Products_SuppliersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnEditAddProducts = new System.Windows.Forms.Button();
+            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.packages_Products_SuppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.packages_Products_SuppliersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             packageIdLabel = new System.Windows.Forms.Label();
             pkgAgencyCommissionLabel = new System.Windows.Forms.Label();
             pkgBasePriceLabel = new System.Windows.Forms.Label();
@@ -58,12 +60,13 @@ namespace CMPP248_Workshop
             pkgEndDateLabel = new System.Windows.Forms.Label();
             pkgNameLabel = new System.Windows.Forms.Label();
             pkgStartDateLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // packageIdLabel
@@ -129,19 +132,6 @@ namespace CMPP248_Workshop
             pkgStartDateLabel.TabIndex = 12;
             pkgStartDateLabel.Text = "Pkg Start Date:";
             // 
-            // packageBindingSource
-            // 
-            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
-            // 
-            // packages_Products_SuppliersBindingSource
-            // 
-            this.packages_Products_SuppliersBindingSource.DataMember = "Packages_Products_Suppliers";
-            this.packages_Products_SuppliersBindingSource.DataSource = this.packageBindingSource;
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
-            // 
             // packageIdTextBox
             // 
             this.packageIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PackageId", true));
@@ -204,13 +194,9 @@ namespace CMPP248_Workshop
             this.pkgStartDateDateTimePicker.ValueChanged += new System.EventHandler(this.pkgStartDateDateTimePicker_ValueChanged);
             this.pkgStartDateDateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pkgStartDateDateTimePicker_KeyPress);
             // 
-            // products_SupplierBindingSource
-            // 
-            this.products_SupplierBindingSource.DataSource = typeof(TravelExpertDatabase.Products_Supplier);
-            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(320, 374);
+            this.btnSave.Location = new System.Drawing.Point(320, 356);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(123, 39);
             this.btnSave.TabIndex = 14;
@@ -218,26 +204,58 @@ namespace CMPP248_Workshop
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(491, 53);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(733, 255);
+            this.dataGridView1.TabIndex = 16;
+            // 
+            // btnEditAddProducts
+            // 
+            this.btnEditAddProducts.Location = new System.Drawing.Point(1112, 357);
+            this.btnEditAddProducts.Name = "btnEditAddProducts";
+            this.btnEditAddProducts.Size = new System.Drawing.Size(112, 38);
+            this.btnEditAddProducts.TabIndex = 17;
+            this.btnEditAddProducts.Text = "Add/Edit";
+            this.btnEditAddProducts.UseVisualStyleBackColor = true;
+            this.btnEditAddProducts.Click += new System.EventHandler(this.btnEditAddProducts_Click);
+            // 
+            // packageBindingSource
+            // 
+            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
+            // 
+            // packages_Products_SuppliersBindingSource
+            // 
+            this.packages_Products_SuppliersBindingSource.DataMember = "Packages_Products_Suppliers";
+            this.packages_Products_SuppliersBindingSource.DataSource = this.packageBindingSource;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
+            // 
+            // products_SupplierBindingSource
+            // 
+            this.products_SupplierBindingSource.DataSource = typeof(TravelExpertDatabase.Products_Supplier);
+            // 
             // packages_Products_SuppliersBindingSource1
             // 
             this.packages_Products_SuppliersBindingSource1.DataMember = "Packages_Products_Suppliers";
             this.packages_Products_SuppliersBindingSource1.DataSource = this.products_SupplierBindingSource;
             // 
-            // dataGridView1
+            // productBindingSource
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(477, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(747, 255);
-            this.dataGridView1.TabIndex = 16;
+            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // frmAddModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1279, 518);
+            this.Controls.Add(this.btnEditAddProducts);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(packageIdLabel);
@@ -257,12 +275,13 @@ namespace CMPP248_Workshop
             this.Name = "frmAddModify";
             this.Text = "frmAddModify";
             this.Load += new System.EventHandler(this.frmAddModify_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +303,7 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.BindingSource packages_Products_SuppliersBindingSource1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource productBindingSource;
+        private System.Windows.Forms.Button btnEditAddProducts;
     }
 }

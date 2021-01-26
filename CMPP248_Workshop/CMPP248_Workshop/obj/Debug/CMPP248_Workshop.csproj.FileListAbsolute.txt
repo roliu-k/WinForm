@@ -28,3 +28,7 @@ C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Work
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.csproj.CopyComplete
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.exe
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.pdb
+C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProdSupplier.resources
+C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProdSupplierAddEdit.resources
+C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProducts.resources
+C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmSuppliers.resources
