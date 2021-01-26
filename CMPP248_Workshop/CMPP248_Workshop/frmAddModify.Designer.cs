@@ -38,6 +38,7 @@ namespace CMPP248_Workshop
             System.Windows.Forms.Label pkgNameLabel;
             System.Windows.Forms.Label pkgStartDateLabel;
             this.packageIdTextBox = new System.Windows.Forms.TextBox();
+            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pkgAgencyCommissionTextBox = new System.Windows.Forms.TextBox();
             this.pkgBasePriceTextBox = new System.Windows.Forms.TextBox();
             this.pkgDescTextBox = new System.Windows.Forms.TextBox();
@@ -47,7 +48,6 @@ namespace CMPP248_Workshop
             this.btnSave = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnEditAddProducts = new System.Windows.Forms.Button();
-            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.packages_Products_SuppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -60,8 +60,8 @@ namespace CMPP248_Workshop
             pkgEndDateLabel = new System.Windows.Forms.Label();
             pkgNameLabel = new System.Windows.Forms.Label();
             pkgStartDateLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
@@ -137,8 +137,13 @@ namespace CMPP248_Workshop
             this.packageIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PackageId", true));
             this.packageIdTextBox.Location = new System.Drawing.Point(243, 71);
             this.packageIdTextBox.Name = "packageIdTextBox";
+            this.packageIdTextBox.ReadOnly = true;
             this.packageIdTextBox.Size = new System.Drawing.Size(200, 22);
             this.packageIdTextBox.TabIndex = 1;
+            // 
+            // packageBindingSource
+            // 
+            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
             // 
             // pkgAgencyCommissionTextBox
             // 
@@ -224,10 +229,6 @@ namespace CMPP248_Workshop
             this.btnEditAddProducts.UseVisualStyleBackColor = true;
             this.btnEditAddProducts.Click += new System.EventHandler(this.btnEditAddProducts_Click);
             // 
-            // packageBindingSource
-            // 
-            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
-            // 
             // packages_Products_SuppliersBindingSource
             // 
             this.packages_Products_SuppliersBindingSource.DataMember = "Packages_Products_Suppliers";
@@ -275,8 +276,8 @@ namespace CMPP248_Workshop
             this.Name = "frmAddModify";
             this.Text = "frmAddModify";
             this.Load += new System.EventHandler(this.frmAddModify_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).EndInit();

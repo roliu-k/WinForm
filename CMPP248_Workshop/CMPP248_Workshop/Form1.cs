@@ -11,6 +11,8 @@ using TravelExpertDatabase;
 
 namespace CMPP248_Workshop
 {
+    // Displays Packages.
+
     public partial class Form1 : Form
     {
         travelexpertsDataContext db = new travelexpertsDataContext();
@@ -23,11 +25,11 @@ namespace CMPP248_Workshop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-            //package = PackageDB.GetPackages();
             packageBindingSource.DataSource = new travelexpertsDataContext().Packages;
         }
 
+
+        //Adds new Packages to Database
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmAddModify secondForm = new frmAddModify();
@@ -36,10 +38,12 @@ namespace CMPP248_Workshop
             DialogResult result = secondForm.ShowDialog(); // display second form modal
             if (result == DialogResult.OK) // new row got inserted
             {
+                secondForm.Close();
                 RefreshView();
             }
         }
 
+        //Allows modifications to Packages
         private void btnModify_Click(object sender, EventArgs e)
         {
             using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
@@ -62,8 +66,7 @@ namespace CMPP248_Workshop
         public void RefreshView()
         {
             packageBindingSource.Clear();
-            packageBindingSource.Add(new travelexpertsDataContext().Packages);
-
+            packageBindingSource.DataSource = new travelexpertsDataContext().Packages;
         }
     }
 }

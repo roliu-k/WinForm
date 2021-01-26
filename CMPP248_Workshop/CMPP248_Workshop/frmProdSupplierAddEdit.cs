@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace CMPP248_Workshop
 {
+    //Create a new ProductSupplier ID through a product Id and supplier Id
+
     public partial class frmProdSupplierAddEdit : Form
     {
         public frmProdSupplierAddEdit()

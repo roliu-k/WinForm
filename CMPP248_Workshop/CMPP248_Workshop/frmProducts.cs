@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertDatabase;
 
 namespace CMPP248_Workshop
 {
+    //This should allow adding/modifying products in the product database.
+
     public partial class frmProducts : Form
     {
         public frmProducts()
         {
             InitializeComponent();
 
-            //productBindingSource.DataSource = new travelexpertsDataContext().Product;
+            productBindingSource.DataSource = new travelexpertsDataContext().Products;
         }
     }
 
