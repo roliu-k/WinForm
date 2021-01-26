@@ -30,28 +30,28 @@ namespace CMPP248_Workshop
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProdSupplierAddEdit));
             System.Windows.Forms.Label productIdLabel;
             System.Windows.Forms.Label productSupplierIdLabel;
             System.Windows.Forms.Label supplierIdLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProdSupplierAddEdit));
             this.products_SupplierBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.products_SupplierBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productIdComboBox = new System.Windows.Forms.ComboBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productSupplierIdTextBox = new System.Windows.Forms.TextBox();
             this.supplierIdComboBox = new System.Windows.Forms.ComboBox();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             productIdLabel = new System.Windows.Forms.Label();
             productSupplierIdLabel = new System.Windows.Forms.Label();
@@ -62,6 +62,33 @@ namespace CMPP248_Workshop
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // productIdLabel
+            // 
+            productIdLabel.AutoSize = true;
+            productIdLabel.Location = new System.Drawing.Point(60, 125);
+            productIdLabel.Name = "productIdLabel";
+            productIdLabel.Size = new System.Drawing.Size(76, 17);
+            productIdLabel.TabIndex = 1;
+            productIdLabel.Text = "Product Id:";
+            // 
+            // productSupplierIdLabel
+            // 
+            productSupplierIdLabel.AutoSize = true;
+            productSupplierIdLabel.Location = new System.Drawing.Point(60, 87);
+            productSupplierIdLabel.Name = "productSupplierIdLabel";
+            productSupplierIdLabel.Size = new System.Drawing.Size(132, 17);
+            productSupplierIdLabel.TabIndex = 3;
+            productSupplierIdLabel.Text = "Product Supplier Id:";
+            // 
+            // supplierIdLabel
+            // 
+            supplierIdLabel.AutoSize = true;
+            supplierIdLabel.Location = new System.Drawing.Point(60, 166);
+            supplierIdLabel.Name = "supplierIdLabel";
+            supplierIdLabel.Size = new System.Drawing.Size(79, 17);
+            supplierIdLabel.TabIndex = 5;
+            supplierIdLabel.Text = "Supplier Id:";
             // 
             // products_SupplierBindingNavigator
             // 
@@ -94,6 +121,37 @@ namespace CMPP248_Workshop
             this.products_SupplierBindingNavigator.TabIndex = 0;
             this.products_SupplierBindingNavigator.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // products_SupplierBindingSource
+            // 
+            this.products_SupplierBindingSource.DataSource = typeof(TravelExpertDatabase.Products_Supplier);
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -121,21 +179,15 @@ namespace CMPP248_Workshop
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
@@ -158,26 +210,8 @@ namespace CMPP248_Workshop
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // products_SupplierBindingNavigatorSaveItem
             // 
@@ -187,19 +221,7 @@ namespace CMPP248_Workshop
             this.products_SupplierBindingNavigatorSaveItem.Name = "products_SupplierBindingNavigatorSaveItem";
             this.products_SupplierBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.products_SupplierBindingNavigatorSaveItem.Text = "Save Data";
-            // 
-            // products_SupplierBindingSource
-            // 
-            this.products_SupplierBindingSource.DataSource = typeof(TravelExpertDatabase.Products_Supplier);
-            // 
-            // productIdLabel
-            // 
-            productIdLabel.AutoSize = true;
-            productIdLabel.Location = new System.Drawing.Point(60, 125);
-            productIdLabel.Name = "productIdLabel";
-            productIdLabel.Size = new System.Drawing.Size(76, 17);
-            productIdLabel.TabIndex = 1;
-            productIdLabel.Text = "Product Id:";
+            this.products_SupplierBindingNavigatorSaveItem.Click += new System.EventHandler(this.products_SupplierBindingNavigatorSaveItem_Click);
             // 
             // productIdComboBox
             // 
@@ -214,14 +236,9 @@ namespace CMPP248_Workshop
             this.productIdComboBox.TabIndex = 2;
             this.productIdComboBox.ValueMember = "ProductId";
             // 
-            // productSupplierIdLabel
+            // productBindingSource
             // 
-            productSupplierIdLabel.AutoSize = true;
-            productSupplierIdLabel.Location = new System.Drawing.Point(60, 87);
-            productSupplierIdLabel.Name = "productSupplierIdLabel";
-            productSupplierIdLabel.Size = new System.Drawing.Size(132, 17);
-            productSupplierIdLabel.TabIndex = 3;
-            productSupplierIdLabel.Text = "Product Supplier Id:";
+            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // productSupplierIdTextBox
             // 
@@ -230,15 +247,6 @@ namespace CMPP248_Workshop
             this.productSupplierIdTextBox.Name = "productSupplierIdTextBox";
             this.productSupplierIdTextBox.Size = new System.Drawing.Size(156, 22);
             this.productSupplierIdTextBox.TabIndex = 4;
-            // 
-            // supplierIdLabel
-            // 
-            supplierIdLabel.AutoSize = true;
-            supplierIdLabel.Location = new System.Drawing.Point(60, 166);
-            supplierIdLabel.Name = "supplierIdLabel";
-            supplierIdLabel.Size = new System.Drawing.Size(79, 17);
-            supplierIdLabel.TabIndex = 5;
-            supplierIdLabel.Text = "Supplier Id:";
             // 
             // supplierIdComboBox
             // 
@@ -252,10 +260,6 @@ namespace CMPP248_Workshop
             this.supplierIdComboBox.Size = new System.Drawing.Size(156, 24);
             this.supplierIdComboBox.TabIndex = 6;
             this.supplierIdComboBox.ValueMember = "SupplierId";
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // supplierBindingSource
             // 

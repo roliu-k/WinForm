@@ -15,11 +15,33 @@ namespace CMPP248_Workshop
 
     public partial class frmProducts : Form
     {
+        public bool isAdd;
         public frmProducts()
         {
             InitializeComponent();
 
             productBindingSource.DataSource = new travelexpertsDataContext().Products;
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void productBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            if (isAdd)
+            {
+                Product newProduct = new Product
+                {
+                    ProdName = productIdTextBox.Text
+                };
+            }
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

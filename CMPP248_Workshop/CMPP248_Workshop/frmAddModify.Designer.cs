@@ -147,7 +147,7 @@ namespace CMPP248_Workshop
             // 
             // pkgAgencyCommissionTextBox
             // 
-            this.pkgAgencyCommissionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgAgencyCommission", true));
+            this.pkgAgencyCommissionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgAgencyCommission", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.pkgAgencyCommissionTextBox.Location = new System.Drawing.Point(243, 99);
             this.pkgAgencyCommissionTextBox.Name = "pkgAgencyCommissionTextBox";
             this.pkgAgencyCommissionTextBox.Size = new System.Drawing.Size(200, 22);
@@ -155,7 +155,7 @@ namespace CMPP248_Workshop
             // 
             // pkgBasePriceTextBox
             // 
-            this.pkgBasePriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgBasePrice", true));
+            this.pkgBasePriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgBasePrice", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.pkgBasePriceTextBox.Location = new System.Drawing.Point(243, 127);
             this.pkgBasePriceTextBox.Name = "pkgBasePriceTextBox";
             this.pkgBasePriceTextBox.Size = new System.Drawing.Size(200, 22);
@@ -163,7 +163,7 @@ namespace CMPP248_Workshop
             // 
             // pkgDescTextBox
             // 
-            this.pkgDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgDesc", true));
+            this.pkgDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgDesc", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.pkgDescTextBox.Location = new System.Drawing.Point(243, 155);
             this.pkgDescTextBox.Name = "pkgDescTextBox";
             this.pkgDescTextBox.Size = new System.Drawing.Size(200, 22);
@@ -214,6 +214,7 @@ namespace CMPP248_Workshop
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(491, 53);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(733, 255);
@@ -221,11 +222,11 @@ namespace CMPP248_Workshop
             // 
             // btnEditAddProducts
             // 
-            this.btnEditAddProducts.Location = new System.Drawing.Point(1112, 357);
+            this.btnEditAddProducts.Location = new System.Drawing.Point(1029, 357);
             this.btnEditAddProducts.Name = "btnEditAddProducts";
-            this.btnEditAddProducts.Size = new System.Drawing.Size(112, 38);
+            this.btnEditAddProducts.Size = new System.Drawing.Size(195, 38);
             this.btnEditAddProducts.TabIndex = 17;
-            this.btnEditAddProducts.Text = "Add/Edit";
+            this.btnEditAddProducts.Text = "Add/Remove Products";
             this.btnEditAddProducts.UseVisualStyleBackColor = true;
             this.btnEditAddProducts.Click += new System.EventHandler(this.btnEditAddProducts_Click);
             // 
@@ -274,6 +275,7 @@ namespace CMPP248_Workshop
             this.Controls.Add(pkgStartDateLabel);
             this.Controls.Add(this.pkgStartDateDateTimePicker);
             this.Name = "frmAddModify";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddModify";
             this.Load += new System.EventHandler(this.frmAddModify_Load);
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();

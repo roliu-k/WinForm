@@ -351,6 +351,8 @@ namespace TravelExpertDatabase
 			entity.Package = null;
 		}
 	}
+
+	
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Packages_Products_Suppliers")]
 	public partial class Packages_Products_Supplier : INotifyPropertyChanging, INotifyPropertyChanged

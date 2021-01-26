@@ -30,31 +30,49 @@ namespace CMPP248_Workshop
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuppliers));
             System.Windows.Forms.Label supNameLabel;
             System.Windows.Forms.Label supplierIdLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuppliers));
             this.supplierBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.supplierBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.supNameTextBox = new System.Windows.Forms.TextBox();
             this.supplierIdTextBox = new System.Windows.Forms.TextBox();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             supNameLabel = new System.Windows.Forms.Label();
             supplierIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).BeginInit();
             this.supplierBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // supNameLabel
+            // 
+            supNameLabel.AutoSize = true;
+            supNameLabel.Location = new System.Drawing.Point(63, 179);
+            supNameLabel.Name = "supNameLabel";
+            supNameLabel.Size = new System.Drawing.Size(105, 17);
+            supNameLabel.TabIndex = 1;
+            supNameLabel.Text = "Supplier Name:";
+            // 
+            // supplierIdLabel
+            // 
+            supplierIdLabel.AutoSize = true;
+            supplierIdLabel.Location = new System.Drawing.Point(63, 128);
+            supplierIdLabel.Name = "supplierIdLabel";
+            supplierIdLabel.Size = new System.Drawing.Size(79, 17);
+            supplierIdLabel.TabIndex = 3;
+            supplierIdLabel.Text = "Supplier Id:";
             // 
             // supplierBindingNavigator
             // 
@@ -87,6 +105,37 @@ namespace CMPP248_Workshop
             this.supplierBindingNavigator.TabIndex = 0;
             this.supplierBindingNavigator.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -114,21 +163,15 @@ namespace CMPP248_Workshop
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
@@ -151,26 +194,8 @@ namespace CMPP248_Workshop
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // supplierBindingNavigatorSaveItem
             // 
@@ -180,44 +205,23 @@ namespace CMPP248_Workshop
             this.supplierBindingNavigatorSaveItem.Name = "supplierBindingNavigatorSaveItem";
             this.supplierBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
             this.supplierBindingNavigatorSaveItem.Text = "Save Data";
-            // 
-            // supNameLabel
-            // 
-            supNameLabel.AutoSize = true;
-            supNameLabel.Location = new System.Drawing.Point(63, 179);
-            supNameLabel.Name = "supNameLabel";
-            supNameLabel.Size = new System.Drawing.Size(78, 17);
-            supNameLabel.TabIndex = 1;
-            supNameLabel.Text = "Sup Name:";
+            this.supplierBindingNavigatorSaveItem.Click += new System.EventHandler(this.supplierBindingNavigatorSaveItem_Click);
             // 
             // supNameTextBox
             // 
             this.supNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "SupName", true));
-            this.supNameTextBox.Location = new System.Drawing.Point(148, 176);
+            this.supNameTextBox.Location = new System.Drawing.Point(186, 176);
             this.supNameTextBox.Name = "supNameTextBox";
             this.supNameTextBox.Size = new System.Drawing.Size(100, 22);
             this.supNameTextBox.TabIndex = 2;
             // 
-            // supplierIdLabel
-            // 
-            supplierIdLabel.AutoSize = true;
-            supplierIdLabel.Location = new System.Drawing.Point(63, 128);
-            supplierIdLabel.Name = "supplierIdLabel";
-            supplierIdLabel.Size = new System.Drawing.Size(79, 17);
-            supplierIdLabel.TabIndex = 3;
-            supplierIdLabel.Text = "Supplier Id:";
-            // 
             // supplierIdTextBox
             // 
             this.supplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "SupplierId", true));
-            this.supplierIdTextBox.Location = new System.Drawing.Point(148, 125);
+            this.supplierIdTextBox.Location = new System.Drawing.Point(186, 125);
             this.supplierIdTextBox.Name = "supplierIdTextBox";
             this.supplierIdTextBox.Size = new System.Drawing.Size(100, 22);
             this.supplierIdTextBox.TabIndex = 4;
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
             // 
             // frmSuppliers
             // 

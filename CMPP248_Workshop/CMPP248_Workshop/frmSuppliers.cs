@@ -15,10 +15,27 @@ namespace CMPP248_Workshop
 
     public partial class frmSuppliers : Form
     {
+        //travelexpertsDataContext = new travelexpertsDataContext
+
         public frmSuppliers()
         {
             InitializeComponent();
             supplierBindingSource.DataSource = new travelexpertsDataContext().Suppliers;
+        }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void supplierBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

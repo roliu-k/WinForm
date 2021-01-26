@@ -53,19 +53,29 @@ namespace CMPP248_Workshop
         //Delete from GridView so it won't add to database
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
-            //{
-            //    //select from gridview
-            
-            //    dbContext.Packages_Products_Suppliers.DeleteOnSubmit();
-            //    dbContext.SubmitChanges(); // submit to the database
-            //}
-            //refreshDataGrid();
+            // Grab data from selected cell on gridview
+            int rowNum = dataGridView1.CurrentCell.RowIndex; // index of the current row
+            int prodSuppID = Convert.ToInt32(dataGridView1[0, rowNum].Value); // Column for ProductSupplierID
+
+
+            using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
+            {
+                //
+                Packages_Products_Supplier packProdSupForRemoval = (from match in dbContext.Packages_Products_Suppliers
+                                                          where (match.ProductSupplierId == prodSuppID
+                                                          && match.PackageId == currentPackage.PackageId)
+                                                          select match).Single();
+
+                dbContext.Packages_Products_Suppliers.DeleteOnSubmit(packProdSupForRemoval);
+                dbContext.SubmitChanges(); // submit to the database
+            }
+            refreshDataGrid();
         }
 
         //Save changes, add to database, close window
         private void btnDone_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
             this.Close();
         }
 
@@ -76,18 +86,11 @@ namespace CMPP248_Workshop
             {
                 refreshDataGrid();
 
-                //products_SupplierBindingSource.DataSource = db.Products_Suppliers;
-                //productBindingSource.DataSource = db.Products;
-                //supplierBindingSource.DataSource = db.Suppliers;
-
                 // display the list of selection for products and suppliers 
                 prodNameComboBox.DataSource = from product in db.Products
                                               select product.ProdName;
-
                 supNameComboBox.DataSource = from supplier in db.Suppliers
                                              select supplier.SupName;
-
-
             }
             
             
@@ -114,6 +117,7 @@ namespace CMPP248_Workshop
                     orderby Packages.PackageId
                     select new
                     {
+                        Products_Suppliers.ProductSupplierId,
                         Packages.PackageId,
                         Packages.PkgName,
                         Products.ProductId,
@@ -126,18 +130,26 @@ namespace CMPP248_Workshop
 
         private void DisplayProdSupId()
         {
-
+            using (travelexpertsDataContext db = new travelexpertsDataContext())
+            {
+                productSupplierIdTextBox.Text = (from prodsupp in db.Products_Suppliers
+                                                 join Products in db.Products
+                                                 on prodsupp.ProductId equals Products.ProductId
+                                                 join suppliers in db.Suppliers
+                                                 on prodsupp.SupplierId equals suppliers.SupplierId
+                                                 where (Products.ProdName == prodNameComboBox.Text
+                                                 && suppliers.SupName == supNameComboBox.Text)
+                                                 select prodsupp.ProductSupplierId).Single().ToString();
+            }
         }
 
         private void prodNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // get the product name
-            string prodName = prodNameComboBox.SelectedItem.ToString();
 
             // get the list of suppliers applicable with the selected product ID
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
-                //int prodId = Convert.ToInt32(db.Products.Single(p => p.ProdName == prodName));
+
                 supNameComboBox.DataSource = from prodsupp in db.Products_Suppliers
                                              join Products in db.Products
                                              on prodsupp.ProductId equals Products.ProductId
@@ -145,25 +157,14 @@ namespace CMPP248_Workshop
                                              on prodsupp.SupplierId equals suppliers.SupplierId
                                              where Products.ProdName == prodNameComboBox.Text
                                              select suppliers.SupName;
-                                             
-            //supNameComboBox.sdelecteindex = 0;
 
+                DisplayProdSupId();
             }
         }
 
         private void supNameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            using (travelexpertsDataContext db = new travelexpertsDataContext())
-            {
-                productSupplierIdTextBox.Text = (from prodsupp in db.Products_Suppliers
-                                                join Products in db.Products
-                                                on prodsupp.ProductId equals Products.ProductId
-                                                join suppliers in db.Suppliers
-                                                on prodsupp.SupplierId equals suppliers.SupplierId
-                                                where (Products.ProdName == prodNameComboBox.Text 
-                                                && suppliers.SupName == supNameComboBox.Text)
-                                                select prodsupp.ProductSupplierId).Single().ToString();
-            }
+            DisplayProdSupId();
         }
     }
 }

@@ -18,5 +18,20 @@ namespace CMPP248_Workshop
         {
             InitializeComponent();
         }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void products_SupplierBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

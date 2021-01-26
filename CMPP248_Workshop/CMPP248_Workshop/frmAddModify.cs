@@ -71,9 +71,10 @@ namespace CMPP248_Workshop
                     Validator.IsDecimal(pkgAgencyCommissionTextBox) &&
                     Validator.IsNonNegativeDecimal(pkgBasePriceTextBox) &&
                     Validator.IsNonNegativeDecimal(pkgAgencyCommissionTextBox))
+                // TODO: Add special validation for agency commision
 
                 {
-                    Package newPackage = new Package//create new package using the text box values
+                    Package newPackage = new Package //create new package using the text box values
                     {
                         PkgName = pkgNameTextBox.Text,
                         PkgStartDate = pkgStartDateDateTimePicker.Value,
@@ -83,22 +84,55 @@ namespace CMPP248_Workshop
                         PkgAgencyCommission = Convert.ToDecimal(pkgAgencyCommissionTextBox.Text)
                     };
 
+                    // validate package end date that must be later than start date
                     if (IsValidEndDate())
                     {
                         using (travelexpertsDataContext db = new travelexpertsDataContext())
                         {
-                            MessageBox.Show("Package Created");
                             db.Packages.InsertOnSubmit(newPackage); // insert the new package through data context object
-                            db.SubmitChanges();//submit to database
+                            db.SubmitChanges(); //submit to database
                         }
                         DialogResult = DialogResult.OK;
                     }
-                }
-                else
-                {
-                    DialogResult = DialogResult.Cancel;
+                    else
+                        DialogResult = DialogResult.Cancel;
                 }
             }
+            else // modify code
+            {
+
+                // TODO: ADD VALIDATION
+
+                try
+                {
+                    using (travelexpertsDataContext db = new travelexpertsDataContext())
+                    {
+                        // get the product with Code from the current text box
+                        Package packageFromDB = db.Packages.Single(p => p.PackageId.ToString() == packageIdTextBox.Text);
+
+                        //MessageBox.Show("Testing concurrency: update or delete current record from SSMS and click OK");
+
+                        if (packageFromDB != null)
+                        {
+                            // make changes by copying values from text boxes
+                            packageFromDB.PkgName = pkgNameTextBox.Text;
+                            packageFromDB.PkgStartDate = pkgStartDateDateTimePicker.Value;
+                            packageFromDB.PkgEndDate = pkgEndDateDateTimePicker.Value;
+                            packageFromDB.PkgDesc = pkgDescTextBox.Text;
+                            packageFromDB.PkgBasePrice = Decimal.Parse(pkgBasePriceTextBox.Text, System.Globalization.NumberStyles.Currency);
+                            packageFromDB.PkgAgencyCommission = Decimal.Parse(pkgAgencyCommissionTextBox.Text, System.Globalization.NumberStyles.Currency);
+                            // submit changes 
+                            db.SubmitChanges();
+                            DialogResult = DialogResult.OK;
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                }
+            }
+            
         }
 
         private void pkgEndDateDateTimePicker_KeyPress(object sender, KeyPressEventArgs e)

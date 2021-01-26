@@ -15,7 +15,7 @@ namespace CMPP248_Workshop
 
     public partial class Form1 : Form
     {
-        travelexpertsDataContext db = new travelexpertsDataContext();
+        //travelexpertsDataContext db = new travelexpertsDataContext();
         Package currentPackage;
 
         public Form1()
@@ -46,20 +46,22 @@ namespace CMPP248_Workshop
         //Allows modifications to Packages
         private void btnModify_Click(object sender, EventArgs e)
         {
+            //Package currentPackage;
             using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
             {
                 currentPackage = (from p in dbContext.Packages // LINQ query that returns one record
                                   where p.PackageId.ToString() == packageIdTextBox.Text
                                   select p).Single(); // method Single runs the LINQ query, only when receiving one value
-            }
 
-            frmAddModify secondForm = new frmAddModify();
-            secondForm.isAdd = false; // Modify mode
-            secondForm.currentPackage = currentPackage;
-            DialogResult result = secondForm.ShowDialog(); // display second form modal
-            if (result == DialogResult.OK || result == DialogResult.Retry) // successful update or concurrency exception
-            {
-                RefreshView();
+
+                frmAddModify secondForm = new frmAddModify();
+                    secondForm.isAdd = false; // Modify mode
+                    secondForm.currentPackage = currentPackage;
+                    DialogResult result = secondForm.ShowDialog(); // display second form modal
+                    if (result == DialogResult.OK || result == DialogResult.Retry) // successful update or concurrency exception
+                    {
+                        RefreshView();
+                    }
             }
         }
 

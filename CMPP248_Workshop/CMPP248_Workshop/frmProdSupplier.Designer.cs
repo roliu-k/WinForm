@@ -42,8 +42,8 @@ namespace CMPP248_Workshop
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.prodNameComboBox = new System.Windows.Forms.ComboBox();
-            this.supNameComboBox = new System.Windows.Forms.ComboBox();
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.supNameComboBox = new System.Windows.Forms.ComboBox();
             this.supplierBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productSupplierIdTextBox = new System.Windows.Forms.TextBox();
             prodNameLabel = new System.Windows.Forms.Label();
@@ -57,6 +57,33 @@ namespace CMPP248_Workshop
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // prodNameLabel
+            // 
+            prodNameLabel.AutoSize = true;
+            prodNameLabel.Location = new System.Drawing.Point(28, 164);
+            prodNameLabel.Name = "prodNameLabel";
+            prodNameLabel.Size = new System.Drawing.Size(83, 17);
+            prodNameLabel.TabIndex = 23;
+            prodNameLabel.Text = "Prod Name:";
+            // 
+            // supNameLabel
+            // 
+            supNameLabel.AutoSize = true;
+            supNameLabel.Location = new System.Drawing.Point(28, 234);
+            supNameLabel.Name = "supNameLabel";
+            supNameLabel.Size = new System.Drawing.Size(78, 17);
+            supNameLabel.TabIndex = 24;
+            supNameLabel.Text = "Sup Name:";
+            // 
+            // productSupplierIdLabel
+            // 
+            productSupplierIdLabel.AutoSize = true;
+            productSupplierIdLabel.Location = new System.Drawing.Point(19, 71);
+            productSupplierIdLabel.Name = "productSupplierIdLabel";
+            productSupplierIdLabel.Size = new System.Drawing.Size(132, 17);
+            productSupplierIdLabel.TabIndex = 25;
+            productSupplierIdLabel.Text = "Product Supplier Id:";
             // 
             // supplierBindingSource
             // 
@@ -78,7 +105,7 @@ namespace CMPP248_Workshop
             // 
             this.btnDone.Location = new System.Drawing.Point(911, 380);
             this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(91, 40);
+            this.btnDone.Size = new System.Drawing.Size(105, 40);
             this.btnDone.TabIndex = 20;
             this.btnDone.Text = "Done";
             this.btnDone.UseVisualStyleBackColor = true;
@@ -89,9 +116,10 @@ namespace CMPP248_Workshop
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(457, 96);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(545, 210);
+            this.dataGridView1.Size = new System.Drawing.Size(559, 210);
             this.dataGridView1.TabIndex = 21;
             // 
             // btnAdd
@@ -114,21 +142,13 @@ namespace CMPP248_Workshop
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // prodNameLabel
-            // 
-            prodNameLabel.AutoSize = true;
-            prodNameLabel.Location = new System.Drawing.Point(28, 164);
-            prodNameLabel.Name = "prodNameLabel";
-            prodNameLabel.Size = new System.Drawing.Size(83, 17);
-            prodNameLabel.TabIndex = 23;
-            prodNameLabel.Text = "Prod Name:";
-            // 
             // prodNameComboBox
             // 
             this.prodNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProdName", true));
             this.prodNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.products_SupplierBindingSource, "ProductId", true));
             this.prodNameComboBox.DataSource = this.productBindingSource1;
             this.prodNameComboBox.DisplayMember = "ProdName";
+            this.prodNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.prodNameComboBox.FormattingEnabled = true;
             this.prodNameComboBox.Location = new System.Drawing.Point(125, 161);
             this.prodNameComboBox.Name = "prodNameComboBox";
@@ -137,14 +157,9 @@ namespace CMPP248_Workshop
             this.prodNameComboBox.ValueMember = "ProductId";
             this.prodNameComboBox.SelectedIndexChanged += new System.EventHandler(this.prodNameComboBox_SelectedIndexChanged);
             // 
-            // supNameLabel
+            // productBindingSource1
             // 
-            supNameLabel.AutoSize = true;
-            supNameLabel.Location = new System.Drawing.Point(28, 234);
-            supNameLabel.Name = "supNameLabel";
-            supNameLabel.Size = new System.Drawing.Size(78, 17);
-            supNameLabel.TabIndex = 24;
-            supNameLabel.Text = "Sup Name:";
+            this.productBindingSource1.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // supNameComboBox
             // 
@@ -152,6 +167,7 @@ namespace CMPP248_Workshop
             this.supNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.products_SupplierBindingSource, "SupplierId", true));
             this.supNameComboBox.DataSource = this.supplierBindingSource1;
             this.supNameComboBox.DisplayMember = "SupName";
+            this.supNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.supNameComboBox.FormattingEnabled = true;
             this.supNameComboBox.Location = new System.Drawing.Point(125, 231);
             this.supNameComboBox.Name = "supNameComboBox";
@@ -160,22 +176,9 @@ namespace CMPP248_Workshop
             this.supNameComboBox.ValueMember = "SupplierId";
             this.supNameComboBox.SelectedIndexChanged += new System.EventHandler(this.supNameComboBox_SelectedIndexChanged);
             // 
-            // productBindingSource1
-            // 
-            this.productBindingSource1.DataSource = typeof(TravelExpertDatabase.Product);
-            // 
             // supplierBindingSource1
             // 
             this.supplierBindingSource1.DataSource = typeof(TravelExpertDatabase.Supplier);
-            // 
-            // productSupplierIdLabel
-            // 
-            productSupplierIdLabel.AutoSize = true;
-            productSupplierIdLabel.Location = new System.Drawing.Point(19, 71);
-            productSupplierIdLabel.Name = "productSupplierIdLabel";
-            productSupplierIdLabel.Size = new System.Drawing.Size(132, 17);
-            productSupplierIdLabel.TabIndex = 25;
-            productSupplierIdLabel.Text = "Product Supplier Id:";
             // 
             // productSupplierIdTextBox
             // 
