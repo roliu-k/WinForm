@@ -12,3 +12,10 @@ C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpert
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.csproj.CoreCompileInputs.cache
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.dll
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.pdb
+C:\xampp\htdocs\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\bin\Debug\TravelExpertDatabase.dll.config
+C:\xampp\htdocs\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\bin\Debug\TravelExpertDatabase.dll
+C:\xampp\htdocs\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\bin\Debug\TravelExpertDatabase.pdb
+C:\xampp\htdocs\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.csprojAssemblyReference.cache
+C:\xampp\htdocs\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.dll
+C:\xampp\htdocs\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.pdb

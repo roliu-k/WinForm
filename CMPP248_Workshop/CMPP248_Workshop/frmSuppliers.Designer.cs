@@ -35,7 +35,6 @@ namespace CMPP248_Workshop
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuppliers));
             this.supplierBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -49,6 +48,7 @@ namespace CMPP248_Workshop
             this.supplierBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.supNameTextBox = new System.Windows.Forms.TextBox();
             this.supplierIdTextBox = new System.Windows.Forms.TextBox();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             supNameLabel = new System.Windows.Forms.Label();
             supplierIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).BeginInit();
@@ -59,7 +59,7 @@ namespace CMPP248_Workshop
             // supNameLabel
             // 
             supNameLabel.AutoSize = true;
-            supNameLabel.Location = new System.Drawing.Point(63, 179);
+            supNameLabel.Location = new System.Drawing.Point(54, 153);
             supNameLabel.Name = "supNameLabel";
             supNameLabel.Size = new System.Drawing.Size(105, 17);
             supNameLabel.TabIndex = 1;
@@ -68,7 +68,7 @@ namespace CMPP248_Workshop
             // supplierIdLabel
             // 
             supplierIdLabel.AutoSize = true;
-            supplierIdLabel.Location = new System.Drawing.Point(63, 128);
+            supplierIdLabel.Location = new System.Drawing.Point(54, 102);
             supplierIdLabel.Name = "supplierIdLabel";
             supplierIdLabel.Size = new System.Drawing.Size(79, 17);
             supplierIdLabel.TabIndex = 3;
@@ -101,7 +101,7 @@ namespace CMPP248_Workshop
             this.supplierBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.supplierBindingNavigator.Name = "supplierBindingNavigator";
             this.supplierBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.supplierBindingNavigator.Size = new System.Drawing.Size(743, 27);
+            this.supplierBindingNavigator.Size = new System.Drawing.Size(375, 27);
             this.supplierBindingNavigator.TabIndex = 0;
             this.supplierBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -114,10 +114,6 @@ namespace CMPP248_Workshop
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
             // 
             // bindingNavigatorCountItem
             // 
@@ -210,24 +206,28 @@ namespace CMPP248_Workshop
             // supNameTextBox
             // 
             this.supNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "SupName", true));
-            this.supNameTextBox.Location = new System.Drawing.Point(186, 176);
+            this.supNameTextBox.Location = new System.Drawing.Point(177, 150);
             this.supNameTextBox.Name = "supNameTextBox";
-            this.supNameTextBox.Size = new System.Drawing.Size(100, 22);
+            this.supNameTextBox.Size = new System.Drawing.Size(154, 22);
             this.supNameTextBox.TabIndex = 2;
             // 
             // supplierIdTextBox
             // 
             this.supplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "SupplierId", true));
-            this.supplierIdTextBox.Location = new System.Drawing.Point(186, 125);
+            this.supplierIdTextBox.Location = new System.Drawing.Point(177, 99);
             this.supplierIdTextBox.Name = "supplierIdTextBox";
-            this.supplierIdTextBox.Size = new System.Drawing.Size(100, 22);
+            this.supplierIdTextBox.Size = new System.Drawing.Size(154, 22);
             this.supplierIdTextBox.TabIndex = 4;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
             // 
             // frmSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 380);
+            this.ClientSize = new System.Drawing.Size(375, 244);
             this.Controls.Add(supNameLabel);
             this.Controls.Add(this.supNameTextBox);
             this.Controls.Add(supplierIdLabel);

@@ -53,6 +53,9 @@ namespace CMPP248_Workshop
             this.productSupplierIdTextBox = new System.Windows.Forms.TextBox();
             this.supplierIdComboBox = new System.Windows.Forms.ComboBox();
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnManageProds = new System.Windows.Forms.Button();
+            this.btnManageSupps = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             productIdLabel = new System.Windows.Forms.Label();
             productSupplierIdLabel = new System.Windows.Forms.Label();
             supplierIdLabel = new System.Windows.Forms.Label();
@@ -66,7 +69,7 @@ namespace CMPP248_Workshop
             // productIdLabel
             // 
             productIdLabel.AutoSize = true;
-            productIdLabel.Location = new System.Drawing.Point(60, 125);
+            productIdLabel.Location = new System.Drawing.Point(27, 129);
             productIdLabel.Name = "productIdLabel";
             productIdLabel.Size = new System.Drawing.Size(76, 17);
             productIdLabel.TabIndex = 1;
@@ -75,7 +78,7 @@ namespace CMPP248_Workshop
             // productSupplierIdLabel
             // 
             productSupplierIdLabel.AutoSize = true;
-            productSupplierIdLabel.Location = new System.Drawing.Point(60, 87);
+            productSupplierIdLabel.Location = new System.Drawing.Point(27, 91);
             productSupplierIdLabel.Name = "productSupplierIdLabel";
             productSupplierIdLabel.Size = new System.Drawing.Size(132, 17);
             productSupplierIdLabel.TabIndex = 3;
@@ -84,7 +87,7 @@ namespace CMPP248_Workshop
             // supplierIdLabel
             // 
             supplierIdLabel.AutoSize = true;
-            supplierIdLabel.Location = new System.Drawing.Point(60, 166);
+            supplierIdLabel.Location = new System.Drawing.Point(27, 170);
             supplierIdLabel.Name = "supplierIdLabel";
             supplierIdLabel.Size = new System.Drawing.Size(79, 17);
             supplierIdLabel.TabIndex = 5;
@@ -117,7 +120,7 @@ namespace CMPP248_Workshop
             this.products_SupplierBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.products_SupplierBindingNavigator.Name = "products_SupplierBindingNavigator";
             this.products_SupplierBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.products_SupplierBindingNavigator.Size = new System.Drawing.Size(683, 27);
+            this.products_SupplierBindingNavigator.Size = new System.Drawing.Size(633, 27);
             this.products_SupplierBindingNavigator.TabIndex = 0;
             this.products_SupplierBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -230,7 +233,7 @@ namespace CMPP248_Workshop
             this.productIdComboBox.DataSource = this.productBindingSource;
             this.productIdComboBox.DisplayMember = "ProdName";
             this.productIdComboBox.FormattingEnabled = true;
-            this.productIdComboBox.Location = new System.Drawing.Point(198, 122);
+            this.productIdComboBox.Location = new System.Drawing.Point(165, 126);
             this.productIdComboBox.Name = "productIdComboBox";
             this.productIdComboBox.Size = new System.Drawing.Size(156, 24);
             this.productIdComboBox.TabIndex = 2;
@@ -243,7 +246,7 @@ namespace CMPP248_Workshop
             // productSupplierIdTextBox
             // 
             this.productSupplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductSupplierId", true));
-            this.productSupplierIdTextBox.Location = new System.Drawing.Point(198, 84);
+            this.productSupplierIdTextBox.Location = new System.Drawing.Point(165, 88);
             this.productSupplierIdTextBox.Name = "productSupplierIdTextBox";
             this.productSupplierIdTextBox.Size = new System.Drawing.Size(156, 22);
             this.productSupplierIdTextBox.TabIndex = 4;
@@ -255,7 +258,7 @@ namespace CMPP248_Workshop
             this.supplierIdComboBox.DataSource = this.supplierBindingSource;
             this.supplierIdComboBox.DisplayMember = "SupName";
             this.supplierIdComboBox.FormattingEnabled = true;
-            this.supplierIdComboBox.Location = new System.Drawing.Point(198, 163);
+            this.supplierIdComboBox.Location = new System.Drawing.Point(165, 167);
             this.supplierIdComboBox.Name = "supplierIdComboBox";
             this.supplierIdComboBox.Size = new System.Drawing.Size(156, 24);
             this.supplierIdComboBox.TabIndex = 6;
@@ -265,11 +268,43 @@ namespace CMPP248_Workshop
             // 
             this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
             // 
+            // btnManageProds
+            // 
+            this.btnManageProds.Location = new System.Drawing.Point(447, 91);
+            this.btnManageProds.Name = "btnManageProds";
+            this.btnManageProds.Size = new System.Drawing.Size(153, 30);
+            this.btnManageProds.TabIndex = 7;
+            this.btnManageProds.Text = "Manage Products";
+            this.btnManageProds.UseVisualStyleBackColor = true;
+            this.btnManageProds.Click += new System.EventHandler(this.btnManageProds_Click);
+            // 
+            // btnManageSupps
+            // 
+            this.btnManageSupps.Location = new System.Drawing.Point(447, 155);
+            this.btnManageSupps.Name = "btnManageSupps";
+            this.btnManageSupps.Size = new System.Drawing.Size(153, 30);
+            this.btnManageSupps.TabIndex = 8;
+            this.btnManageSupps.Text = "Manage Suppliers";
+            this.btnManageSupps.UseVisualStyleBackColor = true;
+            this.btnManageSupps.Click += new System.EventHandler(this.btnManageSupps_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(501, 269);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(99, 38);
+            this.btnClose.TabIndex = 10;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
             // frmProdSupplierAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 408);
+            this.ClientSize = new System.Drawing.Size(633, 319);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnManageSupps);
+            this.Controls.Add(this.btnManageProds);
             this.Controls.Add(productIdLabel);
             this.Controls.Add(this.productIdComboBox);
             this.Controls.Add(productSupplierIdLabel);
@@ -311,5 +346,8 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.TextBox productSupplierIdTextBox;
         private System.Windows.Forms.ComboBox supplierIdComboBox;
         private System.Windows.Forms.BindingSource supplierBindingSource;
+        private System.Windows.Forms.Button btnManageProds;
+        private System.Windows.Forms.Button btnManageSupps;
+        private System.Windows.Forms.Button btnClose;
     }
 }

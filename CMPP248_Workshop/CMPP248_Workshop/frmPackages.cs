@@ -13,12 +13,12 @@ namespace CMPP248_Workshop
 {
     // Displays Packages.
 
-    public partial class Form1 : Form
+    public partial class frmPackages : Form
     {
         //travelexpertsDataContext db = new travelexpertsDataContext();
         Package currentPackage;
 
-        public Form1()
+        public frmPackages()
         {
             InitializeComponent();
         }

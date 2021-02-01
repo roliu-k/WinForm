@@ -33,5 +33,17 @@ namespace CMPP248_Workshop
         {
 
         }
+
+        //Opens Products Form
+        private void btnManageProds_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Opens Suppliers Form
+        private void btnManageSupps_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
