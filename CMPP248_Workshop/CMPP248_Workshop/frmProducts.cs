@@ -43,6 +43,11 @@ namespace CMPP248_Workshop
         {
 
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

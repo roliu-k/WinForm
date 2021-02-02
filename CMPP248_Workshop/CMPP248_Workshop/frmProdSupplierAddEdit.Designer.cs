@@ -296,6 +296,7 @@ namespace CMPP248_Workshop
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmProdSupplierAddEdit
             // 
@@ -314,6 +315,7 @@ namespace CMPP248_Workshop
             this.Controls.Add(this.products_SupplierBindingNavigator);
             this.Name = "frmProdSupplierAddEdit";
             this.Text = "frmProdSupplierAddEdit";
+            this.Load += new System.EventHandler(this.frmProdSupplierAddEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingNavigator)).EndInit();
             this.products_SupplierBindingNavigator.ResumeLayout(false);
             this.products_SupplierBindingNavigator.PerformLayout();

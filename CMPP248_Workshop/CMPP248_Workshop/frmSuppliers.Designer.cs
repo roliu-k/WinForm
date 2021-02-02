@@ -35,6 +35,7 @@ namespace CMPP248_Workshop
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuppliers));
             this.supplierBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +49,7 @@ namespace CMPP248_Workshop
             this.supplierBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.supNameTextBox = new System.Windows.Forms.TextBox();
             this.supplierIdTextBox = new System.Windows.Forms.TextBox();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
             supNameLabel = new System.Windows.Forms.Label();
             supplierIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).BeginInit();
@@ -101,7 +102,7 @@ namespace CMPP248_Workshop
             this.supplierBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.supplierBindingNavigator.Name = "supplierBindingNavigator";
             this.supplierBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.supplierBindingNavigator.Size = new System.Drawing.Size(375, 27);
+            this.supplierBindingNavigator.Size = new System.Drawing.Size(570, 27);
             this.supplierBindingNavigator.TabIndex = 0;
             this.supplierBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -114,6 +115,10 @@ namespace CMPP248_Workshop
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
             // 
             // bindingNavigatorCountItem
             // 
@@ -208,7 +213,7 @@ namespace CMPP248_Workshop
             this.supNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "SupName", true));
             this.supNameTextBox.Location = new System.Drawing.Point(177, 150);
             this.supNameTextBox.Name = "supNameTextBox";
-            this.supNameTextBox.Size = new System.Drawing.Size(154, 22);
+            this.supNameTextBox.Size = new System.Drawing.Size(355, 22);
             this.supNameTextBox.TabIndex = 2;
             // 
             // supplierIdTextBox
@@ -219,15 +224,22 @@ namespace CMPP248_Workshop
             this.supplierIdTextBox.Size = new System.Drawing.Size(154, 22);
             this.supplierIdTextBox.TabIndex = 4;
             // 
-            // supplierBindingSource
+            // btnClose
             // 
-            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
+            this.btnClose.Location = new System.Drawing.Point(433, 254);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(110, 34);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "&Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 244);
+            this.ClientSize = new System.Drawing.Size(570, 315);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(supNameLabel);
             this.Controls.Add(this.supNameTextBox);
             this.Controls.Add(supplierIdLabel);
@@ -262,5 +274,6 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.ToolStripButton supplierBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox supNameTextBox;
         private System.Windows.Forms.TextBox supplierIdTextBox;
+        private System.Windows.Forms.Button btnClose;
     }
 }

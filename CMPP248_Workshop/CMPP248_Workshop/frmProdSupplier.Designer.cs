@@ -107,7 +107,7 @@ namespace CMPP248_Workshop
             this.btnDone.Name = "btnDone";
             this.btnDone.Size = new System.Drawing.Size(105, 40);
             this.btnDone.TabIndex = 20;
-            this.btnDone.Text = "Done";
+            this.btnDone.Text = "&Done";
             this.btnDone.UseVisualStyleBackColor = true;
             this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
             // 

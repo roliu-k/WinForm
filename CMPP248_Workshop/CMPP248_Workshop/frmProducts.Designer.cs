@@ -35,6 +35,7 @@ namespace CMPP248_Workshop
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducts));
             this.productBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -48,7 +49,7 @@ namespace CMPP248_Workshop
             this.productBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.prodNameTextBox = new System.Windows.Forms.TextBox();
             this.productIdTextBox = new System.Windows.Forms.TextBox();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
             prodNameLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).BeginInit();
@@ -101,7 +102,7 @@ namespace CMPP248_Workshop
             this.productBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.productBindingNavigator.Name = "productBindingNavigator";
             this.productBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productBindingNavigator.Size = new System.Drawing.Size(350, 27);
+            this.productBindingNavigator.Size = new System.Drawing.Size(428, 27);
             this.productBindingNavigator.TabIndex = 0;
             this.productBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -114,6 +115,10 @@ namespace CMPP248_Workshop
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // bindingNavigatorCountItem
             // 
@@ -208,7 +213,7 @@ namespace CMPP248_Workshop
             this.prodNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProdName", true));
             this.prodNameTextBox.Location = new System.Drawing.Point(169, 143);
             this.prodNameTextBox.Name = "prodNameTextBox";
-            this.prodNameTextBox.Size = new System.Drawing.Size(120, 22);
+            this.prodNameTextBox.Size = new System.Drawing.Size(151, 22);
             this.prodNameTextBox.TabIndex = 2;
             // 
             // productIdTextBox
@@ -216,18 +221,25 @@ namespace CMPP248_Workshop
             this.productIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductId", true));
             this.productIdTextBox.Location = new System.Drawing.Point(169, 85);
             this.productIdTextBox.Name = "productIdTextBox";
-            this.productIdTextBox.Size = new System.Drawing.Size(120, 22);
+            this.productIdTextBox.Size = new System.Drawing.Size(151, 22);
             this.productIdTextBox.TabIndex = 4;
             // 
-            // productBindingSource
+            // btnClose
             // 
-            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
+            this.btnClose.Location = new System.Drawing.Point(266, 203);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(94, 41);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "&Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 236);
+            this.ClientSize = new System.Drawing.Size(428, 269);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(prodNameLabel);
             this.Controls.Add(this.prodNameTextBox);
             this.Controls.Add(productIdLabel);
@@ -262,5 +274,6 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.ToolStripButton productBindingNavigatorSaveItem;
         private System.Windows.Forms.TextBox prodNameTextBox;
         private System.Windows.Forms.TextBox productIdTextBox;
+        private System.Windows.Forms.Button btnClose;
     }
 }
