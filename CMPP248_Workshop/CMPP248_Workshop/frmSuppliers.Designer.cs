@@ -50,17 +50,21 @@ namespace CMPP248_Workshop
             this.supNameTextBox = new System.Windows.Forms.TextBox();
             this.supplierIdTextBox = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.supplierDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             supNameLabel = new System.Windows.Forms.Label();
             supplierIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).BeginInit();
             this.supplierBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // supNameLabel
             // 
             supNameLabel.AutoSize = true;
-            supNameLabel.Location = new System.Drawing.Point(54, 153);
+            supNameLabel.Location = new System.Drawing.Point(12, 114);
             supNameLabel.Name = "supNameLabel";
             supNameLabel.Size = new System.Drawing.Size(105, 17);
             supNameLabel.TabIndex = 1;
@@ -69,7 +73,7 @@ namespace CMPP248_Workshop
             // supplierIdLabel
             // 
             supplierIdLabel.AutoSize = true;
-            supplierIdLabel.Location = new System.Drawing.Point(54, 102);
+            supplierIdLabel.Location = new System.Drawing.Point(12, 63);
             supplierIdLabel.Name = "supplierIdLabel";
             supplierIdLabel.Size = new System.Drawing.Size(79, 17);
             supplierIdLabel.TabIndex = 3;
@@ -102,7 +106,7 @@ namespace CMPP248_Workshop
             this.supplierBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.supplierBindingNavigator.Name = "supplierBindingNavigator";
             this.supplierBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.supplierBindingNavigator.Size = new System.Drawing.Size(570, 27);
+            this.supplierBindingNavigator.Size = new System.Drawing.Size(1058, 27);
             this.supplierBindingNavigator.TabIndex = 0;
             this.supplierBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -211,7 +215,7 @@ namespace CMPP248_Workshop
             // supNameTextBox
             // 
             this.supNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "SupName", true));
-            this.supNameTextBox.Location = new System.Drawing.Point(177, 150);
+            this.supNameTextBox.Location = new System.Drawing.Point(135, 111);
             this.supNameTextBox.Name = "supNameTextBox";
             this.supNameTextBox.Size = new System.Drawing.Size(355, 22);
             this.supNameTextBox.TabIndex = 2;
@@ -219,14 +223,14 @@ namespace CMPP248_Workshop
             // supplierIdTextBox
             // 
             this.supplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "SupplierId", true));
-            this.supplierIdTextBox.Location = new System.Drawing.Point(177, 99);
+            this.supplierIdTextBox.Location = new System.Drawing.Point(135, 60);
             this.supplierIdTextBox.Name = "supplierIdTextBox";
             this.supplierIdTextBox.Size = new System.Drawing.Size(154, 22);
             this.supplierIdTextBox.TabIndex = 4;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(433, 254);
+            this.btnClose.Location = new System.Drawing.Point(925, 280);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(110, 34);
             this.btnClose.TabIndex = 5;
@@ -234,11 +238,43 @@ namespace CMPP248_Workshop
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // supplierDataGridView
+            // 
+            this.supplierDataGridView.AutoGenerateColumns = false;
+            this.supplierDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.supplierDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.supplierDataGridView.DataSource = this.supplierBindingSource;
+            this.supplierDataGridView.Location = new System.Drawing.Point(516, 30);
+            this.supplierDataGridView.Name = "supplierDataGridView";
+            this.supplierDataGridView.RowHeadersWidth = 51;
+            this.supplierDataGridView.RowTemplate.Height = 24;
+            this.supplierDataGridView.Size = new System.Drawing.Size(519, 220);
+            this.supplierDataGridView.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "SupName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 200;
+            // 
             // frmSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 315);
+            this.ClientSize = new System.Drawing.Size(1058, 341);
+            this.Controls.Add(this.supplierDataGridView);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(supNameLabel);
             this.Controls.Add(this.supNameTextBox);
@@ -251,6 +287,7 @@ namespace CMPP248_Workshop
             this.supplierBindingNavigator.ResumeLayout(false);
             this.supplierBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +312,8 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.TextBox supNameTextBox;
         private System.Windows.Forms.TextBox supplierIdTextBox;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.DataGridView supplierDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

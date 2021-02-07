@@ -37,7 +37,16 @@ namespace CMPP248_Workshop
 
         private void products_SupplierBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-
+            if (true)//replace with validation
+            {
+                Products_Supplier newProdSup = new Products_Supplier
+                {
+                    ProductSupplierId = Convert.ToInt32(productSupplierIdTextBox1.Text),
+                    ProductId = Convert.ToInt32(productIdComboBox.Text),
+                    SupplierId = Convert.ToInt32(supplierIdComboBox.Text)
+                };
+                DialogResult = DialogResult.OK;
+            }
         }
 
         //Opens Products Form

@@ -50,11 +50,15 @@ namespace CMPP248_Workshop
             this.prodNameTextBox = new System.Windows.Forms.TextBox();
             this.productIdTextBox = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.productDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             prodNameLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).BeginInit();
             this.productBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // prodNameLabel
@@ -102,7 +106,7 @@ namespace CMPP248_Workshop
             this.productBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.productBindingNavigator.Name = "productBindingNavigator";
             this.productBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productBindingNavigator.Size = new System.Drawing.Size(428, 27);
+            this.productBindingNavigator.Size = new System.Drawing.Size(828, 27);
             this.productBindingNavigator.TabIndex = 0;
             this.productBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -226,7 +230,7 @@ namespace CMPP248_Workshop
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(266, 203);
+            this.btnClose.Location = new System.Drawing.Point(696, 345);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(94, 41);
             this.btnClose.TabIndex = 5;
@@ -234,11 +238,43 @@ namespace CMPP248_Workshop
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // productDataGridView
+            // 
+            this.productDataGridView.AutoGenerateColumns = false;
+            this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.productDataGridView.DataSource = this.productBindingSource;
+            this.productDataGridView.Location = new System.Drawing.Point(392, 39);
+            this.productDataGridView.Name = "productDataGridView";
+            this.productDataGridView.RowHeadersWidth = 51;
+            this.productDataGridView.RowTemplate.Height = 24;
+            this.productDataGridView.Size = new System.Drawing.Size(398, 281);
+            this.productDataGridView.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ProductId";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ProdName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
             // frmProducts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 269);
+            this.ClientSize = new System.Drawing.Size(828, 398);
+            this.Controls.Add(this.productDataGridView);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(prodNameLabel);
             this.Controls.Add(this.prodNameTextBox);
@@ -251,6 +287,7 @@ namespace CMPP248_Workshop
             this.productBindingNavigator.ResumeLayout(false);
             this.productBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +312,8 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.TextBox prodNameTextBox;
         private System.Windows.Forms.TextBox productIdTextBox;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.DataGridView productDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

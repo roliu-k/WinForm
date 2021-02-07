@@ -30,10 +30,12 @@ namespace CMPP248_Workshop
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label productIdLabel;
-            System.Windows.Forms.Label productSupplierIdLabel;
-            System.Windows.Forms.Label supplierIdLabel;
+            System.Windows.Forms.Label productSupplierIdLabel1;
+            System.Windows.Forms.Label prodNameLabel;
+            System.Windows.Forms.Label supNameLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProdSupplierAddEdit));
+            System.Windows.Forms.Label productIdLabel;
+            System.Windows.Forms.Label supplierIdLabel;
             this.products_SupplierBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -48,16 +50,20 @@ namespace CMPP248_Workshop
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.products_SupplierBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.productIdComboBox = new System.Windows.Forms.ComboBox();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productSupplierIdTextBox = new System.Windows.Forms.TextBox();
-            this.supplierIdComboBox = new System.Windows.Forms.ComboBox();
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnManageProds = new System.Windows.Forms.Button();
             this.btnManageSupps = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.productSupplierIdTextBox1 = new System.Windows.Forms.TextBox();
+            this.prodNameTextBox = new System.Windows.Forms.TextBox();
+            this.supNameTextBox = new System.Windows.Forms.TextBox();
+            this.productIdComboBox = new System.Windows.Forms.ComboBox();
+            this.supplierIdComboBox = new System.Windows.Forms.ComboBox();
+            productSupplierIdLabel1 = new System.Windows.Forms.Label();
+            prodNameLabel = new System.Windows.Forms.Label();
+            supNameLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
-            productSupplierIdLabel = new System.Windows.Forms.Label();
             supplierIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingNavigator)).BeginInit();
             this.products_SupplierBindingNavigator.SuspendLayout();
@@ -66,32 +72,32 @@ namespace CMPP248_Workshop
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // productIdLabel
+            // productSupplierIdLabel1
             // 
-            productIdLabel.AutoSize = true;
-            productIdLabel.Location = new System.Drawing.Point(27, 129);
-            productIdLabel.Name = "productIdLabel";
-            productIdLabel.Size = new System.Drawing.Size(76, 17);
-            productIdLabel.TabIndex = 1;
-            productIdLabel.Text = "Product Id:";
+            productSupplierIdLabel1.AutoSize = true;
+            productSupplierIdLabel1.Location = new System.Drawing.Point(24, 49);
+            productSupplierIdLabel1.Name = "productSupplierIdLabel1";
+            productSupplierIdLabel1.Size = new System.Drawing.Size(132, 17);
+            productSupplierIdLabel1.TabIndex = 12;
+            productSupplierIdLabel1.Text = "Product Supplier Id:";
             // 
-            // productSupplierIdLabel
+            // prodNameLabel
             // 
-            productSupplierIdLabel.AutoSize = true;
-            productSupplierIdLabel.Location = new System.Drawing.Point(27, 91);
-            productSupplierIdLabel.Name = "productSupplierIdLabel";
-            productSupplierIdLabel.Size = new System.Drawing.Size(132, 17);
-            productSupplierIdLabel.TabIndex = 3;
-            productSupplierIdLabel.Text = "Product Supplier Id:";
+            prodNameLabel.AutoSize = true;
+            prodNameLabel.Location = new System.Drawing.Point(24, 168);
+            prodNameLabel.Name = "prodNameLabel";
+            prodNameLabel.Size = new System.Drawing.Size(83, 17);
+            prodNameLabel.TabIndex = 16;
+            prodNameLabel.Text = "Prod Name:";
             // 
-            // supplierIdLabel
+            // supNameLabel
             // 
-            supplierIdLabel.AutoSize = true;
-            supplierIdLabel.Location = new System.Drawing.Point(27, 170);
-            supplierIdLabel.Name = "supplierIdLabel";
-            supplierIdLabel.Size = new System.Drawing.Size(79, 17);
-            supplierIdLabel.TabIndex = 5;
-            supplierIdLabel.Text = "Supplier Id:";
+            supNameLabel.AutoSize = true;
+            supNameLabel.Location = new System.Drawing.Point(29, 222);
+            supNameLabel.Name = "supNameLabel";
+            supNameLabel.Size = new System.Drawing.Size(78, 17);
+            supNameLabel.TabIndex = 20;
+            supNameLabel.Text = "Sup Name:";
             // 
             // products_SupplierBindingNavigator
             // 
@@ -226,43 +232,9 @@ namespace CMPP248_Workshop
             this.products_SupplierBindingNavigatorSaveItem.Text = "Save Data";
             this.products_SupplierBindingNavigatorSaveItem.Click += new System.EventHandler(this.products_SupplierBindingNavigatorSaveItem_Click);
             // 
-            // productIdComboBox
-            // 
-            this.productIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductId", true));
-            this.productIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.products_SupplierBindingSource, "ProductId", true));
-            this.productIdComboBox.DataSource = this.productBindingSource;
-            this.productIdComboBox.DisplayMember = "ProdName";
-            this.productIdComboBox.FormattingEnabled = true;
-            this.productIdComboBox.Location = new System.Drawing.Point(165, 126);
-            this.productIdComboBox.Name = "productIdComboBox";
-            this.productIdComboBox.Size = new System.Drawing.Size(156, 24);
-            this.productIdComboBox.TabIndex = 2;
-            this.productIdComboBox.ValueMember = "ProductId";
-            // 
             // productBindingSource
             // 
             this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
-            // 
-            // productSupplierIdTextBox
-            // 
-            this.productSupplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductSupplierId", true));
-            this.productSupplierIdTextBox.Location = new System.Drawing.Point(165, 88);
-            this.productSupplierIdTextBox.Name = "productSupplierIdTextBox";
-            this.productSupplierIdTextBox.Size = new System.Drawing.Size(156, 22);
-            this.productSupplierIdTextBox.TabIndex = 4;
-            // 
-            // supplierIdComboBox
-            // 
-            this.supplierIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "SupplierId", true));
-            this.supplierIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.products_SupplierBindingSource, "SupplierId", true));
-            this.supplierIdComboBox.DataSource = this.supplierBindingSource;
-            this.supplierIdComboBox.DisplayMember = "SupName";
-            this.supplierIdComboBox.FormattingEnabled = true;
-            this.supplierIdComboBox.Location = new System.Drawing.Point(165, 167);
-            this.supplierIdComboBox.Name = "supplierIdComboBox";
-            this.supplierIdComboBox.Size = new System.Drawing.Size(156, 24);
-            this.supplierIdComboBox.TabIndex = 6;
-            this.supplierIdComboBox.ValueMember = "SupplierId";
             // 
             // supplierBindingSource
             // 
@@ -298,20 +270,84 @@ namespace CMPP248_Workshop
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // productSupplierIdTextBox1
+            // 
+            this.productSupplierIdTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductSupplierId", true));
+            this.productSupplierIdTextBox1.Location = new System.Drawing.Point(162, 46);
+            this.productSupplierIdTextBox1.Name = "productSupplierIdTextBox1";
+            this.productSupplierIdTextBox1.Size = new System.Drawing.Size(121, 22);
+            this.productSupplierIdTextBox1.TabIndex = 13;
+            // 
+            // prodNameTextBox
+            // 
+            this.prodNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "Product.ProdName", true));
+            this.prodNameTextBox.Location = new System.Drawing.Point(113, 165);
+            this.prodNameTextBox.Name = "prodNameTextBox";
+            this.prodNameTextBox.Size = new System.Drawing.Size(254, 22);
+            this.prodNameTextBox.TabIndex = 17;
+            // 
+            // supNameTextBox
+            // 
+            this.supNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "Supplier.SupName", true));
+            this.supNameTextBox.Location = new System.Drawing.Point(114, 219);
+            this.supNameTextBox.Name = "supNameTextBox";
+            this.supNameTextBox.Size = new System.Drawing.Size(253, 22);
+            this.supNameTextBox.TabIndex = 21;
+            // 
+            // productIdLabel
+            // 
+            productIdLabel.AutoSize = true;
+            productIdLabel.Location = new System.Drawing.Point(80, 80);
+            productIdLabel.Name = "productIdLabel";
+            productIdLabel.Size = new System.Drawing.Size(76, 17);
+            productIdLabel.TabIndex = 21;
+            productIdLabel.Text = "Product Id:";
+            // 
+            // productIdComboBox
+            // 
+            this.productIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductId", true));
+            this.productIdComboBox.FormattingEnabled = true;
+            this.productIdComboBox.Location = new System.Drawing.Point(162, 77);
+            this.productIdComboBox.Name = "productIdComboBox";
+            this.productIdComboBox.Size = new System.Drawing.Size(121, 24);
+            this.productIdComboBox.TabIndex = 22;
+            // 
+            // supplierIdLabel
+            // 
+            supplierIdLabel.AutoSize = true;
+            supplierIdLabel.Location = new System.Drawing.Point(77, 116);
+            supplierIdLabel.Name = "supplierIdLabel";
+            supplierIdLabel.Size = new System.Drawing.Size(79, 17);
+            supplierIdLabel.TabIndex = 22;
+            supplierIdLabel.Text = "Supplier Id:";
+            // 
+            // supplierIdComboBox
+            // 
+            this.supplierIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "SupplierId", true));
+            this.supplierIdComboBox.FormattingEnabled = true;
+            this.supplierIdComboBox.Location = new System.Drawing.Point(162, 113);
+            this.supplierIdComboBox.Name = "supplierIdComboBox";
+            this.supplierIdComboBox.Size = new System.Drawing.Size(121, 24);
+            this.supplierIdComboBox.TabIndex = 23;
+            // 
             // frmProdSupplierAddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 319);
+            this.ClientSize = new System.Drawing.Size(633, 327);
+            this.Controls.Add(supplierIdLabel);
+            this.Controls.Add(this.supplierIdComboBox);
+            this.Controls.Add(productIdLabel);
+            this.Controls.Add(this.productIdComboBox);
+            this.Controls.Add(supNameLabel);
+            this.Controls.Add(this.supNameTextBox);
+            this.Controls.Add(prodNameLabel);
+            this.Controls.Add(this.prodNameTextBox);
+            this.Controls.Add(productSupplierIdLabel1);
+            this.Controls.Add(this.productSupplierIdTextBox1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnManageSupps);
             this.Controls.Add(this.btnManageProds);
-            this.Controls.Add(productIdLabel);
-            this.Controls.Add(this.productIdComboBox);
-            this.Controls.Add(productSupplierIdLabel);
-            this.Controls.Add(this.productSupplierIdTextBox);
-            this.Controls.Add(supplierIdLabel);
-            this.Controls.Add(this.supplierIdComboBox);
             this.Controls.Add(this.products_SupplierBindingNavigator);
             this.Name = "frmProdSupplierAddEdit";
             this.Text = "frmProdSupplierAddEdit";
@@ -343,13 +379,15 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton products_SupplierBindingNavigatorSaveItem;
-        private System.Windows.Forms.ComboBox productIdComboBox;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private System.Windows.Forms.TextBox productSupplierIdTextBox;
-        private System.Windows.Forms.ComboBox supplierIdComboBox;
         private System.Windows.Forms.BindingSource supplierBindingSource;
         private System.Windows.Forms.Button btnManageProds;
         private System.Windows.Forms.Button btnManageSupps;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.TextBox productSupplierIdTextBox1;
+        private System.Windows.Forms.TextBox prodNameTextBox;
+        private System.Windows.Forms.TextBox supNameTextBox;
+        private System.Windows.Forms.ComboBox productIdComboBox;
+        private System.Windows.Forms.ComboBox supplierIdComboBox;
     }
 }
