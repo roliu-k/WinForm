@@ -16,14 +16,14 @@ namespace CMPP248_Workshop
      * with buttons allowing the user to proceed
      * to add new packages or modify the selected.
      * 
-     * The initial bulk of this form was done as
-     * a group in a live session, creating a functioning
+     * The initial bulk of this form was done by the whole
+     * group in a live session, creating a functioning
      * details-view layout that allowed the user to 
      * direct to the proper add or modify form.
      * While much of that original code has been modifed,
      * it was integral to getting this page running.
-     * Additional individual fixes are noted, but all work
-     * otherwise was distributed equally.
+     * 
+     * Updated design and inclusion of datagrids led by Eric.
      */
 
     public partial class frmPackages : Form

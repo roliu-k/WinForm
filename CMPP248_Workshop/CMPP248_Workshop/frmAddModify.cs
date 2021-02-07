@@ -27,9 +27,13 @@ namespace CMPP248_Workshop
         //If Modify Button was clicked on Form1
         private void frmAddModify_Load(object sender, EventArgs e)
         {
-            if(!isAdd)   // Modify mode
+            if(!isAdd)   // Set up for Modify mode - use the Package passed from the last form to populate fields
             {
-                // Create a context:
+
+                // Update the title and description of the page
+                lblTitle.Text = $"Package Manager - Edit Package (ID #{currentPackage.PackageId})";
+                lblDesc.Text = "Directly edit any package details and modify product list.";
+
                 using (travelexpertsDataContext db = new travelexpertsDataContext())
                 {
                     // Grab current package ID used to create this modify page
@@ -40,6 +44,13 @@ namespace CMPP248_Workshop
 
                 // Display current package information in details view
                 packageBindingSource.Add(currentPackage);
+            }
+
+            else // Set up for Add mode
+            {
+                // Update the title and description of the page
+                lblTitle.Text = "Package Manager - Add A New Package";
+                lblDesc.Text = "Add details and products for a new package.";
             }
 
         }
@@ -188,6 +199,7 @@ namespace CMPP248_Workshop
         //To add Products to a Package - calls form ProdSuppliers
         private void btnEditAddProducts_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Test");
             frmProdSupplier prodsForm = new frmProdSupplier();
             prodsForm.currentPackage = currentPackage;
             DialogResult result = prodsForm.ShowDialog(); // display second form modal
@@ -222,6 +234,12 @@ namespace CMPP248_Workshop
                         };
                 }
             }
+        }
+
+        // Go back to last page
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }
