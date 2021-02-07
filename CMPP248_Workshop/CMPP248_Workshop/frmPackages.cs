@@ -19,15 +19,17 @@ namespace CMPP248_Workshop
      * The initial bulk of this form was done as
      * a group in a live session, creating a functioning
      * details-view layout that allowed the user to 
-     * direct to the proper add or modify form. 
+     * direct to the proper add or modify form.
+     * While much of that original code has been modifed,
+     * it was integral to getting this page running.
      * Additional individual fixes are noted, but all work
      * otherwise was distributed equally.
      */
 
     public partial class frmPackages : Form
     {
-        //travelexpertsDataContext db = new travelexpertsDataContext();
         Package currentPackage;
+        int selectedPackageId;
 
         public frmPackages()
         {
@@ -36,10 +38,8 @@ namespace CMPP248_Workshop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            packageBindingSource.DataSource = new travelexpertsDataContext().Packages;
-
-            // Add data to Packages gridview [Eric - changed from details view to gridview, to allow easier browsing]
-            grdPackages.DataSource = new travelexpertsDataContext().Packages;
+            // Populate data into data views
+            RefreshView();
         }
 
 
@@ -60,14 +60,12 @@ namespace CMPP248_Workshop
         //Allows modifications to Packages
         private void btnModify_Click(object sender, EventArgs e)
         {
-            // Grab ID of the row currently selected in the Packages Datagrid. [Eric]
-            int selectedId = Convert.ToInt32(grdPackages.CurrentRow.Cells[0].Value);
 
             //Package currentPackage;
             using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
             {
                 currentPackage = (from p in dbContext.Packages // LINQ query that returns one record
-                                  where p.PackageId == selectedId // use ID of selected row in Packages
+                                  where p.PackageId == selectedPackageId // use ID of selected row in Packages
                                   select p).Single(); // method Single runs the LINQ query, only when receiving one value
 
 
@@ -84,8 +82,33 @@ namespace CMPP248_Workshop
 
         public void RefreshView()
         {
-            packageBindingSource.Clear();
-            packageBindingSource.DataSource = new travelexpertsDataContext().Packages;
+
+            // Populate data in Packages gridview [Eric - changed from details view to gridview, to allow easier browsing]
+            grdPackages.DataSource = new travelexpertsDataContext().Packages;
+
+            // Populate data in Product Info gridview
+            RefreshProductGrid();
+        }
+
+        private void RefreshProductGrid()
+        {
+            // Grab ID of the row currently selected in the Packages Datagrid. [Eric]
+            selectedPackageId = Convert.ToInt32(grdPackages.CurrentRow.Cells[0].Value);
+
+            // Set title for the products data using that current id
+            lblSelectedProdsTitle.Text = $"Products for Selected Package (ID #{selectedPackageId})";
+
+            // Populate data in Product Info gridview
+            using (travelexpertsDataContext db = new travelexpertsDataContext())
+            {
+                // Use an in-depth query to grab the info needed for the product info data grid
+                dataGridView1.DataSource = TravelExpertsQueryManager.FindProdInfoByPackage(db, selectedPackageId);
+            }
+        }
+
+        private void grdPackages_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            RefreshProductGrid();
         }
     }
 }
