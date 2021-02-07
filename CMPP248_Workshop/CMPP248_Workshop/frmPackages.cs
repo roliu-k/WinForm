@@ -26,6 +26,9 @@ namespace CMPP248_Workshop
         private void Form1_Load(object sender, EventArgs e)
         {
             packageBindingSource.DataSource = new travelexpertsDataContext().Packages;
+
+            // add data to Packages grid
+            grdPackages.DataSource = new travelexpertsDataContext().Packages;
         }
 
 
