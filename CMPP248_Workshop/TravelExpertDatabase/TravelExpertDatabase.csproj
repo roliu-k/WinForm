@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PackageRelatedTableData.cs" />
+    <Compile Include="PackageRelatedTableDataStructure.cs" />
     <Compile Include="TravelExpertsQueryManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

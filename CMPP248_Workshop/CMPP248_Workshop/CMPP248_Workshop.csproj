@@ -129,6 +129,7 @@
     <None Include="Properties\DataSources\Products_Supplier.datasource" />
     <None Include="Properties\DataSources\Supplier.datasource" />
     <None Include="Properties\DataSources\TravelExpertDatabase.Package.datasource" />
+    <None Include="Properties\DataSources\TravelExpertDatabase.PackageRelatedTableDataStructure.datasource" />
     <None Include="Properties\DataSources\TravelExpertDatabase.Packages_Products_Supplier.datasource" />
     <None Include="Properties\DataSources\TravelExpertDatabase.Product.datasource" />
     <None Include="Properties\DataSources\TravelExpertDatabase.Products_Supplier.datasource" />
