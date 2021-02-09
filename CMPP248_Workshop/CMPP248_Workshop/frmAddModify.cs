@@ -27,36 +27,30 @@ namespace CMPP248_Workshop
         //If Modify Button was clicked on Form1
         private void frmAddModify_Load(object sender, EventArgs e)
         {
-            if(!isAdd)   // modify
+            if(!isAdd)   // Set up for Modify mode - use the Package passed from the last form to populate fields
             {
+
+                // Update the title and description of the page
+                lblTitle.Text = $"Package Manager - Edit Package (ID #{currentPackage.PackageId})";
+                lblDesc.Text = "Directly edit any package details and modify product list.";
+
                 using (travelexpertsDataContext db = new travelexpertsDataContext())
                 {
-                    dataGridView1.DataSource =
-                        from Packages in db.Packages
-                        join Packages_Products_Suppliers in db.Packages_Products_Suppliers
-                        on Packages.PackageId equals Packages_Products_Suppliers.PackageId
-                        join Products_Suppliers in db.Products_Suppliers
-                        on Packages_Products_Suppliers.ProductSupplierId equals Products_Suppliers.ProductSupplierId
-                        join Products in db.Products
-                        on Products_Suppliers.ProductId equals Products.ProductId
-                        join Suppliers in db.Suppliers
-                        on Products_Suppliers.SupplierId equals Suppliers.SupplierId
-                        where Packages.PackageId == currentPackage.PackageId
-                        orderby Packages.PackageId
-                        select new
-                        {
-                            Packages.PackageId,
-                            Packages.PkgName,
-                            Products.ProductId,
-                            Products.ProdName,
-                            Suppliers.SupplierId,
-                            Supplier = Suppliers.SupName
-                        };
-
+                    // Grab current package ID used to create this modify page
+                    int packageId = currentPackage.PackageId; 
+                    // Use an in-depth query to grab the info needed for the product info data grid
+                    dataGridView1.DataSource = TravelExpertsQueryManager.FindProdInfoByPackage(db, currentPackage.PackageId);
                 }
 
-                // dispaly current package information
+                // Display current package information in details view
                 packageBindingSource.Add(currentPackage);
+            }
+
+            else // Set up for Add mode
+            {
+                // Update the title and description of the page
+                lblTitle.Text = "Package Manager - Add A New Package";
+                lblDesc.Text = "Add details and products for a new package.";
             }
 
         }
@@ -205,6 +199,7 @@ namespace CMPP248_Workshop
         //To add Products to a Package - calls form ProdSuppliers
         private void btnEditAddProducts_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Test");
             frmProdSupplier prodsForm = new frmProdSupplier();
             prodsForm.currentPackage = currentPackage;
             DialogResult result = prodsForm.ShowDialog(); // display second form modal
@@ -239,6 +234,12 @@ namespace CMPP248_Workshop
                         };
                 }
             }
+        }
+
+        // Go back to last page
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

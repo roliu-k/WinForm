@@ -19,7 +19,7 @@ namespace CMPP248_Workshop
 
         private void btnManagePkg_Click(object sender, EventArgs e)
         {
-            Form1 frmPkg = new Form1();
+            frmPackages frmPkg = new frmPackages();
             frmPkg.Show();
         }
 
@@ -27,6 +27,11 @@ namespace CMPP248_Workshop
         {
             frmProdSupplierAddEdit frmProdSup = new frmProdSupplierAddEdit();
             frmProdSup.Show();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
