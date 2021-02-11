@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,9 @@ namespace CMPP248_Workshop
 
     public partial class frmProdSupplierAddEdit : Form
     {
+
+        int selectedProdID;
+
         public frmProdSupplierAddEdit()
         {
             InitializeComponent();
@@ -22,7 +26,11 @@ namespace CMPP248_Workshop
         private void frmProdSupplierAddEdit_Load(object sender, EventArgs e)
         {
             travelexpertsDataContext dbContext = new travelexpertsDataContext();
-            products_SupplierBindingSource.DataSource = new travelexpertsDataContext().Products_Suppliers;
+            products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers;
+            productIdComboBox.DataSource = dbContext.Products;
+            supplierIdComboBox.DataSource = dbContext.Suppliers;
+
+
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
@@ -59,6 +67,62 @@ namespace CMPP248_Workshop
             this.Close();
         }
 
+        private void grdProductSuppliers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if ((grdProductSuppliers.Rows[e.RowIndex].DataBoundItem != null) &&
+            (grdProductSuppliers.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
+            {
+                e.Value = BindProperty(
+                              grdProductSuppliers.Rows[e.RowIndex].DataBoundItem,
+                              grdProductSuppliers.Columns[e.ColumnIndex].DataPropertyName
+                            );
+            }
+        }
 
+        private string BindProperty(object property, string propertyName)
+        {
+            string retValue = "";
+
+            if (propertyName.Contains("."))
+            {
+                PropertyInfo[] arrayProperties;
+                string leftPropertyName;
+
+                leftPropertyName = propertyName.Substring(0, propertyName.IndexOf("."));
+                arrayProperties = property.GetType().GetProperties();
+
+                foreach (PropertyInfo propertyInfo in arrayProperties)
+                {
+                    if (propertyInfo.Name == leftPropertyName)
+                    {
+                        retValue = BindProperty(
+                          propertyInfo.GetValue(property, null),
+                          propertyName.Substring(propertyName.IndexOf(".") + 1));
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                Type propertyType;
+                PropertyInfo propertyInfo;
+
+                propertyType = property.GetType();
+                propertyInfo = propertyType.GetProperty(propertyName);
+                retValue = propertyInfo.GetValue(property, null).ToString();
+            }
+
+            return retValue;
+        }
+
+        private void grdProductSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Grab ID of the row currently selected in the Packages Datagrid. [Eric]
+            selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
+
+            // Set title for the products data using that current id
+            lblSelectedProdsTitle.Text = $"Details for selected product (ID #{selectedProdID})";
+
+        }
     }
 }
