@@ -29,9 +29,14 @@ namespace CMPP248_Workshop
             // On load, populate data for all data displays
             travelexpertsDataContext dbContext = new travelexpertsDataContext(); // create a new context
             products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
+
+            selectedProdID = Convert.ToInt32(grdProductSuppliers.Rows[0].Cells[0].Value); // set selectedProdID as ID of top row
+            lblSelectedProdsTitle.Text = $"Modify details for selected product (ID #{selectedProdID})"; // Set display for that ID
+
             supplierIdComboBox.DataSource = dbContext.Suppliers; // get supplier data for suppliers details dropbox
             productIdComboBox.DataSource = dbContext.Products;  // get product data for products details dropbox
-            RefreshPackagesByProdSuppGrid(); // get package data for selected product_supplier row (in this case, top one)
+            RefreshPackagesByProdSuppGrid(); // get package data for selected product_supplier row (in this case, top one
+            
 
         }
 
@@ -134,11 +139,14 @@ namespace CMPP248_Workshop
         // Fires every time a cell is clicked in the product_suppliers datagrid
         private void grdProductSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Put form in modify mode
+            addMode = false;
+
             // Grab ID of the row currently selected in the Prod_Supp datagrid
             selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
 
             // Set title for the products details below using that current id
-            lblSelectedProdsTitle.Text = $"Details for selected product (ID #{selectedProdID})";
+            lblSelectedProdsTitle.Text = $"Modify details for selected product (ID #{selectedProdID})";
 
             // re-bind data for associated packages datagrid
             RefreshPackagesByProdSuppGrid(); 
@@ -164,7 +172,7 @@ namespace CMPP248_Workshop
         {
             if(addMode == false) // if modifying
             {
-                // grab data from dropdowns & hidden id field (productSupplierIdTextBox)
+                // grab data from dropdown selectedvalues & hidden id field (productSupplierIdTextBox)
 
                 // update entry in Product_Suppliers with the current ID using that data
 
@@ -185,6 +193,24 @@ namespace CMPP248_Workshop
             products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
             RefreshPackagesByProdSuppGrid();
 
+        }
+
+        private void btnAddProdSupp_Click(object sender, EventArgs e)
+        {
+            // put form in add mode
+            addMode = true;
+
+            // Set up display for add mode
+            lblAssociatesPackages.Text = "";
+            lblSelectedProdsTitle.Text = $"Add details for new product.";
+
+
+            // Put combo boxes in default state
+            productIdComboBox.SelectedIndex = 0;
+            supplierIdComboBox.SelectedIndex = 0;
+
+            // clear associated packages
+            grdPackagesforProdSupp.DataSource = null;
         }
     }
 }
