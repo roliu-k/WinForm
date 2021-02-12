@@ -707,7 +707,7 @@ namespace TravelExpertDatabase
 				{
 					if (this._Product.HasLoadedOrAssignedValue)
 					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+						//throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
 					this.OnProductIdChanging(value);
 					this.SendPropertyChanging();
@@ -731,8 +731,8 @@ namespace TravelExpertDatabase
 				{
 					if (this._Supplier.HasLoadedOrAssignedValue)
 					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
+                        //throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
 					this.OnSupplierIdChanging(value);
 					this.SendPropertyChanging();
 					this._SupplierId = value;

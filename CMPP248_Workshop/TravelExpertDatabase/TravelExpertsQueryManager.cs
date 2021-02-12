@@ -51,5 +51,27 @@ namespace TravelExpertDatabase
 
                 return ProdInfo;  
         }
+
+        /// <summary>
+        /// Gets data for all packages which contain a particular Product/Supplier pair.
+        /// </summary>
+        /// <param name="prodSuppID">The ID of the Product_Supplier pair being queried.</param>
+        /// <returns>A list of Packages using this product/supplier.</returns>
+        public static List<Package> GetPackagesByProdSuppID(int prodSuppID)
+        {
+            using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
+            {
+                // Want to return a list of all the IDs of packages using this prod_supp
+                List<int> packageIDs = dbContext.Packages_Products_Suppliers // Query bridge table
+                    .Where(pps => pps.ProductSupplierId == prodSuppID) // Look for entries that have the provided prodsuppID
+                    .Select(pps => pps.PackageId).ToList(); // grab the package IDs from those matches and return them as a list
+
+                // Use that list of package IDs to get package data for them all
+                List<Package> packages = dbContext.Packages.Where(pkg => packageIDs.Contains(pkg.PackageId)).ToList();
+
+                // Return this lsit
+                return packages;
+            }
+        }
     }
 }
