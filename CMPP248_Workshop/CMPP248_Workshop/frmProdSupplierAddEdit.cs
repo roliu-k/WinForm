@@ -27,8 +27,9 @@ namespace CMPP248_Workshop
         {
             travelexpertsDataContext dbContext = new travelexpertsDataContext();
             products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers;
-            productIdComboBox.DataSource = dbContext.Products;
             supplierIdComboBox.DataSource = dbContext.Suppliers;
+            productIdComboBox.DataSource = dbContext.Products;
+            
 
 
         }
