@@ -43,8 +43,8 @@ namespace CMPP248_Workshop
             // btnManagePkg
             // 
             this.btnManagePkg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManagePkg.Location = new System.Drawing.Point(372, 28);
-            this.btnManagePkg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnManagePkg.Location = new System.Drawing.Point(70, 2);
+            this.btnManagePkg.Margin = new System.Windows.Forms.Padding(2);
             this.btnManagePkg.Name = "btnManagePkg";
             this.btnManagePkg.Size = new System.Drawing.Size(211, 36);
             this.btnManagePkg.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace CMPP248_Workshop
             // btnManageProdSupp
             // 
             this.btnManageProdSupp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageProdSupp.Location = new System.Drawing.Point(80, 28);
+            this.btnManageProdSupp.Location = new System.Drawing.Point(401, 2);
             this.btnManageProdSupp.Margin = new System.Windows.Forms.Padding(2);
             this.btnManageProdSupp.Name = "btnManageProdSupp";
             this.btnManageProdSupp.Size = new System.Drawing.Size(211, 36);
@@ -81,8 +81,8 @@ namespace CMPP248_Workshop
             // btnExit
             // 
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(224, 83);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Location = new System.Drawing.Point(235, 74);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(211, 36);
             this.btnExit.TabIndex = 3;
@@ -139,10 +139,10 @@ namespace CMPP248_Workshop
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMain";
+            this.Text = "Travel Experts Data Management";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
