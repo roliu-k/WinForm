@@ -16,8 +16,9 @@ namespace CMPP248_Workshop
 
     public partial class frmProdSupplierAddEdit : Form
     {
-
-        int selectedProdID;
+        // Class - level variables
+        int selectedProdID; // keeps track of the product_supplier ID in the row selected of the products_suppliers datagrid
+        bool addMode = false; // bool that keeps track of whether the user is adding or updating a product_supplier
 
         public frmProdSupplierAddEdit()
         {
@@ -25,14 +26,12 @@ namespace CMPP248_Workshop
         }
         private void frmProdSupplierAddEdit_Load(object sender, EventArgs e)
         {
-            travelexpertsDataContext dbContext = new travelexpertsDataContext();
-            products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers;
-            supplierIdComboBox.DataSource = dbContext.Suppliers;
-            productIdComboBox.DataSource = dbContext.Products;
-            RefreshPackagesByProdSuppGrid();
-
-
-
+            // On load, populate data for all data displays
+            travelexpertsDataContext dbContext = new travelexpertsDataContext(); // create a new context
+            products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
+            supplierIdComboBox.DataSource = dbContext.Suppliers; // get supplier data for suppliers details dropbox
+            productIdComboBox.DataSource = dbContext.Products;  // get product data for products details dropbox
+            RefreshPackagesByProdSuppGrid(); // get package data for selected product_supplier row (in this case, top one)
 
         }
 
@@ -70,34 +69,49 @@ namespace CMPP248_Workshop
             this.Close();
         }
 
+        // Whenever a cell is being formatted (during data bind), this will trigger,
+        // looking for cells where the DataProperty name includes a "." and running a custom function.
+        //  The result is the ability to display specific properties of a nested entity using dot notation.
+        // (ex. getting "Product.ProdName" from a Product_Supplier entity).
+        // Code with thanks from Antonio Bello on http://www.developer-corner.com/blog/2007/07/19/datagridview-how-to-bind-nested-objects/
+        // Clarifying comments by [Eric]
+
         private void grdProductSuppliers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            // Check to see if the currently formatted cell has a DataPropertyName with a dot in it.
+            // By default they will not, but this can be changed in the design mode of the datagrid.
             if ((grdProductSuppliers.Rows[e.RowIndex].DataBoundItem != null) &&
             (grdProductSuppliers.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
             {
+                // instead of just giving it the value (which the datagrid won't accept, run a function to grab the notated property)
                 e.Value = BindProperty(
-                              grdProductSuppliers.Rows[e.RowIndex].DataBoundItem,
-                              grdProductSuppliers.Columns[e.ColumnIndex].DataPropertyName
+                              grdProductSuppliers.Rows[e.RowIndex].DataBoundItem, //this is the actual property bound (going to be a nested entity)
+                              grdProductSuppliers.Columns[e.ColumnIndex].DataPropertyName // this is going to be the dot notation in the form of Entity.Property
                             );
             }
         }
 
+        // The function associated with the CellFormatting event above, which actuall gets the associated property to display
+        // Thanks again to Antonio Bello on http://www.developer-corner.com/blog/2007/07/19/datagridview-how-to-bind-nested-objects/
         private string BindProperty(object property, string propertyName)
         {
-            string retValue = "";
+            string retValue = ""; // initialize value to return
 
-            if (propertyName.Contains("."))
+            // check if DataPropertyName is indeed in dot notation form
+            if (propertyName.Contains(".")) 
             {
                 PropertyInfo[] arrayProperties;
                 string leftPropertyName;
 
-                leftPropertyName = propertyName.Substring(0, propertyName.IndexOf("."));
-                arrayProperties = property.GetType().GetProperties();
+                leftPropertyName = propertyName.Substring(0, propertyName.IndexOf(".")); // get the property name defined in the dot notation
+                arrayProperties = property.GetType().GetProperties(); // get all properties in the entity 
 
+                // Iterate through all properties of the entity, looking for the one named in the DataPropertyName
                 foreach (PropertyInfo propertyInfo in arrayProperties)
                 {
-                    if (propertyInfo.Name == leftPropertyName)
+                    if (propertyInfo.Name == leftPropertyName) 
                     {
+                        // With a match, set the return value to provide to the cell as that property
                         retValue = BindProperty(
                           propertyInfo.GetValue(property, null),
                           propertyName.Substring(propertyName.IndexOf(".") + 1));
@@ -105,7 +119,7 @@ namespace CMPP248_Workshop
                     }
                 }
             }
-            else
+            else // In case the method is passed a DataPropertyName without dot notation. Thanks to the if clause in the event handler, it shouldn't
             {
                 Type propertyType;
                 PropertyInfo propertyInfo;
@@ -118,27 +132,33 @@ namespace CMPP248_Workshop
             return retValue;
         }
 
+        // Fires every time a cell is clicked in the product_suppliers datagrid
         private void grdProductSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            RefreshPackagesByProdSuppGrid();
-
-            // Grab ID of the row currently selected in the Packages Datagrid. [Eric]
+            // Grab ID of the row currently selected in the Prod_Supp datagrid
             selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
 
-            // Set title for the products data using that current id
+            // Set title for the products details below using that current id
             lblSelectedProdsTitle.Text = $"Details for selected product (ID #{selectedProdID})";
 
-        }
+            // re-bind data for associated packages datagrid
+            RefreshPackagesByProdSuppGrid(); 
 
+
+        }
+        /// <summary>
+        /// Refreshes data for the associated packages datagrid, based on current selected row in prod_supp grid
+        /// </summary>
         private void RefreshPackagesByProdSuppGrid()
         {
-            // Grab ID of the row currently selected in the Packages Datagrid. [Eric]
-            selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
+            //// Grab ID of the row currently selected in the Prod_Supp datagrid
+            //selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
 
             // Set title for the products data using that current id
             lblAssociatesPackages.Text = $"Associated Packages for selected product (ID #{selectedProdID})";
 
-             grdPackagesforProdSupp.DataSource = TravelExpertsQueryManager.GetPackagesByProdSuppID(selectedProdID);
+            // Use a query to get only packages associated with the prod_supp id, and bind it to the grid
+            grdPackagesforProdSupp.DataSource = TravelExpertsQueryManager.GetPackagesByProdSuppID(selectedProdID);
         }
     }
 }
