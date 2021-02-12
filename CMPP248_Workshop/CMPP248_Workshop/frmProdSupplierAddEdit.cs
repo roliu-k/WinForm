@@ -75,7 +75,6 @@ namespace CMPP248_Workshop
         // (ex. getting "Product.ProdName" from a Product_Supplier entity).
         // Code with thanks from Antonio Bello on http://www.developer-corner.com/blog/2007/07/19/datagridview-how-to-bind-nested-objects/
         // Clarifying comments by [Eric]
-
         private void grdProductSuppliers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Check to see if the currently formatted cell has a DataPropertyName with a dot in it.
@@ -159,6 +158,33 @@ namespace CMPP248_Workshop
 
             // Use a query to get only packages associated with the prod_supp id, and bind it to the grid
             grdPackagesforProdSupp.DataSource = TravelExpertsQueryManager.GetPackagesByProdSuppID(selectedProdID);
+        }
+
+        private void btnModifyProdSupp_Click(object sender, EventArgs e)
+        {
+            if(addMode == false) // if modifying
+            {
+                // grab data from dropdowns & hidden id field (productSupplierIdTextBox)
+
+                // update entry in Product_Suppliers with the current ID using that data
+
+                
+            }
+            else // if in add mode
+            {
+                // grab dropdown data
+
+                // create a new Product_Supplier with that data
+
+                // insert into db and save
+            }
+
+            // reload data
+
+            travelexpertsDataContext dbContext = new travelexpertsDataContext(); // create a new context
+            products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
+            RefreshPackagesByProdSuppGrid();
+
         }
     }
 }

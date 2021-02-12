@@ -31,22 +31,21 @@ namespace CMPP248_Workshop
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label supplierIdLabel;
-            System.Windows.Forms.Label productSupplierIdLabel;
             System.Windows.Forms.Label productIdLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
             this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -67,17 +66,8 @@ namespace CMPP248_Workshop
             this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSubBody = new System.Windows.Forms.Panel();
-            this.grdPackagesforProdSupp = new System.Windows.Forms.DataGridView();
-            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblSelectedProdsTitle = new System.Windows.Forms.Label();
-            this.leftbuff = new System.Windows.Forms.Panel();
-            this.rightbuff = new System.Windows.Forms.Panel();
-            this.productIdComboBox = new System.Windows.Forms.ComboBox();
-            this.productSupplierIdTextBox = new System.Windows.Forms.TextBox();
-            this.supplierIdComboBox = new System.Windows.Forms.ComboBox();
-            this.body = new System.Windows.Forms.Panel();
-            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.lblAssociatesPackages = new System.Windows.Forms.Label();
+            this.grdPackagesforProdSupp = new System.Windows.Forms.DataGridView();
             this.packageIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgStartDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,8 +75,17 @@ namespace CMPP248_Workshop
             this.pkgBasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgAgencyCommissionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblAssociatesPackages = new System.Windows.Forms.Label();
+            this.leftbuff = new System.Windows.Forms.Panel();
+            this.rightbuff = new System.Windows.Forms.Panel();
+            this.productIdComboBox = new System.Windows.Forms.ComboBox();
+            this.productSupplierIdTextBox = new System.Windows.Forms.TextBox();
+            this.supplierIdComboBox = new System.Windows.Forms.ComboBox();
+            this.body = new System.Windows.Forms.Panel();
+            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.btnModifyProdSupp = new System.Windows.Forms.Button();
             supplierIdLabel = new System.Windows.Forms.Label();
-            productSupplierIdLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -105,34 +104,23 @@ namespace CMPP248_Workshop
             // 
             supplierIdLabel.AutoSize = true;
             supplierIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            supplierIdLabel.Location = new System.Drawing.Point(211, 209);
+            supplierIdLabel.Location = new System.Drawing.Point(80, 199);
             supplierIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             supplierIdLabel.Name = "supplierIdLabel";
-            supplierIdLabel.Size = new System.Drawing.Size(75, 16);
+            supplierIdLabel.Size = new System.Drawing.Size(101, 16);
             supplierIdLabel.TabIndex = 5;
-            supplierIdLabel.Text = "Supplier Id:";
-            // 
-            // productSupplierIdLabel
-            // 
-            productSupplierIdLabel.AutoSize = true;
-            productSupplierIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            productSupplierIdLabel.Location = new System.Drawing.Point(211, 147);
-            productSupplierIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            productSupplierIdLabel.Name = "productSupplierIdLabel";
-            productSupplierIdLabel.Size = new System.Drawing.Size(124, 16);
-            productSupplierIdLabel.TabIndex = 3;
-            productSupplierIdLabel.Text = "Product Supplier Id:";
+            supplierIdLabel.Text = "Supplier Name:";
             // 
             // productIdLabel
             // 
             productIdLabel.AutoSize = true;
             productIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            productIdLabel.Location = new System.Drawing.Point(211, 177);
+            productIdLabel.Location = new System.Drawing.Point(80, 167);
             productIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             productIdLabel.Name = "productIdLabel";
-            productIdLabel.Size = new System.Drawing.Size(71, 16);
+            productIdLabel.Size = new System.Drawing.Size(92, 16);
             productIdLabel.TabIndex = 1;
-            productIdLabel.Text = "Product Id:";
+            productIdLabel.Text = "Product Type:";
             // 
             // products_SupplierBindingSource
             // 
@@ -149,7 +137,7 @@ namespace CMPP248_Workshop
             // btnManageProds
             // 
             this.btnManageProds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageProds.Location = new System.Drawing.Point(69, 614);
+            this.btnManageProds.Location = new System.Drawing.Point(69, 646);
             this.btnManageProds.Margin = new System.Windows.Forms.Padding(2);
             this.btnManageProds.Name = "btnManageProds";
             this.btnManageProds.Size = new System.Drawing.Size(230, 38);
@@ -161,7 +149,7 @@ namespace CMPP248_Workshop
             // btnManageSupps
             // 
             this.btnManageSupps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageSupps.Location = new System.Drawing.Point(349, 614);
+            this.btnManageSupps.Location = new System.Drawing.Point(349, 646);
             this.btnManageSupps.Margin = new System.Windows.Forms.Padding(2);
             this.btnManageSupps.Name = "btnManageSupps";
             this.btnManageSupps.Size = new System.Drawing.Size(230, 38);
@@ -173,7 +161,7 @@ namespace CMPP248_Workshop
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(660, 614);
+            this.btnClose.Location = new System.Drawing.Point(660, 646);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(189, 38);
@@ -257,21 +245,21 @@ namespace CMPP248_Workshop
             this.grdProductSuppliers.AllowUserToDeleteRows = false;
             this.grdProductSuppliers.AllowUserToResizeColumns = false;
             this.grdProductSuppliers.AllowUserToResizeRows = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdProductSuppliers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grdProductSuppliers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
             this.grdProductSuppliers.AutoGenerateColumns = false;
             this.grdProductSuppliers.BackgroundColor = System.Drawing.SystemColors.Control;
             this.grdProductSuppliers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdProductSuppliers.CausesValidation = false;
             this.grdProductSuppliers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdProductSuppliers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdProductSuppliers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
             this.grdProductSuppliers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProductSuppliers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductSupplierId,
@@ -280,14 +268,14 @@ namespace CMPP248_Workshop
             this.supplierIdDataGridViewTextBoxColumn,
             this.Supplier});
             this.grdProductSuppliers.DataSource = this.products_SupplierBindingSource;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdProductSuppliers.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdProductSuppliers.DefaultCellStyle = dataGridViewCellStyle45;
             this.grdProductSuppliers.Dock = System.Windows.Forms.DockStyle.Top;
             this.grdProductSuppliers.EnableHeadersVisualStyles = false;
             this.grdProductSuppliers.Location = new System.Drawing.Point(0, 23);
@@ -295,14 +283,14 @@ namespace CMPP248_Workshop
             this.grdProductSuppliers.MultiSelect = false;
             this.grdProductSuppliers.Name = "grdProductSuppliers";
             this.grdProductSuppliers.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdProductSuppliers.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdProductSuppliers.RowHeadersDefaultCellStyle = dataGridViewCellStyle46;
             this.grdProductSuppliers.RowHeadersVisible = false;
             this.grdProductSuppliers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdProductSuppliers.Size = new System.Drawing.Size(866, 262);
@@ -352,6 +340,7 @@ namespace CMPP248_Workshop
             // pnlSubBody
             // 
             this.pnlSubBody.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlSubBody.Controls.Add(this.btnModifyProdSupp);
             this.pnlSubBody.Controls.Add(this.lblSelectedProdsTitle);
             this.pnlSubBody.Controls.Add(this.grdPackagesforProdSupp);
             this.pnlSubBody.Controls.Add(this.lblAssociatesPackages);
@@ -360,7 +349,6 @@ namespace CMPP248_Workshop
             this.pnlSubBody.Controls.Add(productIdLabel);
             this.pnlSubBody.Controls.Add(this.productIdComboBox);
             this.pnlSubBody.Controls.Add(this.productSupplierIdTextBox);
-            this.pnlSubBody.Controls.Add(productSupplierIdLabel);
             this.pnlSubBody.Controls.Add(supplierIdLabel);
             this.pnlSubBody.Controls.Add(this.supplierIdComboBox);
             this.pnlSubBody.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -368,74 +356,6 @@ namespace CMPP248_Workshop
             this.pnlSubBody.Name = "pnlSubBody";
             this.pnlSubBody.Size = new System.Drawing.Size(866, 249);
             this.pnlSubBody.TabIndex = 24;
-            // 
-            // grdPackagesforProdSupp
-            // 
-            this.grdPackagesforProdSupp.AllowUserToAddRows = false;
-            this.grdPackagesforProdSupp.AllowUserToDeleteRows = false;
-            this.grdPackagesforProdSupp.AllowUserToResizeColumns = false;
-            this.grdPackagesforProdSupp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.grdPackagesforProdSupp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
-            this.grdPackagesforProdSupp.AutoGenerateColumns = false;
-            this.grdPackagesforProdSupp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.grdPackagesforProdSupp.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
-            this.grdPackagesforProdSupp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grdPackagesforProdSupp.CausesValidation = false;
-            this.grdPackagesforProdSupp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdPackagesforProdSupp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            this.grdPackagesforProdSupp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.packageIdDataGridViewTextBoxColumn,
-            this.pkgNameDataGridViewTextBoxColumn,
-            this.pkgStartDateDataGridViewTextBoxColumn,
-            this.pkgEndDateDataGridViewTextBoxColumn,
-            this.pkgBasePriceDataGridViewTextBoxColumn,
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn,
-            this.pkgDescDataGridViewTextBoxColumn});
-            this.grdPackagesforProdSupp.Cursor = System.Windows.Forms.Cursors.Default;
-            this.grdPackagesforProdSupp.DataSource = this.packageBindingSource;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grdPackagesforProdSupp.DefaultCellStyle = dataGridViewCellStyle26;
-            this.grdPackagesforProdSupp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grdPackagesforProdSupp.EnableHeadersVisualStyles = false;
-            this.grdPackagesforProdSupp.Location = new System.Drawing.Point(29, 28);
-            this.grdPackagesforProdSupp.Margin = new System.Windows.Forms.Padding(2);
-            this.grdPackagesforProdSupp.MultiSelect = false;
-            this.grdPackagesforProdSupp.Name = "grdPackagesforProdSupp";
-            this.grdPackagesforProdSupp.ReadOnly = true;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdPackagesforProdSupp.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
-            this.grdPackagesforProdSupp.RowHeadersVisible = false;
-            this.grdPackagesforProdSupp.RowHeadersWidth = 51;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grdPackagesforProdSupp.RowsDefaultCellStyle = dataGridViewCellStyle28;
-            this.grdPackagesforProdSupp.RowTemplate.Height = 24;
-            this.grdPackagesforProdSupp.ShowEditingIcon = false;
-            this.grdPackagesforProdSupp.Size = new System.Drawing.Size(804, 90);
-            this.grdPackagesforProdSupp.TabIndex = 27;
-            // 
-            // packageBindingSource
-            // 
-            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
             // 
             // lblSelectedProdsTitle
             // 
@@ -448,6 +368,148 @@ namespace CMPP248_Workshop
             this.lblSelectedProdsTitle.TabIndex = 26;
             this.lblSelectedProdsTitle.Text = "Selected Product:";
             this.lblSelectedProdsTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // grdPackagesforProdSupp
+            // 
+            this.grdPackagesforProdSupp.AllowUserToAddRows = false;
+            this.grdPackagesforProdSupp.AllowUserToDeleteRows = false;
+            this.grdPackagesforProdSupp.AllowUserToResizeColumns = false;
+            this.grdPackagesforProdSupp.AllowUserToResizeRows = false;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.grdPackagesforProdSupp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle47;
+            this.grdPackagesforProdSupp.AutoGenerateColumns = false;
+            this.grdPackagesforProdSupp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.grdPackagesforProdSupp.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            this.grdPackagesforProdSupp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grdPackagesforProdSupp.CausesValidation = false;
+            this.grdPackagesforProdSupp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdPackagesforProdSupp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            this.grdPackagesforProdSupp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.packageIdDataGridViewTextBoxColumn,
+            this.pkgNameDataGridViewTextBoxColumn,
+            this.pkgStartDateDataGridViewTextBoxColumn,
+            this.pkgEndDateDataGridViewTextBoxColumn,
+            this.pkgBasePriceDataGridViewTextBoxColumn,
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn,
+            this.pkgDescDataGridViewTextBoxColumn});
+            this.grdPackagesforProdSupp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.grdPackagesforProdSupp.DataSource = this.packageBindingSource;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle54.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle54.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grdPackagesforProdSupp.DefaultCellStyle = dataGridViewCellStyle54;
+            this.grdPackagesforProdSupp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grdPackagesforProdSupp.EnableHeadersVisualStyles = false;
+            this.grdPackagesforProdSupp.Location = new System.Drawing.Point(29, 28);
+            this.grdPackagesforProdSupp.Margin = new System.Windows.Forms.Padding(2);
+            this.grdPackagesforProdSupp.MultiSelect = false;
+            this.grdPackagesforProdSupp.Name = "grdPackagesforProdSupp";
+            this.grdPackagesforProdSupp.ReadOnly = true;
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle55.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle55.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdPackagesforProdSupp.RowHeadersDefaultCellStyle = dataGridViewCellStyle55;
+            this.grdPackagesforProdSupp.RowHeadersVisible = false;
+            this.grdPackagesforProdSupp.RowHeadersWidth = 51;
+            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grdPackagesforProdSupp.RowsDefaultCellStyle = dataGridViewCellStyle56;
+            this.grdPackagesforProdSupp.RowTemplate.Height = 24;
+            this.grdPackagesforProdSupp.ShowEditingIcon = false;
+            this.grdPackagesforProdSupp.Size = new System.Drawing.Size(804, 90);
+            this.grdPackagesforProdSupp.TabIndex = 27;
+            // 
+            // packageIdDataGridViewTextBoxColumn
+            // 
+            this.packageIdDataGridViewTextBoxColumn.DataPropertyName = "PackageId";
+            this.packageIdDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.packageIdDataGridViewTextBoxColumn.Name = "packageIdDataGridViewTextBoxColumn";
+            this.packageIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.packageIdDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // pkgNameDataGridViewTextBoxColumn
+            // 
+            this.pkgNameDataGridViewTextBoxColumn.DataPropertyName = "PkgName";
+            this.pkgNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.pkgNameDataGridViewTextBoxColumn.Name = "pkgNameDataGridViewTextBoxColumn";
+            this.pkgNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pkgNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // pkgStartDateDataGridViewTextBoxColumn
+            // 
+            this.pkgStartDateDataGridViewTextBoxColumn.DataPropertyName = "PkgStartDate";
+            dataGridViewCellStyle49.Format = "MMM d, yyyy";
+            this.pkgStartDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle49;
+            this.pkgStartDateDataGridViewTextBoxColumn.HeaderText = "Start Date";
+            this.pkgStartDateDataGridViewTextBoxColumn.Name = "pkgStartDateDataGridViewTextBoxColumn";
+            this.pkgStartDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pkgEndDateDataGridViewTextBoxColumn
+            // 
+            this.pkgEndDateDataGridViewTextBoxColumn.DataPropertyName = "PkgEndDate";
+            dataGridViewCellStyle50.Format = "MMM d, yyyy";
+            this.pkgEndDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle50;
+            this.pkgEndDateDataGridViewTextBoxColumn.HeaderText = "End Date";
+            this.pkgEndDateDataGridViewTextBoxColumn.Name = "pkgEndDateDataGridViewTextBoxColumn";
+            this.pkgEndDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pkgBasePriceDataGridViewTextBoxColumn
+            // 
+            this.pkgBasePriceDataGridViewTextBoxColumn.DataPropertyName = "PkgBasePrice";
+            dataGridViewCellStyle51.Format = "C2";
+            this.pkgBasePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle51;
+            this.pkgBasePriceDataGridViewTextBoxColumn.HeaderText = "Base Price";
+            this.pkgBasePriceDataGridViewTextBoxColumn.Name = "pkgBasePriceDataGridViewTextBoxColumn";
+            this.pkgBasePriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pkgAgencyCommissionDataGridViewTextBoxColumn
+            // 
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.DataPropertyName = "PkgAgencyCommission";
+            dataGridViewCellStyle52.Format = "C2";
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle52;
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.HeaderText = "Commission";
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.Name = "pkgAgencyCommissionDataGridViewTextBoxColumn";
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pkgDescDataGridViewTextBoxColumn
+            // 
+            this.pkgDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pkgDescDataGridViewTextBoxColumn.DataPropertyName = "PkgDesc";
+            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pkgDescDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle53;
+            this.pkgDescDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.pkgDescDataGridViewTextBoxColumn.Name = "pkgDescDataGridViewTextBoxColumn";
+            this.pkgDescDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // packageBindingSource
+            // 
+            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
+            // 
+            // lblAssociatesPackages
+            // 
+            this.lblAssociatesPackages.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblAssociatesPackages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAssociatesPackages.Location = new System.Drawing.Point(29, 0);
+            this.lblAssociatesPackages.Name = "lblAssociatesPackages";
+            this.lblAssociatesPackages.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lblAssociatesPackages.Size = new System.Drawing.Size(804, 28);
+            this.lblAssociatesPackages.TabIndex = 28;
+            this.lblAssociatesPackages.Text = "Associated Packages:";
+            this.lblAssociatesPackages.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // leftbuff
             // 
@@ -472,7 +534,7 @@ namespace CMPP248_Workshop
             this.productIdComboBox.DisplayMember = "ProdName";
             this.productIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productIdComboBox.FormattingEnabled = true;
-            this.productIdComboBox.Location = new System.Drawing.Point(431, 176);
+            this.productIdComboBox.Location = new System.Drawing.Point(300, 166);
             this.productIdComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.productIdComboBox.Name = "productIdComboBox";
             this.productIdComboBox.Size = new System.Drawing.Size(241, 24);
@@ -484,11 +546,12 @@ namespace CMPP248_Workshop
             this.productSupplierIdTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.productSupplierIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productSupplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductSupplierId", true));
-            this.productSupplierIdTextBox.Location = new System.Drawing.Point(431, 147);
+            this.productSupplierIdTextBox.Location = new System.Drawing.Point(688, 156);
             this.productSupplierIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.productSupplierIdTextBox.Name = "productSupplierIdTextBox";
             this.productSupplierIdTextBox.Size = new System.Drawing.Size(118, 13);
             this.productSupplierIdTextBox.TabIndex = 4;
+            this.productSupplierIdTextBox.Visible = false;
             // 
             // supplierIdComboBox
             // 
@@ -497,7 +560,7 @@ namespace CMPP248_Workshop
             this.supplierIdComboBox.DisplayMember = "SupName";
             this.supplierIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplierIdComboBox.FormattingEnabled = true;
-            this.supplierIdComboBox.Location = new System.Drawing.Point(431, 208);
+            this.supplierIdComboBox.Location = new System.Drawing.Point(300, 198);
             this.supplierIdComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.supplierIdComboBox.Name = "supplierIdComboBox";
             this.supplierIdComboBox.Size = new System.Drawing.Size(241, 24);
@@ -519,79 +582,17 @@ namespace CMPP248_Workshop
             // 
             this.productBindingSource1.DataSource = typeof(TravelExpertDatabase.Product);
             // 
-            // lblAssociatesPackages
+            // btnModifyProdSupp
             // 
-            this.lblAssociatesPackages.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblAssociatesPackages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssociatesPackages.Location = new System.Drawing.Point(29, 0);
-            this.lblAssociatesPackages.Name = "lblAssociatesPackages";
-            this.lblAssociatesPackages.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblAssociatesPackages.Size = new System.Drawing.Size(804, 28);
-            this.lblAssociatesPackages.TabIndex = 28;
-            this.lblAssociatesPackages.Text = "Associated Packages:";
-            this.lblAssociatesPackages.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // packageIdDataGridViewTextBoxColumn
-            // 
-            this.packageIdDataGridViewTextBoxColumn.DataPropertyName = "PackageId";
-            this.packageIdDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.packageIdDataGridViewTextBoxColumn.Name = "packageIdDataGridViewTextBoxColumn";
-            this.packageIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.packageIdDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // pkgNameDataGridViewTextBoxColumn
-            // 
-            this.pkgNameDataGridViewTextBoxColumn.DataPropertyName = "PkgName";
-            this.pkgNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.pkgNameDataGridViewTextBoxColumn.Name = "pkgNameDataGridViewTextBoxColumn";
-            this.pkgNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pkgNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // pkgStartDateDataGridViewTextBoxColumn
-            // 
-            this.pkgStartDateDataGridViewTextBoxColumn.DataPropertyName = "PkgStartDate";
-            dataGridViewCellStyle21.Format = "MMM d, yyyy";
-            this.pkgStartDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
-            this.pkgStartDateDataGridViewTextBoxColumn.HeaderText = "Start Date";
-            this.pkgStartDateDataGridViewTextBoxColumn.Name = "pkgStartDateDataGridViewTextBoxColumn";
-            this.pkgStartDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pkgEndDateDataGridViewTextBoxColumn
-            // 
-            this.pkgEndDateDataGridViewTextBoxColumn.DataPropertyName = "PkgEndDate";
-            dataGridViewCellStyle22.Format = "MMM d, yyyy";
-            this.pkgEndDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
-            this.pkgEndDateDataGridViewTextBoxColumn.HeaderText = "End Date";
-            this.pkgEndDateDataGridViewTextBoxColumn.Name = "pkgEndDateDataGridViewTextBoxColumn";
-            this.pkgEndDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pkgBasePriceDataGridViewTextBoxColumn
-            // 
-            this.pkgBasePriceDataGridViewTextBoxColumn.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle23.Format = "C2";
-            this.pkgBasePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
-            this.pkgBasePriceDataGridViewTextBoxColumn.HeaderText = "Base Price";
-            this.pkgBasePriceDataGridViewTextBoxColumn.Name = "pkgBasePriceDataGridViewTextBoxColumn";
-            this.pkgBasePriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pkgAgencyCommissionDataGridViewTextBoxColumn
-            // 
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle24.Format = "C2";
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle24;
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.HeaderText = "Commission";
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.Name = "pkgAgencyCommissionDataGridViewTextBoxColumn";
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pkgDescDataGridViewTextBoxColumn
-            // 
-            this.pkgDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pkgDescDataGridViewTextBoxColumn.DataPropertyName = "PkgDesc";
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.pkgDescDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle25;
-            this.pkgDescDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.pkgDescDataGridViewTextBoxColumn.Name = "pkgDescDataGridViewTextBoxColumn";
-            this.pkgDescDataGridViewTextBoxColumn.ReadOnly = true;
+            this.btnModifyProdSupp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifyProdSupp.Location = new System.Drawing.Point(617, 174);
+            this.btnModifyProdSupp.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModifyProdSupp.Name = "btnModifyProdSupp";
+            this.btnModifyProdSupp.Size = new System.Drawing.Size(189, 38);
+            this.btnModifyProdSupp.TabIndex = 30;
+            this.btnModifyProdSupp.Text = "&Save Changes";
+            this.btnModifyProdSupp.UseVisualStyleBackColor = true;
+            this.btnModifyProdSupp.Click += new System.EventHandler(this.btnModifyProdSupp_Click);
             // 
             // frmProdSupplierAddEdit
             // 
@@ -668,5 +669,6 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.DataGridViewTextBoxColumn pkgBasePriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkgAgencyCommissionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pkgDescDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnModifyProdSupp;
     }
 }
