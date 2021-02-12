@@ -34,19 +34,37 @@ namespace CMPP248_Workshop
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.grdPackages = new System.Windows.Forms.DataGridView();
+            this.Header = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Title = new System.Windows.Forms.Label();
+            this.body = new System.Windows.Forms.Panel();
+            this.pnlSubBody = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblSelectedProdsTitle = new System.Windows.Forms.Label();
+            this.leftbuff = new System.Windows.Forms.Panel();
+            this.rightbuff = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.mainRightBuff = new System.Windows.Forms.Panel();
+            this.mainLeftBuff = new System.Windows.Forms.Panel();
+            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packageRelatedTableDataStructureBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.packageIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgStartDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,31 +72,13 @@ namespace CMPP248_Workshop
             this.pkgBasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgAgencyCommissionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Header = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Title = new System.Windows.Forms.Label();
-            this.body = new System.Windows.Forms.Panel();
-            this.pnlSubBody = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packageRelatedTableDataStructureBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblSelectedProdsTitle = new System.Windows.Forms.Label();
-            this.leftbuff = new System.Windows.Forms.Panel();
-            this.rightbuff = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.mainRightBuff = new System.Windows.Forms.Panel();
-            this.mainLeftBuff = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.grdPackages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
             this.Header.SuspendLayout();
             this.body.SuspendLayout();
             this.pnlSubBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageRelatedTableDataStructureBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -165,82 +165,6 @@ namespace CMPP248_Workshop
             this.grdPackages.TabIndex = 20;
             this.grdPackages.TabStop = false;
             this.grdPackages.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPackages_CellClick);
-            // 
-            // packageIdDataGridViewTextBoxColumn
-            // 
-            this.packageIdDataGridViewTextBoxColumn.DataPropertyName = "PackageId";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.packageIdDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.packageIdDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.packageIdDataGridViewTextBoxColumn.Name = "packageIdDataGridViewTextBoxColumn";
-            this.packageIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.packageIdDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // pkgNameDataGridViewTextBoxColumn
-            // 
-            this.pkgNameDataGridViewTextBoxColumn.DataPropertyName = "PkgName";
-            this.pkgNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.pkgNameDataGridViewTextBoxColumn.Name = "pkgNameDataGridViewTextBoxColumn";
-            this.pkgNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pkgNameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // pkgStartDateDataGridViewTextBoxColumn
-            // 
-            this.pkgStartDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.pkgStartDateDataGridViewTextBoxColumn.DataPropertyName = "PkgStartDate";
-            dataGridViewCellStyle4.Format = "MMM d, yyyy";
-            this.pkgStartDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.pkgStartDateDataGridViewTextBoxColumn.HeaderText = "Start Date";
-            this.pkgStartDateDataGridViewTextBoxColumn.Name = "pkgStartDateDataGridViewTextBoxColumn";
-            this.pkgStartDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pkgStartDateDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // pkgEndDateDataGridViewTextBoxColumn
-            // 
-            this.pkgEndDateDataGridViewTextBoxColumn.DataPropertyName = "PkgEndDate";
-            dataGridViewCellStyle5.Format = "MMM d, yyyy";
-            this.pkgEndDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.pkgEndDateDataGridViewTextBoxColumn.HeaderText = "End Date";
-            this.pkgEndDateDataGridViewTextBoxColumn.Name = "pkgEndDateDataGridViewTextBoxColumn";
-            this.pkgEndDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pkgEndDateDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // pkgBasePriceDataGridViewTextBoxColumn
-            // 
-            this.pkgBasePriceDataGridViewTextBoxColumn.DataPropertyName = "PkgBasePrice";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.pkgBasePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.pkgBasePriceDataGridViewTextBoxColumn.HeaderText = "Base Price";
-            this.pkgBasePriceDataGridViewTextBoxColumn.Name = "pkgBasePriceDataGridViewTextBoxColumn";
-            this.pkgBasePriceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pkgBasePriceDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // pkgAgencyCommissionDataGridViewTextBoxColumn
-            // 
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.DataPropertyName = "PkgAgencyCommission";
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.HeaderText = "Commission";
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.Name = "pkgAgencyCommissionDataGridViewTextBoxColumn";
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pkgAgencyCommissionDataGridViewTextBoxColumn.Width = 115;
-            // 
-            // pkgDescDataGridViewTextBoxColumn
-            // 
-            this.pkgDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pkgDescDataGridViewTextBoxColumn.DataPropertyName = "PkgDesc";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.pkgDescDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
-            this.pkgDescDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.pkgDescDataGridViewTextBoxColumn.Name = "pkgDescDataGridViewTextBoxColumn";
-            this.pkgDescDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // packageBindingSource
-            // 
-            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
             // 
             // Header
             // 
@@ -360,40 +284,6 @@ namespace CMPP248_Workshop
             this.dataGridView1.Size = new System.Drawing.Size(641, 96);
             this.dataGridView1.TabIndex = 23;
             // 
-            // productIdDataGridViewTextBoxColumn
-            // 
-            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.HeaderText = "Product Id";
-            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
-            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // prodNameDataGridViewTextBoxColumn
-            // 
-            this.prodNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.prodNameDataGridViewTextBoxColumn.DataPropertyName = "ProdName";
-            this.prodNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
-            this.prodNameDataGridViewTextBoxColumn.Name = "prodNameDataGridViewTextBoxColumn";
-            this.prodNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // supplierIdDataGridViewTextBoxColumn
-            // 
-            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
-            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "Supplier Id";
-            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
-            this.supplierIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // supplierDataGridViewTextBoxColumn
-            // 
-            this.supplierDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.supplierDataGridViewTextBoxColumn.DataPropertyName = "Supplier";
-            this.supplierDataGridViewTextBoxColumn.HeaderText = "Supplier Name";
-            this.supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
-            this.supplierDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // packageRelatedTableDataStructureBindingSource
-            // 
-            this.packageRelatedTableDataStructureBindingSource.DataSource = typeof(TravelExpertDatabase.PackageRelatedTableDataStructure);
-            // 
             // lblSelectedProdsTitle
             // 
             this.lblSelectedProdsTitle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -449,6 +339,116 @@ namespace CMPP248_Workshop
             this.mainLeftBuff.Size = new System.Drawing.Size(17, 468);
             this.mainLeftBuff.TabIndex = 27;
             // 
+            // productIdDataGridViewTextBoxColumn
+            // 
+            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
+            this.productIdDataGridViewTextBoxColumn.HeaderText = "Product Id";
+            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
+            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // prodNameDataGridViewTextBoxColumn
+            // 
+            this.prodNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.prodNameDataGridViewTextBoxColumn.DataPropertyName = "ProdName";
+            this.prodNameDataGridViewTextBoxColumn.HeaderText = "Product Name";
+            this.prodNameDataGridViewTextBoxColumn.Name = "prodNameDataGridViewTextBoxColumn";
+            this.prodNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // supplierIdDataGridViewTextBoxColumn
+            // 
+            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "Supplier Id";
+            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
+            this.supplierIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // supplierDataGridViewTextBoxColumn
+            // 
+            this.supplierDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.supplierDataGridViewTextBoxColumn.DataPropertyName = "Supplier";
+            this.supplierDataGridViewTextBoxColumn.HeaderText = "Supplier Name";
+            this.supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
+            this.supplierDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // packageRelatedTableDataStructureBindingSource
+            // 
+            this.packageRelatedTableDataStructureBindingSource.DataSource = typeof(TravelExpertDatabase.PackageRelatedTableDataStructure);
+            // 
+            // packageBindingSource
+            // 
+            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
+            // 
+            // packageIdDataGridViewTextBoxColumn
+            // 
+            this.packageIdDataGridViewTextBoxColumn.DataPropertyName = "PackageId";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.packageIdDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.packageIdDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.packageIdDataGridViewTextBoxColumn.Name = "packageIdDataGridViewTextBoxColumn";
+            this.packageIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.packageIdDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // pkgNameDataGridViewTextBoxColumn
+            // 
+            this.pkgNameDataGridViewTextBoxColumn.DataPropertyName = "PkgName";
+            this.pkgNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.pkgNameDataGridViewTextBoxColumn.Name = "pkgNameDataGridViewTextBoxColumn";
+            this.pkgNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pkgNameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // pkgStartDateDataGridViewTextBoxColumn
+            // 
+            this.pkgStartDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.pkgStartDateDataGridViewTextBoxColumn.DataPropertyName = "PkgStartDate";
+            dataGridViewCellStyle4.Format = "MMM d, yyyy";
+            this.pkgStartDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.pkgStartDateDataGridViewTextBoxColumn.HeaderText = "Start Date";
+            this.pkgStartDateDataGridViewTextBoxColumn.Name = "pkgStartDateDataGridViewTextBoxColumn";
+            this.pkgStartDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pkgStartDateDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // pkgEndDateDataGridViewTextBoxColumn
+            // 
+            this.pkgEndDateDataGridViewTextBoxColumn.DataPropertyName = "PkgEndDate";
+            dataGridViewCellStyle5.Format = "MMM d, yyyy";
+            this.pkgEndDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.pkgEndDateDataGridViewTextBoxColumn.HeaderText = "End Date";
+            this.pkgEndDateDataGridViewTextBoxColumn.Name = "pkgEndDateDataGridViewTextBoxColumn";
+            this.pkgEndDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pkgEndDateDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // pkgBasePriceDataGridViewTextBoxColumn
+            // 
+            this.pkgBasePriceDataGridViewTextBoxColumn.DataPropertyName = "PkgBasePrice";
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.pkgBasePriceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.pkgBasePriceDataGridViewTextBoxColumn.HeaderText = "Base Price";
+            this.pkgBasePriceDataGridViewTextBoxColumn.Name = "pkgBasePriceDataGridViewTextBoxColumn";
+            this.pkgBasePriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pkgBasePriceDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // pkgAgencyCommissionDataGridViewTextBoxColumn
+            // 
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.DataPropertyName = "PkgAgencyCommission";
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.HeaderText = "Commission";
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.Name = "pkgAgencyCommissionDataGridViewTextBoxColumn";
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pkgAgencyCommissionDataGridViewTextBoxColumn.Width = 115;
+            // 
+            // pkgDescDataGridViewTextBoxColumn
+            // 
+            this.pkgDescDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pkgDescDataGridViewTextBoxColumn.DataPropertyName = "PkgDesc";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.pkgDescDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.pkgDescDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.pkgDescDataGridViewTextBoxColumn.Name = "pkgDescDataGridViewTextBoxColumn";
+            this.pkgDescDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // frmPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,7 +466,6 @@ namespace CMPP248_Workshop
             this.Text = "Package Manager - View Packages";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdPackages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.body.ResumeLayout(false);
@@ -474,6 +473,7 @@ namespace CMPP248_Workshop
             this.pnlSubBody.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageRelatedTableDataStructureBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -492,13 +492,6 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.DataGridView grdPackages;
-        private System.Windows.Forms.DataGridViewTextBoxColumn packageIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkgNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkgStartDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkgEndDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkgBasePriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkgAgencyCommissionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pkgDescDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel Header;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Panel body;
@@ -516,6 +509,13 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.Panel mainRightBuff;
         private System.Windows.Forms.Panel mainLeftBuff;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn packageIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkgNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkgStartDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkgEndDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkgBasePriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkgAgencyCommissionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pkgDescDataGridViewTextBoxColumn;
     }
 }
 

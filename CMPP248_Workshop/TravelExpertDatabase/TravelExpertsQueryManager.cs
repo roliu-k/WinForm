@@ -64,7 +64,7 @@ namespace TravelExpertDatabase
                 // Want to return a list of all the IDs of packages using this prod_supp
                 List<int> packageIDs = dbContext.Packages_Products_Suppliers // Query bridge table
                     .Where(pps => pps.ProductSupplierId == prodSuppID) // Look for entries that have the provided prodsuppID
-                    .Select(pps => pps.PackageId).ToList(); // grab only the package IDs from those matches and return them as a list
+                    .Select(pps => pps.PackageId).Distinct().ToList(); // grab only the package IDs from those matches and return them as a list
 
                 // Use that list of package IDs to get package data for them all
                 List<Package> packages = dbContext.Packages.Where(pkg => packageIDs.Contains(pkg.PackageId)).ToList();

@@ -29,7 +29,9 @@ namespace CMPP248_Workshop
             products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers;
             supplierIdComboBox.DataSource = dbContext.Suppliers;
             productIdComboBox.DataSource = dbContext.Products;
-            
+            RefreshPackagesByProdSuppGrid();
+
+
 
 
         }
@@ -118,12 +120,25 @@ namespace CMPP248_Workshop
 
         private void grdProductSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            RefreshPackagesByProdSuppGrid();
+
             // Grab ID of the row currently selected in the Packages Datagrid. [Eric]
             selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
 
             // Set title for the products data using that current id
             lblSelectedProdsTitle.Text = $"Details for selected product (ID #{selectedProdID})";
 
+        }
+
+        private void RefreshPackagesByProdSuppGrid()
+        {
+            // Grab ID of the row currently selected in the Packages Datagrid. [Eric]
+            selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
+
+            // Set title for the products data using that current id
+            lblAssociatesPackages.Text = $"Associated Packages for selected product (ID #{selectedProdID})";
+
+             grdPackagesforProdSupp.DataSource = TravelExpertsQueryManager.GetPackagesByProdSuppID(selectedProdID);
         }
     }
 }
