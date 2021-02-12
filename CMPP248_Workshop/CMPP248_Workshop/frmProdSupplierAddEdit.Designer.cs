@@ -355,7 +355,7 @@ namespace CMPP248_Workshop
             this.lblSelectedProdsTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.lblSelectedProdsTitle.Size = new System.Drawing.Size(562, 28);
             this.lblSelectedProdsTitle.TabIndex = 26;
-            this.lblSelectedProdsTitle.Text = "Selected Package Products:";
+            this.lblSelectedProdsTitle.Text = "Selected Product:";
             this.lblSelectedProdsTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // leftbuff
