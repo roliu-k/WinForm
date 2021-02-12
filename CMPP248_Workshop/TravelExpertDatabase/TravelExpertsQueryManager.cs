@@ -10,8 +10,7 @@ namespace TravelExpertDatabase
     /*
      * 
      * Helper functions to abstract complex queries out of
-     * presentation. Functions done as a team during live session,
-     * abstraction done by Eric.
+     * presentation.
      * 
      */
 
@@ -47,13 +46,13 @@ namespace TravelExpertDatabase
                         Suppliers.SupplierId,
                         Supplier = Suppliers.SupName
                     };
-            System.Diagnostics.Debug.WriteLine(ProdInfo.GetType().ToString());
 
-                return ProdInfo;  
+
+                return ProdInfo.ToList();  
         }
 
         /// <summary>
-        /// Gets data for all packages which contain a particular Product/Supplier pair.
+        /// Gets data for all packages which contain a particular Product/Supplier pair. Added by Eric.
         /// </summary>
         /// <param name="prodSuppID">The ID of the Product_Supplier pair being queried.</param>
         /// <returns>A list of Packages using this product/supplier.</returns>
