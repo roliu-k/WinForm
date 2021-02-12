@@ -51,5 +51,10 @@ namespace TravelExpertDatabase
 
                 return ProdInfo;  
         }
+
+        public static void GetFullProdSuppData()
+        {
+
+        }
     }
 }
