@@ -87,10 +87,15 @@ namespace CMPP248_Workshop
                 refreshDataGrid();
 
                 // display the list of selection for products and suppliers 
-                prodNameComboBox.DataSource = from product in db.Products
-                                              select product.ProdName;
-                supNameComboBox.DataSource = from supplier in db.Suppliers
-                                             select supplier.SupName;
+                prodNameComboBox.DataSource = db.Products;
+                prodNameComboBox.DisplayMember = "ProdName";
+                prodNameComboBox.ValueMember = "ProductId";
+
+
+                supNameComboBox.DataSource = db.Suppliers;
+                supNameComboBox.DisplayMember = "SupName";
+                supNameComboBox.ValueMember = "SupplierId";
+
             }
 
             lblDesc.Text = $"Add or remove associated products from this package (ID#{currentPackage.PackageId}: {currentPackage.PkgName})";
@@ -113,15 +118,11 @@ namespace CMPP248_Workshop
         {
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
-                productSupplierIdTextBox.Text = TravelExpertsQueryManager.FindProdSuppID(db, prodNameComboBox.Text, supNameComboBox.Text).ToString();
-                    //(from prodsupp in db.Products_Suppliers
-                    //                             join Products in db.Products
-                    //                             on prodsupp.ProductId equals Products.ProductId
-                    //                             join suppliers in db.Suppliers
-                    //                             on prodsupp.SupplierId equals suppliers.SupplierId
-                    //                             where (Products.ProdName == prodNameComboBox.Text
-                    //                             && suppliers.SupName == supNameComboBox.Text)
-                    //                             select prodsupp.ProductSupplierId).Single().ToString();
+                int prodId = Convert.ToInt32(prodNameComboBox.SelectedValue);
+                int supId = Convert.ToInt32(supNameComboBox.SelectedValue);
+
+                productSupplierIdTextBox.Text = TravelExpertsQueryManager.FindProdSuppID(db,prodId, supId).ToString();
+
             }
         }
 
@@ -138,7 +139,7 @@ namespace CMPP248_Workshop
                                              join suppliers in db.Suppliers
                                              on prodsupp.SupplierId equals suppliers.SupplierId
                                              where Products.ProdName == prodNameComboBox.Text
-                                             select suppliers.SupName;
+                                             select suppliers;
 
                 DisplayProdSupId();
             }

@@ -74,7 +74,7 @@ namespace TravelExpertDatabase
             }
         }
 
-        public static int FindProdSuppID(travelexpertsDataContext db, string ProductName, string SupplierName)
+        public static int FindProdSuppID(travelexpertsDataContext db, int ProductID, int SupplierID)
         {
             int ProdSuppID =
                 (from prodsupp in db.Products_Suppliers
@@ -82,9 +82,9 @@ namespace TravelExpertDatabase
                  on prodsupp.ProductId equals Products.ProductId
                  join suppliers in db.Suppliers
                  on prodsupp.SupplierId equals suppliers.SupplierId
-                 where (Products.ProdName == ProductName
-                 && suppliers.SupName == SupplierName)
-                 select prodsupp.ProductSupplierId).Single();
+                 where (Products.ProductId == ProductID
+                 && suppliers.SupplierId == SupplierID)
+                 select prodsupp.ProductSupplierId).SingleOrDefault();
 
             return ProdSuppID;
         }
