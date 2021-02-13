@@ -31,8 +31,8 @@ namespace CMPP248_Workshop
             {
 
                 // Update the title and description of the page
-                lblTitle.Text = $"Package Manager - Edit Package (ID #{currentPackage.PackageId})";
-                lblDesc.Text = "Directly edit any package details and modify product list.";
+                lblTitle.Text = "Package Manager - Edit Package";
+                lblDesc.Text = $"Edit any details and modify product list for the current package (ID #{currentPackage.PackageId}).";
 
                 using (travelexpertsDataContext db = new travelexpertsDataContext())
                 {

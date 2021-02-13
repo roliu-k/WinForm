@@ -92,6 +92,8 @@ namespace CMPP248_Workshop
                 supNameComboBox.DataSource = from supplier in db.Suppliers
                                              select supplier.SupName;
             }
+
+            lblDesc.Text = $"Add or remove associated products from this package (ID#{currentPackage.PackageId}: {currentPackage.PkgName})";
             
             
         }
@@ -150,6 +152,5 @@ namespace CMPP248_Workshop
         {
             DialogResult = DialogResult.Cancel;
         }
-
     }
 }
