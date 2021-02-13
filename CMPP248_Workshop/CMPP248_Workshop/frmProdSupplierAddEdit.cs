@@ -40,21 +40,6 @@ namespace CMPP248_Workshop
 
         }
 
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void products_SupplierBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //Opens Products Form
         private void btnManageProds_Click(object sender, EventArgs e)
         {
@@ -212,5 +197,27 @@ namespace CMPP248_Workshop
             // clear associated packages
             grdPackagesforProdSupp.DataSource = null;
         }
+
+        private void productIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(checkBoxFilterSuppliers.Checked == true)
+            {
+                // get the list of suppliers applicable with the selected product ID
+                using (travelexpertsDataContext db = new travelexpertsDataContext())
+                {
+
+                    supplierIdComboBox.DataSource = from prodsupp in db.Products_Suppliers
+                                                 join Products in db.Products
+                                                 on prodsupp.ProductId equals Products.ProductId
+                                                 join suppliers in db.Suppliers
+                                                 on prodsupp.SupplierId equals suppliers.SupplierId
+                                                 where Products.ProdName == productIdComboBox.Text
+                                                 select suppliers.SupName;
+
+                    //DisplayProdSupId();
+                }
+            }
+            }
+            
     }
 }

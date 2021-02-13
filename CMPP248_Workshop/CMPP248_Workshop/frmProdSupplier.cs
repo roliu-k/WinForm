@@ -113,14 +113,15 @@ namespace CMPP248_Workshop
         {
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
-                productSupplierIdTextBox.Text = (from prodsupp in db.Products_Suppliers
-                                                 join Products in db.Products
-                                                 on prodsupp.ProductId equals Products.ProductId
-                                                 join suppliers in db.Suppliers
-                                                 on prodsupp.SupplierId equals suppliers.SupplierId
-                                                 where (Products.ProdName == prodNameComboBox.Text
-                                                 && suppliers.SupName == supNameComboBox.Text)
-                                                 select prodsupp.ProductSupplierId).Single().ToString();
+                productSupplierIdTextBox.Text = TravelExpertsQueryManager.FindProdSuppID(db, prodNameComboBox.Text, supNameComboBox.Text).ToString();
+                    //(from prodsupp in db.Products_Suppliers
+                    //                             join Products in db.Products
+                    //                             on prodsupp.ProductId equals Products.ProductId
+                    //                             join suppliers in db.Suppliers
+                    //                             on prodsupp.SupplierId equals suppliers.SupplierId
+                    //                             where (Products.ProdName == prodNameComboBox.Text
+                    //                             && suppliers.SupName == supNameComboBox.Text)
+                    //                             select prodsupp.ProductSupplierId).Single().ToString();
             }
         }
 

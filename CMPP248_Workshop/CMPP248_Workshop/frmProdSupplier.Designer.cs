@@ -54,21 +54,21 @@ namespace CMPP248_Workshop
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.body = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.grdProdSup = new System.Windows.Forms.DataGridView();
-            this.packageRelatedTableDataStructureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.packageRelatedTableDataStructureBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             prodNameLabel = new System.Windows.Forms.Label();
             supNameLabel = new System.Windows.Forms.Label();
             productSupplierIdLabel = new System.Windows.Forms.Label();
@@ -81,9 +81,9 @@ namespace CMPP248_Workshop
             this.Header.SuspendLayout();
             this.body.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdProdSup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageRelatedTableDataStructureBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // prodNameLabel
@@ -276,6 +276,17 @@ namespace CMPP248_Workshop
             this.body.Size = new System.Drawing.Size(1118, 300);
             this.body.TabIndex = 28;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(422, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 40);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Add /\r\nRemove";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -297,43 +308,6 @@ namespace CMPP248_Workshop
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(601, 217);
             this.panel3.TabIndex = 26;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(275, 20);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Current products in this package:";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(productSupplierIdLabel);
-            this.panel1.Controls.Add(this.productSupplierIdTextBox);
-            this.panel1.Controls.Add(supNameLabel);
-            this.panel1.Controls.Add(this.prodNameComboBox);
-            this.panel1.Controls.Add(this.supNameComboBox);
-            this.panel1.Controls.Add(prodNameLabel);
-            this.panel1.Location = new System.Drawing.Point(10, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(402, 217);
-            this.panel1.TabIndex = 25;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 20);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Select a product to add:";
             // 
             // grdProdSup
             // 
@@ -391,6 +365,7 @@ namespace CMPP248_Workshop
             this.grdProdSup.RowHeadersVisible = false;
             this.grdProdSup.RowHeadersWidth = 51;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdProdSup.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.grdProdSup.RowTemplate.Height = 24;
@@ -398,10 +373,6 @@ namespace CMPP248_Workshop
             this.grdProdSup.ShowEditingIcon = false;
             this.grdProdSup.Size = new System.Drawing.Size(575, 129);
             this.grdProdSup.TabIndex = 29;
-            // 
-            // packageRelatedTableDataStructureBindingSource
-            // 
-            this.packageRelatedTableDataStructureBindingSource.DataSource = typeof(TravelExpertDatabase.PackageRelatedTableDataStructure);
             // 
             // ProductSupplierId
             // 
@@ -443,16 +414,46 @@ namespace CMPP248_Workshop
             this.supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
             this.supplierDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label3
+            // packageRelatedTableDataStructureBindingSource
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(422, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 40);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Add /\r\nRemove";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.packageRelatedTableDataStructureBindingSource.DataSource = typeof(TravelExpertDatabase.PackageRelatedTableDataStructure);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(275, 20);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Current products in this package:";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(productSupplierIdLabel);
+            this.panel1.Controls.Add(this.productSupplierIdTextBox);
+            this.panel1.Controls.Add(supNameLabel);
+            this.panel1.Controls.Add(this.prodNameComboBox);
+            this.panel1.Controls.Add(this.supNameComboBox);
+            this.panel1.Controls.Add(prodNameLabel);
+            this.panel1.Location = new System.Drawing.Point(10, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(402, 217);
+            this.panel1.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(7, 105);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(302, 16);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "2. Choose a vendor supplying that product.";
             // 
             // label4
             // 
@@ -464,15 +465,15 @@ namespace CMPP248_Workshop
             this.label4.TabIndex = 27;
             this.label4.Text = "1. Select a type of product:";
             // 
-            // label5
+            // label1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 105);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(302, 16);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "2. Choose a vendor supplying that product.";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 20);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Select a product to add:";
             // 
             // frmProdSupplier
             // 
@@ -497,10 +498,10 @@ namespace CMPP248_Workshop
             this.body.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdProdSup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageRelatedTableDataStructureBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

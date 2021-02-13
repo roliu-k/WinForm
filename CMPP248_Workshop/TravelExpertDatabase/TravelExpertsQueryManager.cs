@@ -73,5 +73,20 @@ namespace TravelExpertDatabase
                 return packages;
             }
         }
+
+        public static int FindProdSuppID(travelexpertsDataContext db, string ProductName, string SupplierName)
+        {
+            int ProdSuppID =
+                (from prodsupp in db.Products_Suppliers
+                 join Products in db.Products
+                 on prodsupp.ProductId equals Products.ProductId
+                 join suppliers in db.Suppliers
+                 on prodsupp.SupplierId equals suppliers.SupplierId
+                 where (Products.ProdName == ProductName
+                 && suppliers.SupName == SupplierName)
+                 select prodsupp.ProductSupplierId).Single();
+
+            return ProdSuppID;
+        }
     }
 }
