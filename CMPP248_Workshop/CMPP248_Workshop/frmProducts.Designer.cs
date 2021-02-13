@@ -191,7 +191,6 @@ namespace CMPP248_Workshop
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(38, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -238,24 +237,26 @@ namespace CMPP248_Workshop
             // prodNameTextBox
             // 
             this.prodNameTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.prodNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.prodNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProdName", true));
             this.prodNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prodNameTextBox.Location = new System.Drawing.Point(110, 90);
             this.prodNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.prodNameTextBox.Name = "prodNameTextBox";
-            this.prodNameTextBox.Size = new System.Drawing.Size(114, 22);
+            this.prodNameTextBox.Size = new System.Drawing.Size(114, 15);
             this.prodNameTextBox.TabIndex = 2;
             // 
             // productIdTextBox
             // 
             this.productIdTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.productIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductId", true));
             this.productIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productIdTextBox.Location = new System.Drawing.Point(110, 43);
             this.productIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.productIdTextBox.Name = "productIdTextBox";
             this.productIdTextBox.ReadOnly = true;
-            this.productIdTextBox.Size = new System.Drawing.Size(114, 22);
+            this.productIdTextBox.Size = new System.Drawing.Size(114, 15);
             this.productIdTextBox.TabIndex = 4;
             // 
             // btnClose

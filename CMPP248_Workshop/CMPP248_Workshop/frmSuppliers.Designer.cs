@@ -33,6 +33,11 @@ namespace CMPP248_Workshop
             System.Windows.Forms.Label supNameLabel;
             System.Windows.Forms.Label supplierIdLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSuppliers));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.supplierBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -50,34 +55,50 @@ namespace CMPP248_Workshop
             this.supNameTextBox = new System.Windows.Forms.TextBox();
             this.supplierIdTextBox = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
+            this.Header = new System.Windows.Forms.Panel();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.body = new System.Windows.Forms.Panel();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.supplierDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             supNameLabel = new System.Windows.Forms.Label();
             supplierIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).BeginInit();
             this.supplierBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            this.Header.SuspendLayout();
+            this.body.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // supNameLabel
             // 
             supNameLabel.AutoSize = true;
-            supNameLabel.Location = new System.Drawing.Point(40, 124);
+            supNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            supNameLabel.Location = new System.Drawing.Point(12, 95);
             supNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             supNameLabel.Name = "supNameLabel";
-            supNameLabel.Size = new System.Drawing.Size(79, 13);
+            supNameLabel.Size = new System.Drawing.Size(101, 16);
             supNameLabel.TabIndex = 1;
             supNameLabel.Text = "Supplier Name:";
             // 
             // supplierIdLabel
             // 
             supplierIdLabel.AutoSize = true;
-            supplierIdLabel.Location = new System.Drawing.Point(40, 83);
+            supplierIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            supplierIdLabel.Location = new System.Drawing.Point(12, 54);
             supplierIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             supplierIdLabel.Name = "supplierIdLabel";
-            supplierIdLabel.Size = new System.Drawing.Size(60, 13);
+            supplierIdLabel.Size = new System.Drawing.Size(75, 16);
             supplierIdLabel.TabIndex = 3;
             supplierIdLabel.Text = "Supplier Id:";
             // 
@@ -108,7 +129,7 @@ namespace CMPP248_Workshop
             this.supplierBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.supplierBindingNavigator.Name = "supplierBindingNavigator";
             this.supplierBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.supplierBindingNavigator.Size = new System.Drawing.Size(901, 27);
+            this.supplierBindingNavigator.Size = new System.Drawing.Size(838, 27);
             this.supplierBindingNavigator.TabIndex = 0;
             this.supplierBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -170,6 +191,7 @@ namespace CMPP248_Workshop
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(38, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -216,83 +238,247 @@ namespace CMPP248_Workshop
             // supNameTextBox
             // 
             this.supNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "SupName", true));
-            this.supNameTextBox.Location = new System.Drawing.Point(133, 122);
-            this.supNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.supNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.supNameTextBox.Location = new System.Drawing.Point(117, 93);
+            this.supNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.supNameTextBox.Name = "supNameTextBox";
-            this.supNameTextBox.Size = new System.Drawing.Size(267, 20);
+            this.supNameTextBox.Size = new System.Drawing.Size(267, 22);
             this.supNameTextBox.TabIndex = 2;
             // 
             // supplierIdTextBox
             // 
             this.supplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.supplierBindingSource, "SupplierId", true));
-            this.supplierIdTextBox.Location = new System.Drawing.Point(133, 80);
-            this.supplierIdTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.supplierIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.supplierIdTextBox.Location = new System.Drawing.Point(117, 51);
+            this.supplierIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.supplierIdTextBox.Name = "supplierIdTextBox";
-            this.supplierIdTextBox.Size = new System.Drawing.Size(116, 20);
+            this.supplierIdTextBox.Size = new System.Drawing.Size(116, 22);
             this.supplierIdTextBox.TabIndex = 4;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(325, 206);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(514, 181);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(82, 28);
+            this.btnClose.Size = new System.Drawing.Size(171, 36);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // Header
+            // 
+            this.Header.Controls.Add(this.lblDesc);
+            this.Header.Controls.Add(this.lblTitle);
+            this.Header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Header.Location = new System.Drawing.Point(0, 27);
+            this.Header.Name = "Header";
+            this.Header.Size = new System.Drawing.Size(838, 75);
+            this.Header.TabIndex = 20;
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(0, 51);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblDesc.Size = new System.Drawing.Size(838, 21);
+            this.lblDesc.TabIndex = 20;
+            this.lblDesc.Text = "Modify supplier details.";
+            this.lblDesc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
+            this.lblTitle.Size = new System.Drawing.Size(838, 51);
+            this.lblTitle.TabIndex = 19;
+            this.lblTitle.Text = "Product Manager - Suppliers";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // body
+            // 
+            this.body.Controls.Add(this.btnModify);
+            this.body.Controls.Add(this.btnAdd);
+            this.body.Controls.Add(this.btnClose);
+            this.body.Controls.Add(this.panel1);
+            this.body.Controls.Add(this.panel3);
+            this.body.Dock = System.Windows.Forms.DockStyle.Top;
+            this.body.Location = new System.Drawing.Point(0, 102);
+            this.body.Name = "body";
+            this.body.Size = new System.Drawing.Size(838, 237);
+            this.body.TabIndex = 23;
+            // 
+            // btnModify
+            // 
+            this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModify.Location = new System.Drawing.Point(333, 181);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(171, 36);
+            this.btnModify.TabIndex = 28;
+            this.btnModify.Text = "&Modify";
+            this.btnModify.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(151, 181);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(171, 36);
+            this.btnAdd.TabIndex = 27;
+            this.btnAdd.Text = "&Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.supplierIdTextBox);
+            this.panel1.Controls.Add(supplierIdLabel);
+            this.panel1.Controls.Add(supNameLabel);
+            this.panel1.Controls.Add(this.supNameTextBox);
+            this.panel1.Location = new System.Drawing.Point(422, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(410, 167);
+            this.panel1.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(141, 20);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Supplier Details:";
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.supplierDataGridView);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(6, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(410, 167);
+            this.panel3.TabIndex = 26;
+            // 
             // supplierDataGridView
             // 
+            this.supplierDataGridView.AllowUserToAddRows = false;
+            this.supplierDataGridView.AllowUserToDeleteRows = false;
+            this.supplierDataGridView.AllowUserToResizeColumns = false;
+            this.supplierDataGridView.AllowUserToResizeRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            this.supplierDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.supplierDataGridView.AutoGenerateColumns = false;
-            this.supplierDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.supplierDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+            this.supplierDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.supplierDataGridView.CausesValidation = false;
+            this.supplierDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.supplierDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.supplierDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
+            this.supplierIdDataGridViewTextBoxColumn,
+            this.supNameDataGridViewTextBoxColumn});
+            this.supplierDataGridView.Cursor = System.Windows.Forms.Cursors.Default;
             this.supplierDataGridView.DataSource = this.supplierBindingSource;
-            this.supplierDataGridView.Location = new System.Drawing.Point(472, 29);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.supplierDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            this.supplierDataGridView.EnableHeadersVisualStyles = false;
+            this.supplierDataGridView.Location = new System.Drawing.Point(7, 31);
             this.supplierDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.supplierDataGridView.MultiSelect = false;
             this.supplierDataGridView.Name = "supplierDataGridView";
+            this.supplierDataGridView.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.supplierDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.supplierDataGridView.RowHeadersVisible = false;
             this.supplierDataGridView.RowHeadersWidth = 51;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.supplierDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.supplierDataGridView.RowTemplate.Height = 24;
-            this.supplierDataGridView.Size = new System.Drawing.Size(389, 179);
-            this.supplierDataGridView.TabIndex = 7;
+            this.supplierDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.supplierDataGridView.ShowEditingIcon = false;
+            this.supplierDataGridView.Size = new System.Drawing.Size(393, 121);
+            this.supplierDataGridView.TabIndex = 30;
             // 
-            // dataGridViewTextBoxColumn1
+            // label2
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "SupplierId";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 50;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(6, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 20);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Current Suppliers:";
             // 
-            // dataGridViewTextBoxColumn2
+            // supplierIdDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "SupName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 200;
+            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "Supplier ID";
+            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
+            this.supplierIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // supNameDataGridViewTextBoxColumn
+            // 
+            this.supNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.supNameDataGridViewTextBoxColumn.DataPropertyName = "SupName";
+            this.supNameDataGridViewTextBoxColumn.HeaderText = "Supplier Name";
+            this.supNameDataGridViewTextBoxColumn.Name = "supNameDataGridViewTextBoxColumn";
+            this.supNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 256);
-            this.Controls.Add(this.supplierDataGridView);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(supNameLabel);
-            this.Controls.Add(this.supNameTextBox);
-            this.Controls.Add(supplierIdLabel);
-            this.Controls.Add(this.supplierIdTextBox);
+            this.ClientSize = new System.Drawing.Size(838, 329);
+            this.Controls.Add(this.body);
+            this.Controls.Add(this.Header);
             this.Controls.Add(this.supplierBindingNavigator);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSuppliers";
             this.Text = "frmSuppliers";
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingNavigator)).EndInit();
             this.supplierBindingNavigator.ResumeLayout(false);
             this.supplierBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+            this.Header.ResumeLayout(false);
+            this.body.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -318,8 +504,18 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.TextBox supNameTextBox;
         private System.Windows.Forms.TextBox supplierIdTextBox;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Panel Header;
+        private System.Windows.Forms.Label lblDesc;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel body;
+        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView supplierDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplierIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supNameDataGridViewTextBoxColumn;
     }
 }
