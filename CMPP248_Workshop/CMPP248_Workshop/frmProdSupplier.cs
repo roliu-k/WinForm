@@ -133,13 +133,7 @@ namespace CMPP248_Workshop
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
 
-                supNameComboBox.DataSource = from prodsupp in db.Products_Suppliers
-                                             join Products in db.Products
-                                             on prodsupp.ProductId equals Products.ProductId
-                                             join suppliers in db.Suppliers
-                                             on prodsupp.SupplierId equals suppliers.SupplierId
-                                             where Products.ProdName == prodNameComboBox.Text
-                                             select suppliers;
+                supNameComboBox.DataSource = TravelExpertsQueryManager.GetSuppliersByProductID(db, Convert.ToInt32(prodNameComboBox.SelectedValue));
 
                 DisplayProdSupId();
             }

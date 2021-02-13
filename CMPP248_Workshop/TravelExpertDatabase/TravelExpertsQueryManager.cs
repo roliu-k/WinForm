@@ -88,5 +88,19 @@ namespace TravelExpertDatabase
 
             return ProdSuppID;
         }
+
+        public static List<Supplier> GetSuppliersByProductID(travelexpertsDataContext db, int productID)
+        {
+            List<Supplier> filteredSuppliers = 
+                (from prodsupp in db.Products_Suppliers
+                join Products in db.Products
+                on prodsupp.ProductId equals Products.ProductId
+                join Suppliers in db.Suppliers
+                on prodsupp.SupplierId equals Suppliers.SupplierId
+                where Products.ProductId == productID
+                select Suppliers).ToList();
+
+            return filteredSuppliers;
+        }
     }
 }

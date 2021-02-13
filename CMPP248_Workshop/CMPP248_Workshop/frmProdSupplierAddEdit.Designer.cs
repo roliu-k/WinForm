@@ -372,6 +372,7 @@ namespace CMPP248_Workshop
             this.checkBoxFilterSuppliers.TabIndex = 32;
             this.checkBoxFilterSuppliers.Text = "Only show suppliers who currently offer the selected product type.";
             this.checkBoxFilterSuppliers.UseVisualStyleBackColor = true;
+            this.checkBoxFilterSuppliers.CheckedChanged += new System.EventHandler(this.checkBoxFilterSuppliers_CheckedChanged);
             // 
             // btnAddProdSupp
             // 

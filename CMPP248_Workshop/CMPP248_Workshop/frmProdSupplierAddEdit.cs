@@ -200,24 +200,40 @@ namespace CMPP248_Workshop
 
         private void productIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(checkBoxFilterSuppliers.Checked == true)
+            using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
-                // get the list of suppliers applicable with the selected product ID
-                using (travelexpertsDataContext db = new travelexpertsDataContext())
+                // If the user has selected the option to filter suppliers
+                if (checkBoxFilterSuppliers.Checked == true)
                 {
+                    // Get the list of suppliers applicable with the selected product ID
+                    supplierIdComboBox.DataSource = TravelExpertsQueryManager.GetSuppliersByProductID(db, Convert.ToInt32(productIdComboBox.SelectedValue));
 
-                    supplierIdComboBox.DataSource = from prodsupp in db.Products_Suppliers
-                                                 join Products in db.Products
-                                                 on prodsupp.ProductId equals Products.ProductId
-                                                 join suppliers in db.Suppliers
-                                                 on prodsupp.SupplierId equals suppliers.SupplierId
-                                                 where Products.ProdName == productIdComboBox.Text
-                                                 select suppliers.SupName;
-
-                    //DisplayProdSupId();
+                    DisplayProdSupId();
+                }
+                else
+                {
+                    supplierIdComboBox.DataSource = db.Suppliers; // get supplier data for suppliers details dropbox
                 }
             }
+        }
+
+        // Updates the display of the prodsuppID
+        private void DisplayProdSupId()
+        {
+            using (travelexpertsDataContext db = new travelexpertsDataContext())
+            {
+                int prodId = Convert.ToInt32(productIdComboBox.SelectedValue); // grabs id from product dropdown
+                int supId = Convert.ToInt32(supplierIdComboBox.SelectedValue); // grabs id from supplier dropdown
+
+                productSupplierIdTextBox.Text = TravelExpertsQueryManager.FindProdSuppID(db, prodId, supId).ToString(); // uses that data to grab the corresponding prodsup id
+
             }
-            
+        }
+
+        // Toggling the checkbox that filters supplier names automatically updates the combobox (by firing the index change event of the product combobox)
+        private void checkBoxFilterSuppliers_CheckedChanged(object sender, EventArgs e)
+        {
+            productIdComboBox_SelectedIndexChanged(sender, e);
+        }
     }
 }
