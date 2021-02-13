@@ -54,8 +54,8 @@ namespace CMPP248_Workshop
         private void btnDelete_Click(object sender, EventArgs e)
         {
             // Grab data from selected cell on gridview
-            int rowNum = dataGridView1.CurrentCell.RowIndex; // index of the current row
-            int prodSuppID = Convert.ToInt32(dataGridView1[0, rowNum].Value); // Column for ProductSupplierID
+            int rowNum = grdProdSup.CurrentCell.RowIndex; // index of the current row
+            int prodSuppID = Convert.ToInt32(grdProdSup[0, rowNum].Value); // Column for ProductSupplierID
 
 
             using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
@@ -103,7 +103,7 @@ namespace CMPP248_Workshop
             // Populate data grid showing products
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
-                dataGridView1.DataSource = TravelExpertsQueryManager.FindProdInfoByPackage(db, currentPackage.PackageId);
+                grdProdSup.DataSource = TravelExpertsQueryManager.FindProdInfoByPackage(db, currentPackage.PackageId);
             }
         }
 

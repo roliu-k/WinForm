@@ -21,6 +21,7 @@ namespace TravelExpertDatabase
 
     public class PackageRelatedTableDataStructure
     {
+        public int ProductSupplierId { get; set; }
         public int PackageId { get; set; }
         public int ProductId { get; set; }
         public string ProdName { get; set; }

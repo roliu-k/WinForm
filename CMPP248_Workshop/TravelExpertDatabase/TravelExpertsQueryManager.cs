@@ -39,6 +39,7 @@ namespace TravelExpertDatabase
                     orderby Packages.PackageId
                     select new
                     {
+                        Products_Suppliers.ProductSupplierId,
                         Packages.PackageId,
                         Packages.PkgName,
                         Products.ProductId,
