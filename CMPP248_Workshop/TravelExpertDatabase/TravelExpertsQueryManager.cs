@@ -10,8 +10,7 @@ namespace TravelExpertDatabase
     /*
      * 
      * Helper functions to abstract complex queries out of
-     * presentation. Functions done as a team during live session,
-     * abstraction done by Eric.
+     * presentation.
      * 
      */
 
@@ -40,6 +39,7 @@ namespace TravelExpertDatabase
                     orderby Packages.PackageId
                     select new
                     {
+                        Products_Suppliers.ProductSupplierId,
                         Packages.PackageId,
                         Packages.PkgName,
                         Products.ProductId,
@@ -47,13 +47,13 @@ namespace TravelExpertDatabase
                         Suppliers.SupplierId,
                         Supplier = Suppliers.SupName
                     };
-            System.Diagnostics.Debug.WriteLine(ProdInfo.GetType().ToString());
 
-                return ProdInfo;  
+
+                return ProdInfo.ToList();  
         }
 
         /// <summary>
-        /// Gets data for all packages which contain a particular Product/Supplier pair.
+        /// Gets data for all packages which contain a particular Product/Supplier pair. Added by Eric.
         /// </summary>
         /// <param name="prodSuppID">The ID of the Product_Supplier pair being queried.</param>
         /// <returns>A list of Packages using this product/supplier.</returns>
@@ -72,6 +72,35 @@ namespace TravelExpertDatabase
                 // Return this lsit
                 return packages;
             }
+        }
+
+        public static int FindProdSuppID(travelexpertsDataContext db, int ProductID, int SupplierID)
+        {
+            int ProdSuppID =
+                (from prodsupp in db.Products_Suppliers
+                 join Products in db.Products
+                 on prodsupp.ProductId equals Products.ProductId
+                 join suppliers in db.Suppliers
+                 on prodsupp.SupplierId equals suppliers.SupplierId
+                 where (Products.ProductId == ProductID
+                 && suppliers.SupplierId == SupplierID)
+                 select prodsupp.ProductSupplierId).SingleOrDefault();
+
+            return ProdSuppID;
+        }
+
+        public static List<Supplier> GetSuppliersByProductID(travelexpertsDataContext db, int productID)
+        {
+            List<Supplier> filteredSuppliers = 
+                (from prodsupp in db.Products_Suppliers
+                join Products in db.Products
+                on prodsupp.ProductId equals Products.ProductId
+                join Suppliers in db.Suppliers
+                on prodsupp.SupplierId equals Suppliers.SupplierId
+                where Products.ProductId == productID
+                select Suppliers).ToList();
+
+            return filteredSuppliers;
         }
     }
 }

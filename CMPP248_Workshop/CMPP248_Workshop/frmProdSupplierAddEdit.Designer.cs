@@ -60,10 +60,21 @@ namespace CMPP248_Workshop
             this.mainRightBuff = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.grdProductSuppliers = new System.Windows.Forms.DataGridView();
+            this.ProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSubBody = new System.Windows.Forms.Panel();
+            this.checkBoxFilterSuppliers = new System.Windows.Forms.CheckBox();
             this.btnAddProdSupp = new System.Windows.Forms.Button();
             this.btnModifyProdSupp = new System.Windows.Forms.Button();
             this.lblSelectedProdsTitle = new System.Windows.Forms.Label();
+            this.leftbuff = new System.Windows.Forms.Panel();
+            this.rightbuff = new System.Windows.Forms.Panel();
+            this.productIdComboBox = new System.Windows.Forms.ComboBox();
+            this.productSupplierIdTextBox = new System.Windows.Forms.TextBox();
+            this.supplierIdComboBox = new System.Windows.Forms.ComboBox();
             this.grdPackagesforProdSupp = new System.Windows.Forms.DataGridView();
             this.packageIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,18 +85,8 @@ namespace CMPP248_Workshop
             this.pkgDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblAssociatesPackages = new System.Windows.Forms.Label();
-            this.leftbuff = new System.Windows.Forms.Panel();
-            this.rightbuff = new System.Windows.Forms.Panel();
-            this.productIdComboBox = new System.Windows.Forms.ComboBox();
-            this.productSupplierIdTextBox = new System.Windows.Forms.TextBox();
-            this.supplierIdComboBox = new System.Windows.Forms.ComboBox();
             this.body = new System.Windows.Forms.Panel();
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.ProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             supplierIdLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
@@ -105,7 +106,7 @@ namespace CMPP248_Workshop
             // 
             supplierIdLabel.AutoSize = true;
             supplierIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            supplierIdLabel.Location = new System.Drawing.Point(80, 84);
+            supplierIdLabel.Location = new System.Drawing.Point(80, 103);
             supplierIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             supplierIdLabel.Name = "supplierIdLabel";
             supplierIdLabel.Size = new System.Drawing.Size(101, 16);
@@ -116,7 +117,7 @@ namespace CMPP248_Workshop
             // 
             productIdLabel.AutoSize = true;
             productIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            productIdLabel.Location = new System.Drawing.Point(80, 52);
+            productIdLabel.Location = new System.Drawing.Point(80, 41);
             productIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             productIdLabel.Name = "productIdLabel";
             productIdLabel.Size = new System.Drawing.Size(92, 16);
@@ -162,7 +163,7 @@ namespace CMPP248_Workshop
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(660, 646);
+            this.btnClose.Location = new System.Drawing.Point(636, 646);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(189, 38);
@@ -300,9 +301,49 @@ namespace CMPP248_Workshop
             this.grdProductSuppliers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProductSuppliers_CellClick);
             this.grdProductSuppliers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdProductSuppliers_CellFormatting);
             // 
+            // ProductSupplierId
+            // 
+            this.ProductSupplierId.DataPropertyName = "ProductSupplierId";
+            this.ProductSupplierId.HeaderText = "ID";
+            this.ProductSupplierId.Name = "ProductSupplierId";
+            this.ProductSupplierId.ReadOnly = true;
+            // 
+            // productIdDataGridViewTextBoxColumn
+            // 
+            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
+            this.productIdDataGridViewTextBoxColumn.HeaderText = "Product ID";
+            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
+            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.productIdDataGridViewTextBoxColumn.Width = 110;
+            // 
+            // Product
+            // 
+            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Product.DataPropertyName = "Product.ProdName";
+            this.Product.HeaderText = "Product Name";
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            this.Product.Width = 200;
+            // 
+            // supplierIdDataGridViewTextBoxColumn
+            // 
+            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "Supplier ID";
+            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
+            this.supplierIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Supplier
+            // 
+            this.Supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Supplier.DataPropertyName = "Supplier.SupName";
+            this.Supplier.HeaderText = "Supplier Name";
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
+            // 
             // pnlSubBody
             // 
             this.pnlSubBody.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlSubBody.Controls.Add(this.checkBoxFilterSuppliers);
             this.pnlSubBody.Controls.Add(this.btnAddProdSupp);
             this.pnlSubBody.Controls.Add(this.btnModifyProdSupp);
             this.pnlSubBody.Controls.Add(this.lblSelectedProdsTitle);
@@ -318,6 +359,20 @@ namespace CMPP248_Workshop
             this.pnlSubBody.Name = "pnlSubBody";
             this.pnlSubBody.Size = new System.Drawing.Size(866, 138);
             this.pnlSubBody.TabIndex = 24;
+            // 
+            // checkBoxFilterSuppliers
+            // 
+            this.checkBoxFilterSuppliers.AutoSize = true;
+            this.checkBoxFilterSuppliers.Checked = true;
+            this.checkBoxFilterSuppliers.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxFilterSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxFilterSuppliers.Location = new System.Drawing.Point(83, 72);
+            this.checkBoxFilterSuppliers.Name = "checkBoxFilterSuppliers";
+            this.checkBoxFilterSuppliers.Size = new System.Drawing.Size(378, 19);
+            this.checkBoxFilterSuppliers.TabIndex = 32;
+            this.checkBoxFilterSuppliers.Text = "Only show suppliers who currently offer the selected product type.";
+            this.checkBoxFilterSuppliers.UseVisualStyleBackColor = true;
+            this.checkBoxFilterSuppliers.CheckedChanged += new System.EventHandler(this.checkBoxFilterSuppliers_CheckedChanged);
             // 
             // btnAddProdSupp
             // 
@@ -354,6 +409,63 @@ namespace CMPP248_Workshop
             this.lblSelectedProdsTitle.TabIndex = 26;
             this.lblSelectedProdsTitle.Text = "Selected Product:";
             this.lblSelectedProdsTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // leftbuff
+            // 
+            this.leftbuff.Dock = System.Windows.Forms.DockStyle.Right;
+            this.leftbuff.Location = new System.Drawing.Point(833, 0);
+            this.leftbuff.Name = "leftbuff";
+            this.leftbuff.Size = new System.Drawing.Size(29, 134);
+            this.leftbuff.TabIndex = 25;
+            // 
+            // rightbuff
+            // 
+            this.rightbuff.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rightbuff.Location = new System.Drawing.Point(0, 0);
+            this.rightbuff.Name = "rightbuff";
+            this.rightbuff.Size = new System.Drawing.Size(29, 134);
+            this.rightbuff.TabIndex = 24;
+            // 
+            // productIdComboBox
+            // 
+            this.productIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.products_SupplierBindingSource, "ProductId", true));
+            this.productIdComboBox.DataSource = this.productBindingSource;
+            this.productIdComboBox.DisplayMember = "ProdName";
+            this.productIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productIdComboBox.FormattingEnabled = true;
+            this.productIdComboBox.Location = new System.Drawing.Point(181, 40);
+            this.productIdComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.productIdComboBox.Name = "productIdComboBox";
+            this.productIdComboBox.Size = new System.Drawing.Size(241, 24);
+            this.productIdComboBox.TabIndex = 2;
+            this.productIdComboBox.ValueMember = "ProductId";
+            this.productIdComboBox.SelectedIndexChanged += new System.EventHandler(this.productIdComboBox_SelectedIndexChanged);
+            // 
+            // productSupplierIdTextBox
+            // 
+            this.productSupplierIdTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.productSupplierIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.productSupplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductSupplierId", true));
+            this.productSupplierIdTextBox.Location = new System.Drawing.Point(34, 15);
+            this.productSupplierIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.productSupplierIdTextBox.Name = "productSupplierIdTextBox";
+            this.productSupplierIdTextBox.Size = new System.Drawing.Size(118, 13);
+            this.productSupplierIdTextBox.TabIndex = 4;
+            this.productSupplierIdTextBox.Visible = false;
+            // 
+            // supplierIdComboBox
+            // 
+            this.supplierIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.products_SupplierBindingSource, "SupplierId", true));
+            this.supplierIdComboBox.DataSource = this.supplierBindingSource;
+            this.supplierIdComboBox.DisplayMember = "SupName";
+            this.supplierIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.supplierIdComboBox.FormattingEnabled = true;
+            this.supplierIdComboBox.Location = new System.Drawing.Point(181, 102);
+            this.supplierIdComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.supplierIdComboBox.Name = "supplierIdComboBox";
+            this.supplierIdComboBox.Size = new System.Drawing.Size(241, 24);
+            this.supplierIdComboBox.TabIndex = 6;
+            this.supplierIdComboBox.ValueMember = "SupplierId";
             // 
             // grdPackagesforProdSupp
             // 
@@ -497,62 +609,6 @@ namespace CMPP248_Workshop
             this.lblAssociatesPackages.Text = "Associated Packages:";
             this.lblAssociatesPackages.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // leftbuff
-            // 
-            this.leftbuff.Dock = System.Windows.Forms.DockStyle.Right;
-            this.leftbuff.Location = new System.Drawing.Point(833, 0);
-            this.leftbuff.Name = "leftbuff";
-            this.leftbuff.Size = new System.Drawing.Size(29, 134);
-            this.leftbuff.TabIndex = 25;
-            // 
-            // rightbuff
-            // 
-            this.rightbuff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rightbuff.Location = new System.Drawing.Point(0, 0);
-            this.rightbuff.Name = "rightbuff";
-            this.rightbuff.Size = new System.Drawing.Size(29, 134);
-            this.rightbuff.TabIndex = 24;
-            // 
-            // productIdComboBox
-            // 
-            this.productIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.products_SupplierBindingSource, "ProductId", true));
-            this.productIdComboBox.DataSource = this.productBindingSource;
-            this.productIdComboBox.DisplayMember = "ProdName";
-            this.productIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productIdComboBox.FormattingEnabled = true;
-            this.productIdComboBox.Location = new System.Drawing.Point(300, 51);
-            this.productIdComboBox.Margin = new System.Windows.Forms.Padding(2);
-            this.productIdComboBox.Name = "productIdComboBox";
-            this.productIdComboBox.Size = new System.Drawing.Size(241, 24);
-            this.productIdComboBox.TabIndex = 2;
-            this.productIdComboBox.ValueMember = "ProductId";
-            // 
-            // productSupplierIdTextBox
-            // 
-            this.productSupplierIdTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.productSupplierIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.productSupplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductSupplierId", true));
-            this.productSupplierIdTextBox.Location = new System.Drawing.Point(83, 33);
-            this.productSupplierIdTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.productSupplierIdTextBox.Name = "productSupplierIdTextBox";
-            this.productSupplierIdTextBox.Size = new System.Drawing.Size(118, 13);
-            this.productSupplierIdTextBox.TabIndex = 4;
-            this.productSupplierIdTextBox.Visible = false;
-            // 
-            // supplierIdComboBox
-            // 
-            this.supplierIdComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.products_SupplierBindingSource, "SupplierId", true));
-            this.supplierIdComboBox.DataSource = this.supplierBindingSource;
-            this.supplierIdComboBox.DisplayMember = "SupName";
-            this.supplierIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.supplierIdComboBox.FormattingEnabled = true;
-            this.supplierIdComboBox.Location = new System.Drawing.Point(300, 83);
-            this.supplierIdComboBox.Margin = new System.Windows.Forms.Padding(2);
-            this.supplierIdComboBox.Name = "supplierIdComboBox";
-            this.supplierIdComboBox.Size = new System.Drawing.Size(241, 24);
-            this.supplierIdComboBox.TabIndex = 6;
-            this.supplierIdComboBox.ValueMember = "SupplierId";
-            // 
             // body
             // 
             this.body.Controls.Add(this.pnlSubBody);
@@ -569,45 +625,6 @@ namespace CMPP248_Workshop
             // productBindingSource1
             // 
             this.productBindingSource1.DataSource = typeof(TravelExpertDatabase.Product);
-            // 
-            // ProductSupplierId
-            // 
-            this.ProductSupplierId.DataPropertyName = "ProductSupplierId";
-            this.ProductSupplierId.HeaderText = "ID";
-            this.ProductSupplierId.Name = "ProductSupplierId";
-            this.ProductSupplierId.ReadOnly = true;
-            // 
-            // productIdDataGridViewTextBoxColumn
-            // 
-            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.HeaderText = "Product ID";
-            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
-            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productIdDataGridViewTextBoxColumn.Width = 110;
-            // 
-            // Product
-            // 
-            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Product.DataPropertyName = "Product.ProdName";
-            this.Product.HeaderText = "Product Name";
-            this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
-            this.Product.Width = 200;
-            // 
-            // supplierIdDataGridViewTextBoxColumn
-            // 
-            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
-            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "Supplier ID";
-            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
-            this.supplierIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Supplier
-            // 
-            this.Supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Supplier.DataPropertyName = "Supplier.SupName";
-            this.Supplier.HeaderText = "Supplier Name";
-            this.Supplier.Name = "Supplier";
-            this.Supplier.ReadOnly = true;
             // 
             // frmProdSupplierAddEdit
             // 
@@ -686,5 +703,6 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.DataGridViewTextBoxColumn Product;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
+        private System.Windows.Forms.CheckBox checkBoxFilterSuppliers;
     }
 }
