@@ -103,28 +103,7 @@ namespace CMPP248_Workshop
             // Populate data grid showing products
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
-                dataGridView1.DataSource =
-                    from Packages in db.Packages
-                    join Packages_Products_Suppliers in db.Packages_Products_Suppliers
-                    on Packages.PackageId equals Packages_Products_Suppliers.PackageId
-                    join Products_Suppliers in db.Products_Suppliers
-                    on Packages_Products_Suppliers.ProductSupplierId equals Products_Suppliers.ProductSupplierId
-                    join Products in db.Products
-                    on Products_Suppliers.ProductId equals Products.ProductId
-                    join Suppliers in db.Suppliers
-                    on Products_Suppliers.SupplierId equals Suppliers.SupplierId
-                    where Packages.PackageId == currentPackage.PackageId
-                    orderby Packages.PackageId
-                    select new
-                    {
-                        Products_Suppliers.ProductSupplierId,
-                        Packages.PackageId,
-                        Packages.PkgName,
-                        Products.ProductId,
-                        Products.ProdName,
-                        Suppliers.SupplierId,
-                        Supplier = Suppliers.SupName
-                    };
+                dataGridView1.DataSource = TravelExpertsQueryManager.FindProdInfoByPackage(db, currentPackage.PackageId);
             }
         }
 
@@ -166,5 +145,11 @@ namespace CMPP248_Workshop
         {
             DisplayProdSupId();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
     }
 }

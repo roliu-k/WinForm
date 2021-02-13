@@ -199,7 +199,6 @@ namespace CMPP248_Workshop
         //To add Products to a Package - calls form ProdSuppliers
         private void btnEditAddProducts_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Test");
             frmProdSupplier prodsForm = new frmProdSupplier();
             prodsForm.currentPackage = currentPackage;
             DialogResult result = prodsForm.ShowDialog(); // display second form modal
