@@ -28,6 +28,9 @@ namespace CMPP248_Workshop
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            // TODO: this should only work if the product/supplier doesn't already exist!!
+
+
             // Get ProductSupplierID from combobox
             int prodSupID = Convert.ToInt32(productSupplierIdTextBox.Text);
 
