@@ -102,5 +102,26 @@ namespace TravelExpertDatabase
 
             return filteredSuppliers;
         }
+
+
+        /// <summary>
+        /// Determine whether the combination of package ID and ProductSupplier ID exists
+        /// </summary>
+        /// <param name="packageID">Package ID</param>
+        /// <param name="prodSuppID">Product Supplier ID</param>
+        /// <returns>returns false if not found</returns>
+        public static bool ExistPackagesProductsSupplier(int packageID, int prodSuppID)
+        {
+            using(travelexpertsDataContext db = new travelexpertsDataContext())
+            {
+                var package = db.Packages_Products_Suppliers.SingleOrDefault(p =>
+                                               p.PackageId == packageID &&
+                                               p.ProductSupplierId == prodSuppID);
+                if (package == null)
+                    return false;
+                else
+                    return true;
+            }
+        }
     }
 }

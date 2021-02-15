@@ -59,14 +59,16 @@ namespace CMPP248_Workshop
         {
             if (isAdd)
             {//add validation at some point
-                if (Validator.IsPresent(pkgNameTextBox) &&
-                    Validator.IsPresent(pkgBasePriceTextBox) &&
-                    Validator.IsDecimal(pkgBasePriceTextBox) &&
-                    Validator.IsDecimal(pkgAgencyCommissionTextBox) &&
-                    Validator.IsNonNegativeDecimal(pkgBasePriceTextBox) &&
-                    Validator.IsNonNegativeDecimal(pkgAgencyCommissionTextBox))
-                // TODO: Add special validation for agency commision
-
+                if (Validator.IsPresent("Name", pkgNameTextBox) &&
+                    Validator.IsPresent("Description", pkgDescTextBox) &&
+                    Validator.IsPresent("Base Price", pkgBasePriceTextBox) &&
+                    IsValidEndDate() &&
+                    Validator.IsDecimal("Base Price", pkgBasePriceTextBox) &&
+                    Validator.IsDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
+                    Validator.IsNonNegativeDecimal("Base Price", pkgBasePriceTextBox) &&
+                    Validator.IsNonNegativeDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
+                    Validator.IsLEBasePrice(pkgBasePriceTextBox, pkgAgencyCommissionTextBox) 
+                    )
                 {
                     Package newPackage = new Package //create new package using the text box values
                     {
@@ -78,18 +80,14 @@ namespace CMPP248_Workshop
                         PkgAgencyCommission = Convert.ToDecimal(pkgAgencyCommissionTextBox.Text)
                     };
 
-                    // validate package end date that must be later than start date
-                    if (IsValidEndDate())
+                    // submit changes to database
+                    using (travelexpertsDataContext db = new travelexpertsDataContext())
                     {
-                        using (travelexpertsDataContext db = new travelexpertsDataContext())
-                        {
-                            db.Packages.InsertOnSubmit(newPackage); // insert the new package through data context object
-                            db.SubmitChanges(); //submit to database
-                        }
-                        DialogResult = DialogResult.OK;
+                        db.Packages.InsertOnSubmit(newPackage); // insert the new package through data context object
+                        db.SubmitChanges(); //submit to database
                     }
-                    else
-                        DialogResult = DialogResult.Cancel;
+                    DialogResult = DialogResult.OK;
+
                 }
             }
             else // modify code
