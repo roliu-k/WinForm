@@ -20,7 +20,7 @@ namespace CMPP248_Workshop
         //submits new supplier to database
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (Validator.IsPresent(supplierAddTextBoc))
+            if (Validator.IsPresent("Supplier Name", supplierAddTextBoc))
             {
 
                 Supplier newSupplier = new Supplier

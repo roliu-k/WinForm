@@ -21,7 +21,7 @@ namespace CMPP248_Workshop
         //submits modified supplier to database
         private void btnModify_Click(object sender, EventArgs e)
         {
-            if (Validator.IsPresent(supplierNameTextBox)) { 
+            if (Validator.IsPresent("Supplier Name", supplierNameTextBox)) { 
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
                 Supplier supplierfrmDB = db.Suppliers.Single(p => p.SupplierId.ToString() == supplierIdTextBox.Text);

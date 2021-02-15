@@ -20,7 +20,7 @@ namespace CMPP248_Workshop
         //Adds new product to database
         private void btnSubmitProd_Click(object sender, EventArgs e)
         {
-            if (Validator.IsPresent(prodNameTextBox))
+            if (Validator.IsPresent("Product Name", prodNameTextBox))
             {
 
                 Product newProduct = new Product

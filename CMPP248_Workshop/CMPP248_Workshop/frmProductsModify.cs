@@ -22,7 +22,7 @@ namespace CMPP248_Workshop
         //submits modified product to database
         private void btnModify_Click(object sender, EventArgs e)
         {
-            if (Validator.IsPresent(prodNameTextBox)) {
+            if (Validator.IsPresent("Product Name",prodNameTextBox)) {
                 using (travelexpertsDataContext db = new travelexpertsDataContext())
                 {
                     Product productFromDB = db.Products.Single(p => p.ProductId.ToString() == productIdTextBox.Text);
