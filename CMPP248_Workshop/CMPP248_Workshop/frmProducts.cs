@@ -15,6 +15,8 @@ namespace CMPP248_Workshop
 
     public partial class frmProducts : Form
     {
+        Product currentProduct;
+        int selectProductId;
         public bool isAdd;
         public frmProducts()
         {
@@ -48,6 +50,57 @@ namespace CMPP248_Workshop
         {
             this.Close();
         }
-    }
 
-}
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmProdAdd newprod = new frmProdAdd();
+            newprod.Show();
+            this.Close();
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            using (travelexpertsDataContext db = new travelexpertsDataContext())
+            {
+                currentProduct = (from p in db.Products
+                                  where p.ProductId == selectProductId
+                                  select p).Single();
+
+                frmProductsModify frmprodmodify = new frmProductsModify();
+
+                frmprodmodify.currentProduct = currentProduct;
+                DialogResult result = frmprodmodify.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void frmProducts_Load(object sender, EventArgs e)
+        {
+            RefreshView();
+        }
+
+        private void productDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            RefreshProductGrid();
+        }
+        public void RefreshView()
+        {
+
+            // Populate data in Packages gridview [Eric - changed from details view to gridview, to allow easier browsing]
+            productBindingSource.DataSource = new travelexpertsDataContext().Products;
+
+            // Populate data in Product Info gridview
+            RefreshProductGrid();
+        }
+        private void RefreshProductGrid()
+        {
+            // Grab ID of the row currently selected in the Packages Datagrid. [Eric]
+            selectProductId = Convert.ToInt32(productDataGridView.CurrentRow.Cells[0].Value);
+
+
+
+        }
+    }
+ }
+
+

@@ -66,6 +66,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmProdAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProdAdd.Designer.cs">
+      <DependentUpon>frmProdAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProdSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,24 @@
     </Compile>
     <Compile Include="frmProducts.Designer.cs">
       <DependentUpon>frmProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductsModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductsModify.Designer.cs">
+      <DependentUpon>frmProductsModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSupplierAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplierAdd.Designer.cs">
+      <DependentUpon>frmSupplierAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSupplierModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplierModify.Designer.cs">
+      <DependentUpon>frmSupplierModify.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSuppliers.cs">
       <SubType>Form</SubType>
@@ -102,6 +126,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmProdAdd.resx">
+      <DependentUpon>frmProdAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProdSupplier.resx">
       <DependentUpon>frmProdSupplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +137,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProducts.resx">
       <DependentUpon>frmProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProductsModify.resx">
+      <DependentUpon>frmProductsModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplierAdd.resx">
+      <DependentUpon>frmSupplierAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplierModify.resx">
+      <DependentUpon>frmSupplierModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSuppliers.resx">
       <DependentUpon>frmSuppliers.cs</DependentUpon>

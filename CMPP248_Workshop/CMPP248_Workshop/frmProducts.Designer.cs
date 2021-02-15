@@ -40,7 +40,6 @@ namespace CMPP248_Workshop
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.productBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -59,35 +58,35 @@ namespace CMPP248_Workshop
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.body = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnModify = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             prodNameLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).BeginInit();
             this.productBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.Header.SuspendLayout();
             this.body.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // prodNameLabel
             // 
             prodNameLabel.AutoSize = true;
             prodNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            prodNameLabel.Location = new System.Drawing.Point(11, 92);
-            prodNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            prodNameLabel.Location = new System.Drawing.Point(15, 113);
             prodNameLabel.Name = "prodNameLabel";
-            prodNameLabel.Size = new System.Drawing.Size(97, 16);
+            prodNameLabel.Size = new System.Drawing.Size(121, 20);
             prodNameLabel.TabIndex = 1;
             prodNameLabel.Text = "Product Name:";
             // 
@@ -95,10 +94,9 @@ namespace CMPP248_Workshop
             // 
             productIdLabel.AutoSize = true;
             productIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            productIdLabel.Location = new System.Drawing.Point(11, 45);
-            productIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            productIdLabel.Location = new System.Drawing.Point(15, 55);
             productIdLabel.Name = "productIdLabel";
-            productIdLabel.Size = new System.Drawing.Size(71, 16);
+            productIdLabel.Size = new System.Drawing.Size(90, 20);
             productIdLabel.TabIndex = 3;
             productIdLabel.Text = "Product Id:";
             // 
@@ -129,7 +127,7 @@ namespace CMPP248_Workshop
             this.productBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.productBindingNavigator.Name = "productBindingNavigator";
             this.productBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.productBindingNavigator.Size = new System.Drawing.Size(563, 27);
+            this.productBindingNavigator.Size = new System.Drawing.Size(939, 39);
             this.productBindingNavigator.TabIndex = 0;
             this.productBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -139,18 +137,14 @@ namespace CMPP248_Workshop
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 36);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -160,7 +154,7 @@ namespace CMPP248_Workshop
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
@@ -170,7 +164,7 @@ namespace CMPP248_Workshop
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -179,27 +173,28 @@ namespace CMPP248_Workshop
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorPositionItem
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(38, 23);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(49, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 39);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -207,7 +202,7 @@ namespace CMPP248_Workshop
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -216,13 +211,13 @@ namespace CMPP248_Workshop
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 36);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 39);
             // 
             // productBindingNavigatorSaveItem
             // 
@@ -230,7 +225,7 @@ namespace CMPP248_Workshop
             this.productBindingNavigatorSaveItem.Enabled = false;
             this.productBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("productBindingNavigatorSaveItem.Image")));
             this.productBindingNavigatorSaveItem.Name = "productBindingNavigatorSaveItem";
-            this.productBindingNavigatorSaveItem.Size = new System.Drawing.Size(24, 24);
+            this.productBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 36);
             this.productBindingNavigatorSaveItem.Text = "Save Data";
             this.productBindingNavigatorSaveItem.Click += new System.EventHandler(this.productBindingNavigatorSaveItem_Click);
             // 
@@ -240,10 +235,10 @@ namespace CMPP248_Workshop
             this.prodNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.prodNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProdName", true));
             this.prodNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prodNameTextBox.Location = new System.Drawing.Point(110, 90);
-            this.prodNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.prodNameTextBox.Location = new System.Drawing.Point(147, 111);
+            this.prodNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.prodNameTextBox.Name = "prodNameTextBox";
-            this.prodNameTextBox.Size = new System.Drawing.Size(114, 15);
+            this.prodNameTextBox.Size = new System.Drawing.Size(152, 19);
             this.prodNameTextBox.TabIndex = 2;
             // 
             // productIdTextBox
@@ -252,20 +247,20 @@ namespace CMPP248_Workshop
             this.productIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductId", true));
             this.productIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productIdTextBox.Location = new System.Drawing.Point(110, 43);
-            this.productIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.productIdTextBox.Location = new System.Drawing.Point(147, 53);
+            this.productIdTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.productIdTextBox.Name = "productIdTextBox";
             this.productIdTextBox.ReadOnly = true;
-            this.productIdTextBox.Size = new System.Drawing.Size(114, 15);
+            this.productIdTextBox.Size = new System.Drawing.Size(152, 19);
             this.productIdTextBox.TabIndex = 4;
             // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(378, 181);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClose.Location = new System.Drawing.Point(504, 223);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(171, 36);
+            this.btnClose.Size = new System.Drawing.Size(228, 44);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -276,19 +271,21 @@ namespace CMPP248_Workshop
             this.Header.Controls.Add(this.lblDesc);
             this.Header.Controls.Add(this.lblTitle);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Header.Location = new System.Drawing.Point(0, 27);
+            this.Header.Location = new System.Drawing.Point(0, 49);
+            this.Header.Margin = new System.Windows.Forms.Padding(4);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(563, 75);
+            this.Header.Size = new System.Drawing.Size(751, 92);
             this.Header.TabIndex = 19;
             // 
             // lblDesc
             // 
             this.lblDesc.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesc.Location = new System.Drawing.Point(0, 51);
+            this.lblDesc.Location = new System.Drawing.Point(0, 63);
+            this.lblDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.lblDesc.Size = new System.Drawing.Size(563, 21);
+            this.lblDesc.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.lblDesc.Size = new System.Drawing.Size(751, 26);
             this.lblDesc.TabIndex = 20;
             this.lblDesc.Text = "Modify product type details.";
             this.lblDesc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -299,10 +296,10 @@ namespace CMPP248_Workshop
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
-            this.lblTitle.Size = new System.Drawing.Size(563, 51);
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 12, 0, 6);
+            this.lblTitle.Size = new System.Drawing.Size(751, 63);
             this.lblTitle.TabIndex = 19;
             this.lblTitle.Text = "Product Manager - Product Types";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -315,30 +312,35 @@ namespace CMPP248_Workshop
             this.body.Controls.Add(this.panel1);
             this.body.Controls.Add(this.panel3);
             this.body.Dock = System.Windows.Forms.DockStyle.Top;
-            this.body.Location = new System.Drawing.Point(0, 102);
+            this.body.Location = new System.Drawing.Point(0, 164);
+            this.body.Margin = new System.Windows.Forms.Padding(4);
             this.body.Name = "body";
-            this.body.Size = new System.Drawing.Size(563, 298);
+            this.body.Size = new System.Drawing.Size(751, 367);
             this.body.TabIndex = 22;
             // 
-            // panel3
+            // btnModify
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.productDataGridView);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(12, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(262, 167);
-            this.panel3.TabIndex = 26;
+            this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModify.Location = new System.Drawing.Point(263, 223);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(228, 44);
+            this.btnModify.TabIndex = 28;
+            this.btnModify.Text = "&Modify";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
-            // label2
+            // btnAdd
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 20);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Current Products:";
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(20, 223);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(228, 44);
+            this.btnAdd.TabIndex = 27;
+            this.btnAdd.Text = "&Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel1
             // 
@@ -348,20 +350,33 @@ namespace CMPP248_Workshop
             this.panel1.Controls.Add(productIdLabel);
             this.panel1.Controls.Add(this.prodNameTextBox);
             this.panel1.Controls.Add(prodNameLabel);
-            this.panel1.Location = new System.Drawing.Point(287, 0);
+            this.panel1.Location = new System.Drawing.Point(383, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(262, 167);
+            this.panel1.Size = new System.Drawing.Size(348, 205);
             this.panel1.TabIndex = 25;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 6);
+            this.label1.Location = new System.Drawing.Point(12, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 20);
+            this.label1.Size = new System.Drawing.Size(165, 25);
             this.label1.TabIndex = 14;
             this.label1.Text = "Product Details:";
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.productDataGridView);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(16, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(348, 205);
+            this.panel3.TabIndex = 26;
             // 
             // productDataGridView
             // 
@@ -386,6 +401,7 @@ namespace CMPP248_Workshop
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.productDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.productDataGridView.ColumnHeadersHeight = 29;
             this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.productIdDataGridViewTextBoxColumn1,
             this.prodNameDataGridViewTextBoxColumn1});
@@ -400,8 +416,8 @@ namespace CMPP248_Workshop
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.productDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.productDataGridView.EnableHeadersVisualStyles = false;
-            this.productDataGridView.Location = new System.Drawing.Point(6, 31);
-            this.productDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.productDataGridView.Location = new System.Drawing.Point(8, 38);
+            this.productDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.productDataGridView.MultiSelect = false;
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.ReadOnly = true;
@@ -422,35 +438,30 @@ namespace CMPP248_Workshop
             this.productDataGridView.RowTemplate.Height = 24;
             this.productDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productDataGridView.ShowEditingIcon = false;
-            this.productDataGridView.Size = new System.Drawing.Size(246, 121);
+            this.productDataGridView.Size = new System.Drawing.Size(328, 149);
             this.productDataGridView.TabIndex = 30;
+            this.productDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellClick);
             // 
-            // btnAdd
+            // label2
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(15, 181);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(171, 36);
-            this.btnAdd.TabIndex = 27;
-            this.btnAdd.Text = "&Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(182, 25);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Current Products:";
             // 
-            // btnModify
+            // productBindingSource
             // 
-            this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModify.Location = new System.Drawing.Point(197, 181);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(2);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(171, 36);
-            this.btnModify.TabIndex = 28;
-            this.btnModify.Text = "&Modify";
-            this.btnModify.UseVisualStyleBackColor = true;
+            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // productIdDataGridViewTextBoxColumn1
             // 
             this.productIdDataGridViewTextBoxColumn1.DataPropertyName = "ProductId";
             this.productIdDataGridViewTextBoxColumn1.HeaderText = "Product ID";
+            this.productIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.productIdDataGridViewTextBoxColumn1.Name = "productIdDataGridViewTextBoxColumn1";
             this.productIdDataGridViewTextBoxColumn1.ReadOnly = true;
             this.productIdDataGridViewTextBoxColumn1.Width = 80;
@@ -460,31 +471,33 @@ namespace CMPP248_Workshop
             this.prodNameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.prodNameDataGridViewTextBoxColumn1.DataPropertyName = "ProdName";
             this.prodNameDataGridViewTextBoxColumn1.HeaderText = "Product Type";
+            this.prodNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.prodNameDataGridViewTextBoxColumn1.Name = "prodNameDataGridViewTextBoxColumn1";
             this.prodNameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // frmProducts
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 326);
+            this.ClientSize = new System.Drawing.Size(751, 401);
             this.Controls.Add(this.body);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.productBindingNavigator);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmProducts";
             this.Text = "frmProducts";
+            this.Load += new System.EventHandler(this.frmProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productBindingNavigator)).EndInit();
             this.productBindingNavigator.ResumeLayout(false);
             this.productBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.Header.ResumeLayout(false);
             this.body.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
