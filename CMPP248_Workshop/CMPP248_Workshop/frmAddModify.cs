@@ -18,7 +18,8 @@ namespace CMPP248_Workshop
         // Class-level variables
         public bool isAdd;
         public Package currentPackage;
-        private DateTime? tmpDate;
+        private DateTime? tmpStartDate;
+        private DateTime? tmpEndDate;
 
         public frmAddModify()
         {
@@ -42,6 +43,13 @@ namespace CMPP248_Workshop
                     dataGridView1.DataSource = TravelExpertsQueryManager.FindProdInfoByPackage(db, currentPackage.PackageId);
                 }
 
+                // handle nullable datetime
+                if (currentPackage.PkgStartDate == null)
+                    EmptyDateTimePicker(pkgStartDateDateTimePicker);
+
+                if (currentPackage.PkgEndDate == null)
+                    EmptyDateTimePicker(pkgEndDateDateTimePicker);
+
                 // Display current package information in details view
                 packageBindingSource.Add(currentPackage);
             }
@@ -51,7 +59,10 @@ namespace CMPP248_Workshop
                 // Update the title and description of the page
                 lblTitle.Text = "Package Manager - Add A New Package";
                 lblDesc.Text = "Add details and products for a new package.";
+                EmptyDateTimePicker(pkgStartDateDateTimePicker);
+                EmptyDateTimePicker(pkgEndDateDateTimePicker);
             }
+
 
         }
 
@@ -73,8 +84,8 @@ namespace CMPP248_Workshop
                     Package newPackage = new Package //create new package using the text box values
                     {
                         PkgName = pkgNameTextBox.Text,
-                        PkgStartDate = pkgStartDateDateTimePicker.Value,
-                        PkgEndDate = pkgEndDateDateTimePicker.Value,
+                        PkgStartDate = tmpStartDate,
+                        PkgEndDate = tmpEndDate,
                         PkgDesc = pkgDescTextBox.Text,
                         PkgBasePrice = Convert.ToDecimal(pkgBasePriceTextBox.Text),
                         PkgAgencyCommission = Convert.ToDecimal(pkgAgencyCommissionTextBox.Text)
@@ -93,35 +104,46 @@ namespace CMPP248_Workshop
             else // modify code
             {
 
-                // TODO: ADD VALIDATION
-
-                try
+                // VALIDATION
+                if (Validator.IsPresent("Name", pkgNameTextBox) &&
+                    Validator.IsPresent("Description", pkgDescTextBox) &&
+                    Validator.IsPresent("Base Price", pkgBasePriceTextBox) &&
+                    IsValidEndDate() &&
+                    Validator.IsDecimal("Base Price", pkgBasePriceTextBox) &&
+                    Validator.IsDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
+                    Validator.IsNonNegativeDecimal("Base Price", pkgBasePriceTextBox) &&
+                    Validator.IsNonNegativeDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
+                    Validator.IsLEBasePrice(pkgBasePriceTextBox, pkgAgencyCommissionTextBox)
+                    )
                 {
-                    using (travelexpertsDataContext db = new travelexpertsDataContext())
+                    try
                     {
-                        // get the product with Code from the current text box
-                        Package packageFromDB = db.Packages.Single(p => p.PackageId.ToString() == packageIdTextBox.Text);
-
-                        //MessageBox.Show("Testing concurrency: update or delete current record from SSMS and click OK");
-
-                        if (packageFromDB != null)
+                        using (travelexpertsDataContext db = new travelexpertsDataContext())
                         {
-                            // make changes by copying values from text boxes
-                            packageFromDB.PkgName = pkgNameTextBox.Text;
-                            packageFromDB.PkgStartDate = pkgStartDateDateTimePicker.Value;
-                            packageFromDB.PkgEndDate = pkgEndDateDateTimePicker.Value;
-                            packageFromDB.PkgDesc = pkgDescTextBox.Text;
-                            packageFromDB.PkgBasePrice = Decimal.Parse(pkgBasePriceTextBox.Text, System.Globalization.NumberStyles.Currency);
-                            packageFromDB.PkgAgencyCommission = Decimal.Parse(pkgAgencyCommissionTextBox.Text, System.Globalization.NumberStyles.Currency);
-                            // submit changes 
-                            db.SubmitChanges();
-                            DialogResult = DialogResult.OK;
+                            // get the product with Code from the current text box
+                            Package packageFromDB = db.Packages.Single(p => p.PackageId.ToString() == packageIdTextBox.Text);
+
+                            //MessageBox.Show("Testing concurrency: update or delete current record from SSMS and click OK");
+
+                            if (packageFromDB != null)
+                            {
+                                // make changes by copying values from text boxes
+                                packageFromDB.PkgName = pkgNameTextBox.Text;
+                                packageFromDB.PkgStartDate = tmpStartDate;
+                                packageFromDB.PkgEndDate = tmpEndDate;
+                                packageFromDB.PkgDesc = pkgDescTextBox.Text;
+                                packageFromDB.PkgBasePrice = Decimal.Parse(pkgBasePriceTextBox.Text, System.Globalization.NumberStyles.Currency);
+                                packageFromDB.PkgAgencyCommission = Decimal.Parse(pkgAgencyCommissionTextBox.Text, System.Globalization.NumberStyles.Currency);
+                                // submit changes 
+                                db.SubmitChanges();
+                                DialogResult = DialogResult.OK;
+                            }
                         }
                     }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    }
                 }
             }
             
@@ -131,9 +153,8 @@ namespace CMPP248_Workshop
         {
             if (e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Delete)
             {
-                pkgEndDateDateTimePicker.CustomFormat = " ";
-                pkgEndDateDateTimePicker.Format = DateTimePickerFormat.Custom;
-                tmpDate = null;
+                EmptyDateTimePicker(pkgEndDateDateTimePicker);
+                tmpEndDate = null;
             }
         }
 
@@ -141,9 +162,8 @@ namespace CMPP248_Workshop
         {
             if (e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Delete)
             {
-                pkgStartDateDateTimePicker.CustomFormat = " ";
-                pkgStartDateDateTimePicker.Format = DateTimePickerFormat.Custom;
-                tmpDate = null;
+                EmptyDateTimePicker(pkgStartDateDateTimePicker);
+                tmpStartDate = null;
             }
         }
 
@@ -156,7 +176,7 @@ namespace CMPP248_Workshop
             {
                 pkgEndDateDateTimePicker.Enabled = true;
                 pkgEndDateDateTimePicker.Format = DateTimePickerFormat.Short;
-                tmpDate = endDate;
+                tmpEndDate = endDate;
             }
         }
 
@@ -166,30 +186,48 @@ namespace CMPP248_Workshop
             {
                 pkgStartDateDateTimePicker.Enabled = true;
                 pkgStartDateDateTimePicker.Format = DateTimePickerFormat.Short;
-                tmpDate = pkgStartDateDateTimePicker.Value;
+                tmpStartDate = pkgStartDateDateTimePicker.Value;
             }
+        }
+
+        private void EmptyDateTimePicker(DateTimePicker dt)
+        {
+            dt.CustomFormat = " ";
+            dt.Format = DateTimePickerFormat.Custom;
         }
 
         // add a validation to make sure end date does not occur before start date
         private bool IsValidEndDate()
         {
             bool valid = false;
+            DateTime? startDate = null;
+            DateTime? endDate = null;
 
-            DateTime? startDate = pkgStartDateDateTimePicker.Value;
-            DateTime? endDate = pkgEndDateDateTimePicker.Value;
+            if (pkgStartDateDateTimePicker.Text != " ")
+            {
+                startDate = pkgStartDateDateTimePicker.Value;
+            }
+            if (pkgEndDateDateTimePicker.Text != " ")
+            {
+                endDate = pkgEndDateDateTimePicker.Value;
+            }
 
             if (endDate != null)
             {
-                if (endDate > startDate) 
+                if (endDate > startDate || startDate == null) 
                 {
                     pkgEndDateDateTimePicker.Enabled = true;
                     pkgEndDateDateTimePicker.Format = DateTimePickerFormat.Short;
-                    tmpDate = endDate;
+                    tmpEndDate = endDate;
                     valid = true;
                 }
                 else
                     MessageBox.Show("The package end date should be later than package start date", "Input Error");
             }
+
+            // when both fields are empty, return true
+            if (endDate == null && startDate == null)
+                valid = true;
 
             return valid;
         }

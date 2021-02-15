@@ -8,7 +8,6 @@ C:\Users\860234\source\repos\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\Tra
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\bin\Debug\TravelExpertDatabase.dll.config
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\bin\Debug\TravelExpertDatabase.dll
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\bin\Debug\TravelExpertDatabase.pdb
-C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.csprojAssemblyReference.cache
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.csproj.CoreCompileInputs.cache
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.dll
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\TravelExpertDatabase\obj\Debug\TravelExpertDatabase.pdb

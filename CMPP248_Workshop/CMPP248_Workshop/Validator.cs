@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace CMPP248_Workshop
         public static bool IsDecimal(string attrName, TextBox textBox)
         {
             decimal number = 0m;
-            if (Decimal.TryParse(textBox.Text, out number))
+            if (Decimal.TryParse(textBox.Text, NumberStyles.Currency, null, out number) )
             {
                 return true;
             }
@@ -62,7 +63,8 @@ namespace CMPP248_Workshop
 
         public static bool IsNonNegativeDecimal(string attrName, TextBox textBox)
         {
-            decimal number = Convert.ToDecimal(textBox.Text);
+            decimal number = Decimal.Parse(textBox.Text, NumberStyles.Currency);
+
             if (number < 0)
             {
                 MessageBox.Show(attrName + " must be positive or zero" , "Entry Error");
@@ -86,8 +88,8 @@ namespace CMPP248_Workshop
 
         public static bool IsLEBasePrice(TextBox txtBasePrice, TextBox txtAgencyCommission)
         {
-            int commission = Convert.ToInt32(txtAgencyCommission.Text);
-            int basePrice = Convert.ToInt32(txtBasePrice.Text);
+            decimal commission = Decimal.Parse(txtAgencyCommission.Text, NumberStyles.Currency);
+            decimal basePrice = Decimal.Parse(txtBasePrice.Text, NumberStyles.Currency);
             if (commission > basePrice)
             {
                 MessageBox.Show(txtAgencyCommission.Tag + " cannot be greater than the " + txtBasePrice.Tag, "Entry Error");

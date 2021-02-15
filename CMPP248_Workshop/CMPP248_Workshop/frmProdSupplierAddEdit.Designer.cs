@@ -181,7 +181,7 @@ namespace CMPP248_Workshop
             this.Header.Controls.Add(this.Title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(0, 0);
-            this.Header.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Header.Margin = new System.Windows.Forms.Padding(4);
             this.Header.Name = "Header";
             this.Header.Size = new System.Drawing.Size(1200, 92);
             this.Header.TabIndex = 22;
@@ -217,7 +217,7 @@ namespace CMPP248_Workshop
             // 
             this.mainLeftBuff.Dock = System.Windows.Forms.DockStyle.Left;
             this.mainLeftBuff.Location = new System.Drawing.Point(0, 92);
-            this.mainLeftBuff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainLeftBuff.Margin = new System.Windows.Forms.Padding(4);
             this.mainLeftBuff.Name = "mainLeftBuff";
             this.mainLeftBuff.Size = new System.Drawing.Size(23, 792);
             this.mainLeftBuff.TabIndex = 28;
@@ -226,7 +226,7 @@ namespace CMPP248_Workshop
             // 
             this.mainRightBuff.Dock = System.Windows.Forms.DockStyle.Right;
             this.mainRightBuff.Location = new System.Drawing.Point(1177, 92);
-            this.mainRightBuff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainRightBuff.Margin = new System.Windows.Forms.Padding(4);
             this.mainRightBuff.Name = "mainRightBuff";
             this.mainRightBuff.Size = new System.Drawing.Size(23, 792);
             this.mainRightBuff.TabIndex = 29;
@@ -367,7 +367,7 @@ namespace CMPP248_Workshop
             this.pnlSubBody.Controls.Add(this.supplierIdComboBox);
             this.pnlSubBody.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSubBody.Location = new System.Drawing.Point(0, 496);
-            this.pnlSubBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSubBody.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSubBody.Name = "pnlSubBody";
             this.pnlSubBody.Size = new System.Drawing.Size(1154, 170);
             this.pnlSubBody.TabIndex = 24;
@@ -379,7 +379,7 @@ namespace CMPP248_Workshop
             this.checkBoxFilterSuppliers.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFilterSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxFilterSuppliers.Location = new System.Drawing.Point(111, 89);
-            this.checkBoxFilterSuppliers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxFilterSuppliers.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxFilterSuppliers.Name = "checkBoxFilterSuppliers";
             this.checkBoxFilterSuppliers.Size = new System.Drawing.Size(461, 22);
             this.checkBoxFilterSuppliers.TabIndex = 32;
@@ -428,7 +428,7 @@ namespace CMPP248_Workshop
             // 
             this.leftbuff.Dock = System.Windows.Forms.DockStyle.Right;
             this.leftbuff.Location = new System.Drawing.Point(1111, 0);
-            this.leftbuff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.leftbuff.Margin = new System.Windows.Forms.Padding(4);
             this.leftbuff.Name = "leftbuff";
             this.leftbuff.Size = new System.Drawing.Size(39, 166);
             this.leftbuff.TabIndex = 25;
@@ -437,7 +437,7 @@ namespace CMPP248_Workshop
             // 
             this.rightbuff.Dock = System.Windows.Forms.DockStyle.Left;
             this.rightbuff.Location = new System.Drawing.Point(0, 0);
-            this.rightbuff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rightbuff.Margin = new System.Windows.Forms.Padding(4);
             this.rightbuff.Name = "rightbuff";
             this.rightbuff.Size = new System.Drawing.Size(39, 166);
             this.rightbuff.TabIndex = 24;
@@ -647,7 +647,7 @@ namespace CMPP248_Workshop
             this.body.Controls.Add(this.label2);
             this.body.Dock = System.Windows.Forms.DockStyle.Top;
             this.body.Location = new System.Drawing.Point(23, 92);
-            this.body.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.body.Margin = new System.Windows.Forms.Padding(4);
             this.body.Name = "body";
             this.body.Size = new System.Drawing.Size(1154, 666);
             this.body.TabIndex = 21;

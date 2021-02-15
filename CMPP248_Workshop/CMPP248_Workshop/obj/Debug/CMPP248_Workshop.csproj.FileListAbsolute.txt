@@ -20,7 +20,6 @@ C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Work
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\bin\Debug\TravelExpertDatabase.pdb
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\bin\Debug\TravelExpertDatabase.dll.config
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.csprojAssemblyReference.cache
-C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.Form1.resources
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmAddModify.resources
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.Properties.Resources.resources
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.csproj.GenerateResource.cache
@@ -97,3 +96,8 @@ C:\Users\703067\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CM
 C:\Users\703067\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProdAdd.resources
 C:\Users\703067\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProductsModify.resources
 C:\Users\703067\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmSupplierModify.resources
+C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmPackages.resources
+C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProdAdd.resources
+C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProductsModify.resources
+C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmSupplierAdd.resources
+C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmSupplierModify.resources
