@@ -17,7 +17,7 @@ namespace CMPP248_Workshop
         {
             InitializeComponent();
         }
-
+        //Adds new product to database
         private void btnSubmitProd_Click(object sender, EventArgs e)
         {
             if (Validator.IsPresent(prodNameTextBox))
@@ -36,7 +36,7 @@ namespace CMPP248_Workshop
                 MessageBox.Show("New product added");
             }
         }
-
+        //closes add form
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

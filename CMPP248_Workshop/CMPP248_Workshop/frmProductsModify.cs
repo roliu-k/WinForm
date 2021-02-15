@@ -19,7 +19,7 @@ namespace CMPP248_Workshop
         {
             InitializeComponent();
         }
-
+        //submits modified product to database
         private void btnModify_Click(object sender, EventArgs e)
         {
             if (Validator.IsPresent(prodNameTextBox)) {
@@ -39,14 +39,14 @@ namespace CMPP248_Workshop
 
             }
         }
-
+        //closes modify form
             private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
             frmProducts newprod = new frmProducts();
             newprod.Show();
         }
-
+        //loads the current product from the product page
         private void frmProductsModify_Load(object sender, EventArgs e)
         {
             using (travelexpertsDataContext db = new travelexpertsDataContext())

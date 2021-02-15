@@ -17,7 +17,7 @@ namespace CMPP248_Workshop
         {
             InitializeComponent();
         }
-
+        //submits new supplier to database
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (Validator.IsPresent(supplierAddTextBoc))
@@ -37,7 +37,7 @@ namespace CMPP248_Workshop
 
             }
         }
-
+        //closes application
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

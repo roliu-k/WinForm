@@ -18,7 +18,7 @@ namespace CMPP248_Workshop
         {
             InitializeComponent();
         }
-
+        //submits modified supplier to database
         private void btnModify_Click(object sender, EventArgs e)
         {
             if (Validator.IsPresent(supplierNameTextBox)) { 
@@ -37,14 +37,14 @@ namespace CMPP248_Workshop
                 }
             }
     }
-
+        //closes modify page
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
             frmSuppliers newsupp = new frmSuppliers();
             newsupp.Show();
         }
-
+        //loads the current supplier from the supplier page
         private void frmSupplierModify_Load(object sender, EventArgs e)
         {
             using (travelexpertsDataContext db = new travelexpertsDataContext())
