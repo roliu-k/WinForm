@@ -30,24 +30,33 @@ namespace CMPP248_Workshop
         {
             // Get ProductSupplierID from combobox
             int prodSupID = Convert.ToInt32(productSupplierIdTextBox.Text);
+            int packageID = currentPackage.PackageId;
 
-            // Create a PackagesProductSupplier with that ID, and the Package ID from the current package
-            Packages_Products_Supplier newPackProdSup = new Packages_Products_Supplier
+            // if the current product and supplier combination does not exist for the package, add it to the database
+            if (!TravelExpertsQueryManager.ExistPackagesProductsSupplier(packageID, prodSupID))
             {
-                ProductSupplierId = prodSupID,
-                PackageId = currentPackage.PackageId
-            };
+                // Create a PackagesProductSupplier with that ID, and the Package ID from the current package
+                Packages_Products_Supplier newPackProdSup = new Packages_Products_Supplier
+                {
+                    ProductSupplierId = prodSupID,
+                    PackageId = packageID
+                };
 
-            // Add that PackagesProductsSupplier to the db
-            using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
-            {
-                // insert through data context object from the main form
-                dbContext.Packages_Products_Suppliers.InsertOnSubmit(newPackProdSup);
-                dbContext.SubmitChanges(); // submit to the database
+                // Add that PackagesProductsSupplier to the db
+                using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
+                {
+                    // insert through data context object from the main form
+                    dbContext.Packages_Products_Suppliers.InsertOnSubmit(newPackProdSup);
+                    dbContext.SubmitChanges(); // submit to the database
+                }
+
+                // Re-load the datagrid view
+                refreshDataGrid();
             }
-
-            // Re-load the datagrid view
-            refreshDataGrid();
+            else
+            {
+                MessageBox.Show("The selected product and supplier portfolio has already been added to the package. Please try again.", "Input Error");
+            }
         }
 
         //Delete from GridView so it won't add to database
@@ -91,8 +100,6 @@ namespace CMPP248_Workshop
                 prodNameComboBox.DisplayMember = "ProdName";
                 prodNameComboBox.ValueMember = "ProductId";
 
-
-                supNameComboBox.DataSource = db.Suppliers;
                 supNameComboBox.DisplayMember = "SupName";
                 supNameComboBox.ValueMember = "SupplierId";
 
@@ -134,6 +141,7 @@ namespace CMPP248_Workshop
             {
 
                 supNameComboBox.DataSource = TravelExpertsQueryManager.GetSuppliersByProductID(db, Convert.ToInt32(prodNameComboBox.SelectedValue));
+                
 
                 DisplayProdSupId();
             }
