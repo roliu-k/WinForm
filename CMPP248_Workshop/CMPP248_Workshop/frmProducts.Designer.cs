@@ -96,9 +96,10 @@ namespace CMPP248_Workshop
             this.prodNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.prodNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProdName", true));
             this.prodNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prodNameTextBox.Location = new System.Drawing.Point(110, 90);
-            this.prodNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.prodNameTextBox.Location = new System.Drawing.Point(110, 92);
+            this.prodNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.prodNameTextBox.Name = "prodNameTextBox";
+            this.prodNameTextBox.ReadOnly = true;
             this.prodNameTextBox.Size = new System.Drawing.Size(114, 15);
             this.prodNameTextBox.TabIndex = 2;
             // 
@@ -108,8 +109,8 @@ namespace CMPP248_Workshop
             this.productIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productBindingSource, "ProductId", true));
             this.productIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productIdTextBox.Location = new System.Drawing.Point(110, 43);
-            this.productIdTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.productIdTextBox.Location = new System.Drawing.Point(110, 45);
+            this.productIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.productIdTextBox.Name = "productIdTextBox";
             this.productIdTextBox.ReadOnly = true;
             this.productIdTextBox.Size = new System.Drawing.Size(114, 15);
@@ -119,7 +120,7 @@ namespace CMPP248_Workshop
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(378, 181);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(171, 36);
             this.btnClose.TabIndex = 5;
@@ -180,7 +181,7 @@ namespace CMPP248_Workshop
             // 
             this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModify.Location = new System.Drawing.Point(197, 181);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(2);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(171, 36);
             this.btnModify.TabIndex = 28;
@@ -192,7 +193,7 @@ namespace CMPP248_Workshop
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(15, 181);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(171, 36);
             this.btnAdd.TabIndex = 27;
@@ -272,7 +273,7 @@ namespace CMPP248_Workshop
             this.productDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.productDataGridView.EnableHeadersVisualStyles = false;
             this.productDataGridView.Location = new System.Drawing.Point(6, 31);
-            this.productDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.productDataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.productDataGridView.MultiSelect = false;
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.ReadOnly = true;
@@ -332,7 +333,7 @@ namespace CMPP248_Workshop
             this.ClientSize = new System.Drawing.Size(563, 316);
             this.Controls.Add(this.body);
             this.Controls.Add(this.Header);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProducts";
             this.Text = "frmProducts";
             this.Load += new System.EventHandler(this.frmProducts_Load);
