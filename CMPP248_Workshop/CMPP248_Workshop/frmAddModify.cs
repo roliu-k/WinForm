@@ -69,9 +69,6 @@ namespace CMPP248_Workshop
                 EmptyDateTimePicker(pkgEndDateDateTimePicker);
             }
 
-    
-
-
         }
 
         // Checks to ensure valid fields and then updates the current package entry in the database.
@@ -85,10 +82,13 @@ namespace CMPP248_Workshop
                 Validator.IsPresent("Base Price", pkgBasePriceTextBox) &&
                 IsValidEndDate() &&
                 Validator.IsDecimal("Base Price", pkgBasePriceTextBox) &&
-                Validator.IsDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
-                Validator.IsNonNegativeDecimal("Base Price", pkgBasePriceTextBox) &&
-                Validator.IsNonNegativeDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
-                Validator.IsLEBasePrice(pkgBasePriceTextBox, pkgAgencyCommissionTextBox)
+                (pkgAgencyCommissionTextBox.Text == "" ||
+                    (Validator.IsDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
+                    Validator.IsNonNegativeDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
+                    Validator.IsLEBasePrice(pkgBasePriceTextBox, pkgAgencyCommissionTextBox)
+                )) &&
+                Validator.IsNonNegativeDecimal("Base Price", pkgBasePriceTextBox)
+
                 )
             {
                 try
@@ -108,7 +108,19 @@ namespace CMPP248_Workshop
                             packageFromDB.PkgEndDate = tmpEndDate;
                             packageFromDB.PkgDesc = pkgDescTextBox.Text;
                             packageFromDB.PkgBasePrice = Decimal.Parse(pkgBasePriceTextBox.Text, System.Globalization.NumberStyles.Currency);
-                            packageFromDB.PkgAgencyCommission = Decimal.Parse(pkgAgencyCommissionTextBox.Text, System.Globalization.NumberStyles.Currency);
+                            
+                            //AgencyCommission can be null, so we check for that first
+                            if (pkgAgencyCommissionTextBox.Text == "")
+                            {
+                                packageFromDB.PkgAgencyCommission = null;
+                            }
+                            // If not null, we have to parse it out of the formatted textbox
+                            else
+                            {
+                                packageFromDB.PkgAgencyCommission = Decimal.Parse(pkgAgencyCommissionTextBox.Text, System.Globalization.NumberStyles.Currency);
+
+                            }           
+
                             // submit changes 
                             db.SubmitChanges();
                             DialogResult = DialogResult.OK;
