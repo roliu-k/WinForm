@@ -11,6 +11,7 @@ using TravelExpertDatabase;
 
 namespace CMPP248_Workshop
 {
+    //Page created by Chris Eckstadt
     public partial class frmSupplierModify : Form
     {
         public Supplier currentSupplier;
@@ -25,24 +26,26 @@ namespace CMPP248_Workshop
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
                 Supplier supplierfrmDB = db.Suppliers.Single(p => p.SupplierId.ToString() == supplierIdTextBox.Text);
-                    if (supplierfrmDB != null)
+                    List<Supplier> ExistingSupplier = db.Suppliers.Where(q => q.SupName == supplierNameTextBox.Text).ToList();
+                    if (ExistingSupplier.Count >0 && ExistingSupplier[0].SupName != currentSupplier.SupName)
+                    {
+                        MessageBox.Show("Cannor modify Supplier because supplier name already exists");
+                    }else if(supplierNameTextBox.Text != supplierfrmDB.SupName)
                     {
                         supplierfrmDB.SupName = supplierNameTextBox.Text;
                         db.SubmitChanges();
                         DialogResult = DialogResult.OK;
                         MessageBox.Show("Supplier Modified");
-                        frmSuppliers newsupp = new frmSuppliers();
-                        newsupp.Show();
-                    }
-                }
+                      
+
+             }
             }
+        }
     }
         //closes modify page
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmSuppliers newsupp = new frmSuppliers();
-            newsupp.Show();
+            DialogResult = DialogResult.OK;
         }
         //loads the current supplier from the supplier page
         private void frmSupplierModify_Load(object sender, EventArgs e)

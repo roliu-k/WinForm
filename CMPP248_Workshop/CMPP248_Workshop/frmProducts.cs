@@ -12,7 +12,7 @@ using TravelExpertDatabase;
 namespace CMPP248_Workshop
 {
     //This should allow adding/modifying products in the product database.
-
+    //Page created by Chris Eckstadt
     public partial class frmProducts : Form
     {
         Product currentProduct;
@@ -54,8 +54,11 @@ namespace CMPP248_Workshop
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmProdAdd newprod = new frmProdAdd();
-            newprod.Show();
-            this.Close();
+            DialogResult result = newprod.ShowDialog();
+            if (result == DialogResult.OK || result == DialogResult.Retry) // successful update or concurrency exception
+            {
+                RefreshView();
+            }
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -70,7 +73,10 @@ namespace CMPP248_Workshop
 
                 frmprodmodify.currentProduct = currentProduct;
                 DialogResult result = frmprodmodify.ShowDialog();
-                this.Close();
+                if (result == DialogResult.OK || result == DialogResult.Retry) // successful update or concurrency exception
+                {
+                    RefreshView();
+                }
             }
         }
 

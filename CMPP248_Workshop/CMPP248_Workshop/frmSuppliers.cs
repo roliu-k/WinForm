@@ -12,7 +12,7 @@ using TravelExpertDatabase;
 namespace CMPP248_Workshop
 {
     // This should allow adding/modifying Suppliers in the Supplier database.
-
+    //Page created by Chris Eckstadt
     public partial class frmSuppliers : Form
     {
 
@@ -50,8 +50,11 @@ namespace CMPP248_Workshop
         private void btnAdd_Click(object sender, EventArgs e)
         {
             frmSupplierAdd newsupp = new frmSupplierAdd();
-            newsupp.Show();
-            this.Close();
+            DialogResult result = newsupp.ShowDialog();
+            if (result == DialogResult.OK || result == DialogResult.Retry) // successful update or concurrency exception
+            {
+                RefreshView();
+            }
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -66,7 +69,10 @@ namespace CMPP248_Workshop
 
                 frmprodmodify.currentSupplier = currentSupplier;
                 DialogResult result = frmprodmodify.ShowDialog();
-                this.Close();
+                if (result == DialogResult.OK || result == DialogResult.Retry) // successful update or concurrency exception
+                {
+                    RefreshView();
+                }
             }
         }
 

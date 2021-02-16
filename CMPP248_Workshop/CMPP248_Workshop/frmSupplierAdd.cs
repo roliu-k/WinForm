@@ -11,6 +11,7 @@ using TravelExpertDatabase;
 
 namespace CMPP248_Workshop
 {
+    //Page created by Chris Eckstadt
     public partial class frmSupplierAdd : Form
     {
         public frmSupplierAdd()
@@ -22,27 +23,35 @@ namespace CMPP248_Workshop
         {
             if (Validator.IsPresent("Supplier Name", supplierAddTextBoc))
             {
-
+                
                 Supplier newSupplier = new Supplier
                 {
                     SupName = supplierAddTextBoc.Text
                 };
-                using (travelexpertsDataContext db = new travelexpertsDataContext())
-                {
-                    db.Suppliers.InsertOnSubmit(newSupplier);
-                    db.SubmitChanges();
-                }
-                DialogResult = DialogResult.OK;
-                MessageBox.Show("New Supplier added");
 
+                using (travelexpertsDataContext db = new travelexpertsDataContext())
+
+                {
+                    Supplier existingSup = db.Suppliers.SingleOrDefault(s => s.SupName == newSupplier.SupName);
+                    if (existingSup != null)
+                    {
+                        MessageBox.Show("Supplier already exists");//doesnt allow existing suppliers to be added
+                    }
+                    else
+                    {
+                        db.Suppliers.InsertOnSubmit(newSupplier);
+                        db.SubmitChanges();
+                        DialogResult = DialogResult.OK;
+                        MessageBox.Show("New Supplier added");
+                  
+                    }
+                }
             }
         }
         //closes application
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmSuppliers newsup = new frmSuppliers();
-            newsup.Show();
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

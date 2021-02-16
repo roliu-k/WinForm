@@ -11,6 +11,7 @@ using TravelExpertDatabase;
 
 namespace CMPP248_Workshop
 {
+    //Page created by Chris Eckstadt
     public partial class frmProdAdd : Form
     {
         public frmProdAdd()
@@ -22,26 +23,31 @@ namespace CMPP248_Workshop
         {
             if (Validator.IsPresent("Product Name", prodNameTextBox))
             {
-
                 Product newProduct = new Product
                 {
                     ProdName = prodNameTextBox.Text
                 };
                 using (travelexpertsDataContext db = new travelexpertsDataContext())
                 {
-                    db.Products.InsertOnSubmit(newProduct);
-                    db.SubmitChanges();
+                    Product ExistingProduct = db.Products.SingleOrDefault(p => p.ProdName == newProduct.ProdName);
+                    if(ExistingProduct != null)
+                    {
+                        MessageBox.Show("Product Already Exists");
+                    }
+                    else
+                    {
+                        db.Products.InsertOnSubmit(newProduct);
+                        db.SubmitChanges();
+                        DialogResult = DialogResult.OK;
+                        MessageBox.Show("New product added");
+                    }
                 }
-                DialogResult = DialogResult.OK;
-                MessageBox.Show("New product added");
             }
         }
         //closes add form
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmProducts newprod = new frmProducts();
-            newprod.Show();
+            DialogResult = DialogResult.Cancel;
         }
     }
 }
