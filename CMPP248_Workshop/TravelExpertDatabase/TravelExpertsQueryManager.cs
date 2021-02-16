@@ -74,6 +74,13 @@ namespace TravelExpertDatabase
             }
         }
 
+        /// <summary>
+        /// Get the ID for a particular Product_Supplier entry using the corresponding product id and supplier id.
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="ProductID">Int ID for the given product</param>
+        /// <param name="SupplierID">Int ID for a paired supplier to that product.</param>
+        /// <returns>ProductSupplier ID.</returns>
         public static int FindProdSuppID(travelexpertsDataContext db, int ProductID, int SupplierID)
         {
             int ProdSuppID =
@@ -89,6 +96,12 @@ namespace TravelExpertDatabase
             return ProdSuppID;
         }
 
+        /// <summary>
+        /// Get a subset of suppliers with associations to one given product in the ProductSuppliers table.
+        /// </summary>
+        /// <param name="db">DB context</param>
+        /// <param name="productID">Int with ID for given product.</param>
+        /// <returns>List of Supplier objects.</returns>
         public static List<Supplier> GetSuppliersByProductID(travelexpertsDataContext db, int productID)
         {
             List<Supplier> filteredSuppliers = 

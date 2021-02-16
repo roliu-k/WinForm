@@ -84,10 +84,10 @@ namespace CMPP248_Workshop
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(292, 587);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(219, 477);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(341, 44);
+            this.btnAdd.Size = new System.Drawing.Size(256, 36);
             this.btnAdd.TabIndex = 15;
             this.btnAdd.Text = "&Add New Package...";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -96,10 +96,10 @@ namespace CMPP248_Workshop
             // btnModify
             // 
             this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModify.Location = new System.Drawing.Point(805, 587);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnModify.Location = new System.Drawing.Point(604, 477);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(2);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(341, 44);
+            this.btnModify.Size = new System.Drawing.Size(256, 36);
             this.btnModify.TabIndex = 16;
             this.btnModify.Text = "&Modify Selected Package...";
             this.btnModify.UseVisualStyleBackColor = true;
@@ -146,8 +146,8 @@ namespace CMPP248_Workshop
             this.grdPackages.DefaultCellStyle = dataGridViewCellStyle9;
             this.grdPackages.Dock = System.Windows.Forms.DockStyle.Top;
             this.grdPackages.EnableHeadersVisualStyles = false;
-            this.grdPackages.Location = new System.Drawing.Point(0, 29);
-            this.grdPackages.Margin = new System.Windows.Forms.Padding(20, 18, 20, 18);
+            this.grdPackages.Location = new System.Drawing.Point(0, 23);
+            this.grdPackages.Margin = new System.Windows.Forms.Padding(15);
             this.grdPackages.MultiSelect = false;
             this.grdPackages.Name = "grdPackages";
             this.grdPackages.ReadOnly = true;
@@ -162,7 +162,7 @@ namespace CMPP248_Workshop
             this.grdPackages.RowHeadersVisible = false;
             this.grdPackages.RowHeadersWidth = 51;
             this.grdPackages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdPackages.Size = new System.Drawing.Size(1393, 276);
+            this.grdPackages.Size = new System.Drawing.Size(1045, 224);
             this.grdPackages.TabIndex = 20;
             this.grdPackages.TabStop = false;
             this.grdPackages.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPackages_CellClick);
@@ -256,20 +256,18 @@ namespace CMPP248_Workshop
             this.Header.Controls.Add(this.Title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(0, 0);
-            this.Header.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(1439, 92);
+            this.Header.Size = new System.Drawing.Size(1079, 75);
             this.Header.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(451, 63);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(338, 51);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label3.Size = new System.Drawing.Size(472, 26);
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label3.Size = new System.Drawing.Size(389, 21);
             this.label3.TabIndex = 20;
             this.label3.Text = "Select any package to view its product details beneath.";
             // 
@@ -279,10 +277,10 @@ namespace CMPP248_Workshop
             this.Title.Dock = System.Windows.Forms.DockStyle.Top;
             this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.Location = new System.Drawing.Point(0, 0);
-            this.Title.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            this.Title.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.Title.Name = "Title";
-            this.Title.Padding = new System.Windows.Forms.Padding(0, 12, 0, 6);
-            this.Title.Size = new System.Drawing.Size(1439, 63);
+            this.Title.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
+            this.Title.Size = new System.Drawing.Size(1079, 51);
             this.Title.TabIndex = 19;
             this.Title.Text = "Package Manager - View Packages";
             this.Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -293,10 +291,9 @@ namespace CMPP248_Workshop
             this.body.Controls.Add(this.grdPackages);
             this.body.Controls.Add(this.label2);
             this.body.Dock = System.Windows.Forms.DockStyle.Top;
-            this.body.Location = new System.Drawing.Point(23, 92);
-            this.body.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.body.Location = new System.Drawing.Point(17, 75);
             this.body.Name = "body";
-            this.body.Size = new System.Drawing.Size(1393, 464);
+            this.body.Size = new System.Drawing.Size(1045, 377);
             this.body.TabIndex = 20;
             // 
             // pnlSubBody
@@ -307,10 +304,9 @@ namespace CMPP248_Workshop
             this.pnlSubBody.Controls.Add(this.leftbuff);
             this.pnlSubBody.Controls.Add(this.rightbuff);
             this.pnlSubBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSubBody.Location = new System.Drawing.Point(0, 305);
-            this.pnlSubBody.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSubBody.Location = new System.Drawing.Point(0, 247);
             this.pnlSubBody.Name = "pnlSubBody";
-            this.pnlSubBody.Size = new System.Drawing.Size(1393, 159);
+            this.pnlSubBody.Size = new System.Drawing.Size(1045, 130);
             this.pnlSubBody.TabIndex = 24;
             // 
             // dataGridView1
@@ -353,8 +349,8 @@ namespace CMPP248_Workshop
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView1.Enabled = false;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(267, 34);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(200, 28);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -370,7 +366,7 @@ namespace CMPP248_Workshop
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.Size = new System.Drawing.Size(855, 118);
+            this.dataGridView1.Size = new System.Drawing.Size(641, 96);
             this.dataGridView1.TabIndex = 23;
             // 
             // productIdDataGridViewTextBoxColumn
@@ -417,30 +413,27 @@ namespace CMPP248_Workshop
             // 
             this.lblSelectedProdsTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblSelectedProdsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedProdsTitle.Location = new System.Drawing.Point(267, 0);
-            this.lblSelectedProdsTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSelectedProdsTitle.Location = new System.Drawing.Point(200, 0);
             this.lblSelectedProdsTitle.Name = "lblSelectedProdsTitle";
-            this.lblSelectedProdsTitle.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.lblSelectedProdsTitle.Size = new System.Drawing.Size(855, 34);
+            this.lblSelectedProdsTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lblSelectedProdsTitle.Size = new System.Drawing.Size(641, 28);
             this.lblSelectedProdsTitle.TabIndex = 22;
             this.lblSelectedProdsTitle.Text = "Selected Package Products:";
             // 
             // leftbuff
             // 
             this.leftbuff.Dock = System.Windows.Forms.DockStyle.Right;
-            this.leftbuff.Location = new System.Drawing.Point(1122, 0);
-            this.leftbuff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.leftbuff.Location = new System.Drawing.Point(841, 0);
             this.leftbuff.Name = "leftbuff";
-            this.leftbuff.Size = new System.Drawing.Size(267, 155);
+            this.leftbuff.Size = new System.Drawing.Size(200, 126);
             this.leftbuff.TabIndex = 25;
             // 
             // rightbuff
             // 
             this.rightbuff.Dock = System.Windows.Forms.DockStyle.Left;
             this.rightbuff.Location = new System.Drawing.Point(0, 0);
-            this.rightbuff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rightbuff.Name = "rightbuff";
-            this.rightbuff.Size = new System.Drawing.Size(267, 155);
+            this.rightbuff.Size = new System.Drawing.Size(200, 126);
             this.rightbuff.TabIndex = 24;
             // 
             // label2
@@ -449,43 +442,40 @@ namespace CMPP248_Workshop
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 9);
-            this.label2.Size = new System.Drawing.Size(221, 29);
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.label2.Size = new System.Drawing.Size(180, 23);
             this.label2.TabIndex = 21;
             this.label2.Text = "Current Package Details:";
             // 
             // mainRightBuff
             // 
             this.mainRightBuff.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mainRightBuff.Location = new System.Drawing.Point(1416, 92);
-            this.mainRightBuff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainRightBuff.Location = new System.Drawing.Point(1062, 75);
             this.mainRightBuff.Name = "mainRightBuff";
-            this.mainRightBuff.Size = new System.Drawing.Size(23, 576);
+            this.mainRightBuff.Size = new System.Drawing.Size(17, 468);
             this.mainRightBuff.TabIndex = 26;
             // 
             // mainLeftBuff
             // 
             this.mainLeftBuff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.mainLeftBuff.Location = new System.Drawing.Point(0, 92);
-            this.mainLeftBuff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mainLeftBuff.Location = new System.Drawing.Point(0, 75);
             this.mainLeftBuff.Name = "mainLeftBuff";
-            this.mainLeftBuff.Size = new System.Drawing.Size(23, 576);
+            this.mainLeftBuff.Size = new System.Drawing.Size(17, 468);
             this.mainLeftBuff.TabIndex = 27;
             // 
             // frmPackages
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1439, 668);
+            this.ClientSize = new System.Drawing.Size(1079, 543);
             this.Controls.Add(this.body);
             this.Controls.Add(this.mainLeftBuff);
             this.Controls.Add(this.mainRightBuff);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnModify);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmPackages";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Package Manager - View Packages";

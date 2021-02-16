@@ -141,7 +141,7 @@ namespace CMPP248_Workshop
             // 
             this.btnManageProds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageProds.Location = new System.Drawing.Point(69, 658);
-            this.btnManageProds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnManageProds.Margin = new System.Windows.Forms.Padding(2);
             this.btnManageProds.Name = "btnManageProds";
             this.btnManageProds.Size = new System.Drawing.Size(230, 38);
             this.btnManageProds.TabIndex = 7;
@@ -153,7 +153,7 @@ namespace CMPP248_Workshop
             // 
             this.btnManageSupps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnManageSupps.Location = new System.Drawing.Point(349, 658);
-            this.btnManageSupps.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnManageSupps.Margin = new System.Windows.Forms.Padding(2);
             this.btnManageSupps.Name = "btnManageSupps";
             this.btnManageSupps.Size = new System.Drawing.Size(230, 38);
             this.btnManageSupps.TabIndex = 8;
@@ -165,7 +165,7 @@ namespace CMPP248_Workshop
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(636, 658);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(189, 38);
             this.btnClose.TabIndex = 10;
@@ -282,7 +282,7 @@ namespace CMPP248_Workshop
             this.grdProductSuppliers.Dock = System.Windows.Forms.DockStyle.Top;
             this.grdProductSuppliers.EnableHeadersVisualStyles = false;
             this.grdProductSuppliers.Location = new System.Drawing.Point(0, 23);
-            this.grdProductSuppliers.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
+            this.grdProductSuppliers.Margin = new System.Windows.Forms.Padding(15);
             this.grdProductSuppliers.MultiSelect = false;
             this.grdProductSuppliers.Name = "grdProductSuppliers";
             this.grdProductSuppliers.ReadOnly = true;
@@ -387,7 +387,7 @@ namespace CMPP248_Workshop
             // 
             this.btnAddProdSupp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProdSupp.Location = new System.Drawing.Point(617, 30);
-            this.btnAddProdSupp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddProdSupp.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddProdSupp.Name = "btnAddProdSupp";
             this.btnAddProdSupp.Size = new System.Drawing.Size(189, 38);
             this.btnAddProdSupp.TabIndex = 31;
@@ -399,7 +399,7 @@ namespace CMPP248_Workshop
             // 
             this.btnModifyProdSupp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModifyProdSupp.Location = new System.Drawing.Point(617, 78);
-            this.btnModifyProdSupp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModifyProdSupp.Margin = new System.Windows.Forms.Padding(2);
             this.btnModifyProdSupp.Name = "btnModifyProdSupp";
             this.btnModifyProdSupp.Size = new System.Drawing.Size(189, 38);
             this.btnModifyProdSupp.TabIndex = 30;
@@ -443,7 +443,7 @@ namespace CMPP248_Workshop
             this.productIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productIdComboBox.FormattingEnabled = true;
             this.productIdComboBox.Location = new System.Drawing.Point(181, 34);
-            this.productIdComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.productIdComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.productIdComboBox.Name = "productIdComboBox";
             this.productIdComboBox.Size = new System.Drawing.Size(241, 24);
             this.productIdComboBox.TabIndex = 2;
@@ -456,7 +456,7 @@ namespace CMPP248_Workshop
             this.productSupplierIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productSupplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductSupplierId", true));
             this.productSupplierIdTextBox.Location = new System.Drawing.Point(34, 15);
-            this.productSupplierIdTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.productSupplierIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.productSupplierIdTextBox.Name = "productSupplierIdTextBox";
             this.productSupplierIdTextBox.Size = new System.Drawing.Size(118, 13);
             this.productSupplierIdTextBox.TabIndex = 4;
@@ -470,7 +470,7 @@ namespace CMPP248_Workshop
             this.supplierIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplierIdComboBox.FormattingEnabled = true;
             this.supplierIdComboBox.Location = new System.Drawing.Point(181, 96);
-            this.supplierIdComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.supplierIdComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.supplierIdComboBox.Name = "supplierIdComboBox";
             this.supplierIdComboBox.Size = new System.Drawing.Size(241, 24);
             this.supplierIdComboBox.TabIndex = 6;
@@ -520,7 +520,7 @@ namespace CMPP248_Workshop
             this.grdPackagesforProdSupp.Dock = System.Windows.Forms.DockStyle.Top;
             this.grdPackagesforProdSupp.EnableHeadersVisualStyles = false;
             this.grdPackagesforProdSupp.Location = new System.Drawing.Point(0, 313);
-            this.grdPackagesforProdSupp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grdPackagesforProdSupp.Margin = new System.Windows.Forms.Padding(2);
             this.grdPackagesforProdSupp.MultiSelect = false;
             this.grdPackagesforProdSupp.Name = "grdPackagesforProdSupp";
             this.grdPackagesforProdSupp.ReadOnly = true;
@@ -673,7 +673,7 @@ namespace CMPP248_Workshop
             this.Controls.Add(this.btnManageSupps);
             this.Controls.Add(this.btnManageProds);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProdSupplierAddEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Products";

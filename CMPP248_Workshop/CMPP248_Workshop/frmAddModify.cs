@@ -19,6 +19,7 @@ namespace CMPP248_Workshop
         public bool isAdd;
         public Package currentPackage;
         private DateTime? tmpDate;
+        public bool didAddProducts = false;
 
         public frmAddModify()
         {
@@ -57,7 +58,7 @@ namespace CMPP248_Workshop
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (isAdd)
+            if (false)
             {//add validation at some point
                 if (Validator.IsPresent("Name", pkgNameTextBox) &&
                     Validator.IsPresent("Description", pkgDescTextBox) &&
@@ -95,12 +96,12 @@ namespace CMPP248_Workshop
 
                 // TODO: ADD VALIDATION
 
-                try
-                {
+                //try
+                //{
                     using (travelexpertsDataContext db = new travelexpertsDataContext())
                     {
                         // get the product with Code from the current text box
-                        Package packageFromDB = db.Packages.Single(p => p.PackageId.ToString() == packageIdTextBox.Text);
+                        Package packageFromDB = db.Packages.Single(p => p.PackageId == currentPackage.PackageId);  //NOTE: Had to switch this to get it to work
 
                         //MessageBox.Show("Testing concurrency: update or delete current record from SSMS and click OK");
 
@@ -118,11 +119,11 @@ namespace CMPP248_Workshop
                             DialogResult = DialogResult.OK;
                         }
                     }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                }
+                //}
+                //catch(Exception ex)
+                //{
+                //    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                //}
             }
             
         }
@@ -236,6 +237,24 @@ namespace CMPP248_Workshop
         // Go back to last page
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            // If in Add mode, we had to insert into the database already. So, if cancelling, we delete this.
+            if (isAdd)
+            {
+                using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
+                {
+
+
+
+                    // Delete package
+                    Package packToDelete = dbContext.Packages
+                        .Single(p => p.PackageId == currentPackage.PackageId);
+
+                    dbContext.Packages.DeleteOnSubmit(packToDelete);
+                    dbContext.SubmitChanges(); // submit to the database
+
+                }
+            }
+
             DialogResult = DialogResult.Cancel;
         }
     }
