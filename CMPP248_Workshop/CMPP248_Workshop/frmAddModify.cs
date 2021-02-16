@@ -274,6 +274,24 @@ namespace CMPP248_Workshop
         // Go back to last page
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            // If in Add mode, we had to insert into the database already. So, if cancelling, we delete this.
+            if (isAdd)
+            {
+                using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
+                {
+
+
+
+                    // Delete package
+                    Package packToDelete = dbContext.Packages
+                        .Single(p => p.PackageId == currentPackage.PackageId);
+
+                    dbContext.Packages.DeleteOnSubmit(packToDelete);
+                    dbContext.SubmitChanges(); // submit to the database
+
+                }
+            }
+
             DialogResult = DialogResult.Cancel;
         }
     }

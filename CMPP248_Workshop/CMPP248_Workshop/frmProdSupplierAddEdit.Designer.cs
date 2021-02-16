@@ -87,6 +87,7 @@ namespace CMPP248_Workshop
             this.lblAssociatesPackages = new System.Windows.Forms.Label();
             this.body = new System.Windows.Forms.Panel();
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             supplierIdLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
@@ -106,9 +107,10 @@ namespace CMPP248_Workshop
             // 
             supplierIdLabel.AutoSize = true;
             supplierIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            supplierIdLabel.Location = new System.Drawing.Point(107, 127);
+            supplierIdLabel.Location = new System.Drawing.Point(80, 97);
+            supplierIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             supplierIdLabel.Name = "supplierIdLabel";
-            supplierIdLabel.Size = new System.Drawing.Size(124, 20);
+            supplierIdLabel.Size = new System.Drawing.Size(101, 16);
             supplierIdLabel.TabIndex = 5;
             supplierIdLabel.Text = "Supplier Name:";
             // 
@@ -116,9 +118,10 @@ namespace CMPP248_Workshop
             // 
             productIdLabel.AutoSize = true;
             productIdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            productIdLabel.Location = new System.Drawing.Point(107, 50);
+            productIdLabel.Location = new System.Drawing.Point(80, 35);
+            productIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             productIdLabel.Name = "productIdLabel";
-            productIdLabel.Size = new System.Drawing.Size(113, 20);
+            productIdLabel.Size = new System.Drawing.Size(92, 16);
             productIdLabel.TabIndex = 1;
             productIdLabel.Text = "Product Type:";
             // 
@@ -137,10 +140,10 @@ namespace CMPP248_Workshop
             // btnManageProds
             // 
             this.btnManageProds.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageProds.Location = new System.Drawing.Point(92, 795);
-            this.btnManageProds.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnManageProds.Location = new System.Drawing.Point(69, 658);
+            this.btnManageProds.Margin = new System.Windows.Forms.Padding(2);
             this.btnManageProds.Name = "btnManageProds";
-            this.btnManageProds.Size = new System.Drawing.Size(307, 47);
+            this.btnManageProds.Size = new System.Drawing.Size(230, 38);
             this.btnManageProds.TabIndex = 7;
             this.btnManageProds.Text = "Manage Products...";
             this.btnManageProds.UseVisualStyleBackColor = true;
@@ -149,10 +152,10 @@ namespace CMPP248_Workshop
             // btnManageSupps
             // 
             this.btnManageSupps.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageSupps.Location = new System.Drawing.Point(465, 795);
-            this.btnManageSupps.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnManageSupps.Location = new System.Drawing.Point(349, 658);
+            this.btnManageSupps.Margin = new System.Windows.Forms.Padding(2);
             this.btnManageSupps.Name = "btnManageSupps";
-            this.btnManageSupps.Size = new System.Drawing.Size(307, 47);
+            this.btnManageSupps.Size = new System.Drawing.Size(230, 38);
             this.btnManageSupps.TabIndex = 8;
             this.btnManageSupps.Text = "Manage Suppliers...";
             this.btnManageSupps.UseVisualStyleBackColor = true;
@@ -161,10 +164,10 @@ namespace CMPP248_Workshop
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(848, 795);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Location = new System.Drawing.Point(636, 658);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(252, 47);
+            this.btnClose.Size = new System.Drawing.Size(189, 38);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -181,20 +184,19 @@ namespace CMPP248_Workshop
             this.Header.Controls.Add(this.Title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(0, 0);
-            this.Header.Margin = new System.Windows.Forms.Padding(4);
+            this.Header.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(1200, 92);
+            this.Header.Size = new System.Drawing.Size(900, 75);
             this.Header.TabIndex = 22;
             // 
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(0, 63);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(0, 51);
             this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label3.Size = new System.Drawing.Size(1200, 26);
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label3.Size = new System.Drawing.Size(900, 21);
             this.label3.TabIndex = 20;
             this.label3.Text = "Each row represents a product provided by a particular supplier.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -205,10 +207,10 @@ namespace CMPP248_Workshop
             this.Title.Dock = System.Windows.Forms.DockStyle.Top;
             this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Title.Location = new System.Drawing.Point(0, 0);
-            this.Title.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            this.Title.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.Title.Name = "Title";
-            this.Title.Padding = new System.Windows.Forms.Padding(0, 12, 0, 6);
-            this.Title.Size = new System.Drawing.Size(1200, 63);
+            this.Title.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
+            this.Title.Size = new System.Drawing.Size(900, 51);
             this.Title.TabIndex = 19;
             this.Title.Text = "Product Manager - View Products";
             this.Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -216,19 +218,17 @@ namespace CMPP248_Workshop
             // mainLeftBuff
             // 
             this.mainLeftBuff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.mainLeftBuff.Location = new System.Drawing.Point(0, 92);
-            this.mainLeftBuff.Margin = new System.Windows.Forms.Padding(4);
+            this.mainLeftBuff.Location = new System.Drawing.Point(0, 75);
             this.mainLeftBuff.Name = "mainLeftBuff";
-            this.mainLeftBuff.Size = new System.Drawing.Size(23, 792);
+            this.mainLeftBuff.Size = new System.Drawing.Size(17, 643);
             this.mainLeftBuff.TabIndex = 28;
             // 
             // mainRightBuff
             // 
             this.mainRightBuff.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mainRightBuff.Location = new System.Drawing.Point(1177, 92);
-            this.mainRightBuff.Margin = new System.Windows.Forms.Padding(4);
+            this.mainRightBuff.Location = new System.Drawing.Point(883, 75);
             this.mainRightBuff.Name = "mainRightBuff";
-            this.mainRightBuff.Size = new System.Drawing.Size(23, 792);
+            this.mainRightBuff.Size = new System.Drawing.Size(17, 643);
             this.mainRightBuff.TabIndex = 29;
             // 
             // label2
@@ -237,10 +237,9 @@ namespace CMPP248_Workshop
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 9);
-            this.label2.Size = new System.Drawing.Size(159, 29);
+            this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.label2.Size = new System.Drawing.Size(126, 23);
             this.label2.TabIndex = 21;
             this.label2.Text = "Current Products:";
             // 
@@ -283,8 +282,8 @@ namespace CMPP248_Workshop
             this.grdProductSuppliers.DefaultCellStyle = dataGridViewCellStyle3;
             this.grdProductSuppliers.Dock = System.Windows.Forms.DockStyle.Top;
             this.grdProductSuppliers.EnableHeadersVisualStyles = false;
-            this.grdProductSuppliers.Location = new System.Drawing.Point(0, 29);
-            this.grdProductSuppliers.Margin = new System.Windows.Forms.Padding(20, 18, 20, 18);
+            this.grdProductSuppliers.Location = new System.Drawing.Point(0, 23);
+            this.grdProductSuppliers.Margin = new System.Windows.Forms.Padding(15);
             this.grdProductSuppliers.MultiSelect = false;
             this.grdProductSuppliers.Name = "grdProductSuppliers";
             this.grdProductSuppliers.ReadOnly = true;
@@ -299,7 +298,7 @@ namespace CMPP248_Workshop
             this.grdProductSuppliers.RowHeadersVisible = false;
             this.grdProductSuppliers.RowHeadersWidth = 51;
             this.grdProductSuppliers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdProductSuppliers.Size = new System.Drawing.Size(1154, 322);
+            this.grdProductSuppliers.Size = new System.Drawing.Size(866, 262);
             this.grdProductSuppliers.TabIndex = 20;
             this.grdProductSuppliers.TabStop = false;
             this.grdProductSuppliers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProductSuppliers_CellClick);
@@ -366,10 +365,9 @@ namespace CMPP248_Workshop
             this.pnlSubBody.Controls.Add(supplierIdLabel);
             this.pnlSubBody.Controls.Add(this.supplierIdComboBox);
             this.pnlSubBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSubBody.Location = new System.Drawing.Point(0, 496);
-            this.pnlSubBody.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlSubBody.Location = new System.Drawing.Point(0, 403);
             this.pnlSubBody.Name = "pnlSubBody";
-            this.pnlSubBody.Size = new System.Drawing.Size(1154, 170);
+            this.pnlSubBody.Size = new System.Drawing.Size(866, 138);
             this.pnlSubBody.TabIndex = 24;
             // 
             // checkBoxFilterSuppliers
@@ -378,10 +376,9 @@ namespace CMPP248_Workshop
             this.checkBoxFilterSuppliers.Checked = true;
             this.checkBoxFilterSuppliers.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxFilterSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxFilterSuppliers.Location = new System.Drawing.Point(111, 89);
-            this.checkBoxFilterSuppliers.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxFilterSuppliers.Location = new System.Drawing.Point(83, 66);
             this.checkBoxFilterSuppliers.Name = "checkBoxFilterSuppliers";
-            this.checkBoxFilterSuppliers.Size = new System.Drawing.Size(461, 22);
+            this.checkBoxFilterSuppliers.Size = new System.Drawing.Size(378, 19);
             this.checkBoxFilterSuppliers.TabIndex = 32;
             this.checkBoxFilterSuppliers.Text = "Only show suppliers who currently offer the selected product type.";
             this.checkBoxFilterSuppliers.UseVisualStyleBackColor = true;
@@ -390,10 +387,10 @@ namespace CMPP248_Workshop
             // btnAddProdSupp
             // 
             this.btnAddProdSupp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProdSupp.Location = new System.Drawing.Point(823, 37);
-            this.btnAddProdSupp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddProdSupp.Location = new System.Drawing.Point(617, 30);
+            this.btnAddProdSupp.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddProdSupp.Name = "btnAddProdSupp";
-            this.btnAddProdSupp.Size = new System.Drawing.Size(252, 47);
+            this.btnAddProdSupp.Size = new System.Drawing.Size(189, 38);
             this.btnAddProdSupp.TabIndex = 31;
             this.btnAddProdSupp.Text = "&Add New";
             this.btnAddProdSupp.UseVisualStyleBackColor = true;
@@ -402,10 +399,10 @@ namespace CMPP248_Workshop
             // btnModifyProdSupp
             // 
             this.btnModifyProdSupp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifyProdSupp.Location = new System.Drawing.Point(823, 96);
-            this.btnModifyProdSupp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnModifyProdSupp.Location = new System.Drawing.Point(617, 78);
+            this.btnModifyProdSupp.Margin = new System.Windows.Forms.Padding(2);
             this.btnModifyProdSupp.Name = "btnModifyProdSupp";
-            this.btnModifyProdSupp.Size = new System.Drawing.Size(252, 47);
+            this.btnModifyProdSupp.Size = new System.Drawing.Size(189, 38);
             this.btnModifyProdSupp.TabIndex = 30;
             this.btnModifyProdSupp.Text = "&Save";
             this.btnModifyProdSupp.UseVisualStyleBackColor = true;
@@ -415,31 +412,28 @@ namespace CMPP248_Workshop
             // 
             this.lblSelectedProdsTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblSelectedProdsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedProdsTitle.Location = new System.Drawing.Point(39, 0);
-            this.lblSelectedProdsTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSelectedProdsTitle.Location = new System.Drawing.Point(29, 0);
             this.lblSelectedProdsTitle.Name = "lblSelectedProdsTitle";
-            this.lblSelectedProdsTitle.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.lblSelectedProdsTitle.Size = new System.Drawing.Size(1072, 34);
+            this.lblSelectedProdsTitle.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.lblSelectedProdsTitle.Size = new System.Drawing.Size(804, 28);
             this.lblSelectedProdsTitle.TabIndex = 26;
-            this.lblSelectedProdsTitle.Text = "Selected Product:";
+            this.lblSelectedProdsTitle.Text = "Manage Selected Product:";
             this.lblSelectedProdsTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // leftbuff
             // 
             this.leftbuff.Dock = System.Windows.Forms.DockStyle.Right;
-            this.leftbuff.Location = new System.Drawing.Point(1111, 0);
-            this.leftbuff.Margin = new System.Windows.Forms.Padding(4);
+            this.leftbuff.Location = new System.Drawing.Point(833, 0);
             this.leftbuff.Name = "leftbuff";
-            this.leftbuff.Size = new System.Drawing.Size(39, 166);
+            this.leftbuff.Size = new System.Drawing.Size(29, 134);
             this.leftbuff.TabIndex = 25;
             // 
             // rightbuff
             // 
             this.rightbuff.Dock = System.Windows.Forms.DockStyle.Left;
             this.rightbuff.Location = new System.Drawing.Point(0, 0);
-            this.rightbuff.Margin = new System.Windows.Forms.Padding(4);
             this.rightbuff.Name = "rightbuff";
-            this.rightbuff.Size = new System.Drawing.Size(39, 166);
+            this.rightbuff.Size = new System.Drawing.Size(29, 134);
             this.rightbuff.TabIndex = 24;
             // 
             // productIdComboBox
@@ -449,10 +443,10 @@ namespace CMPP248_Workshop
             this.productIdComboBox.DisplayMember = "ProdName";
             this.productIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productIdComboBox.FormattingEnabled = true;
-            this.productIdComboBox.Location = new System.Drawing.Point(241, 49);
-            this.productIdComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.productIdComboBox.Location = new System.Drawing.Point(181, 34);
+            this.productIdComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.productIdComboBox.Name = "productIdComboBox";
-            this.productIdComboBox.Size = new System.Drawing.Size(320, 28);
+            this.productIdComboBox.Size = new System.Drawing.Size(241, 24);
             this.productIdComboBox.TabIndex = 2;
             this.productIdComboBox.ValueMember = "ProductId";
             this.productIdComboBox.SelectedIndexChanged += new System.EventHandler(this.productIdComboBox_SelectedIndexChanged);
@@ -462,10 +456,10 @@ namespace CMPP248_Workshop
             this.productSupplierIdTextBox.BackColor = System.Drawing.SystemColors.Control;
             this.productSupplierIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.productSupplierIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.products_SupplierBindingSource, "ProductSupplierId", true));
-            this.productSupplierIdTextBox.Location = new System.Drawing.Point(45, 18);
-            this.productSupplierIdTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.productSupplierIdTextBox.Location = new System.Drawing.Point(34, 15);
+            this.productSupplierIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.productSupplierIdTextBox.Name = "productSupplierIdTextBox";
-            this.productSupplierIdTextBox.Size = new System.Drawing.Size(157, 15);
+            this.productSupplierIdTextBox.Size = new System.Drawing.Size(118, 13);
             this.productSupplierIdTextBox.TabIndex = 4;
             this.productSupplierIdTextBox.Visible = false;
             // 
@@ -476,10 +470,10 @@ namespace CMPP248_Workshop
             this.supplierIdComboBox.DisplayMember = "SupName";
             this.supplierIdComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplierIdComboBox.FormattingEnabled = true;
-            this.supplierIdComboBox.Location = new System.Drawing.Point(241, 126);
-            this.supplierIdComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.supplierIdComboBox.Location = new System.Drawing.Point(181, 96);
+            this.supplierIdComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.supplierIdComboBox.Name = "supplierIdComboBox";
-            this.supplierIdComboBox.Size = new System.Drawing.Size(320, 28);
+            this.supplierIdComboBox.Size = new System.Drawing.Size(241, 24);
             this.supplierIdComboBox.TabIndex = 6;
             this.supplierIdComboBox.ValueMember = "SupplierId";
             // 
@@ -526,8 +520,8 @@ namespace CMPP248_Workshop
             this.grdPackagesforProdSupp.DefaultCellStyle = dataGridViewCellStyle12;
             this.grdPackagesforProdSupp.Dock = System.Windows.Forms.DockStyle.Top;
             this.grdPackagesforProdSupp.EnableHeadersVisualStyles = false;
-            this.grdPackagesforProdSupp.Location = new System.Drawing.Point(0, 385);
-            this.grdPackagesforProdSupp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grdPackagesforProdSupp.Location = new System.Drawing.Point(0, 313);
+            this.grdPackagesforProdSupp.Margin = new System.Windows.Forms.Padding(2);
             this.grdPackagesforProdSupp.MultiSelect = false;
             this.grdPackagesforProdSupp.Name = "grdPackagesforProdSupp";
             this.grdPackagesforProdSupp.ReadOnly = true;
@@ -545,7 +539,7 @@ namespace CMPP248_Workshop
             this.grdPackagesforProdSupp.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.grdPackagesforProdSupp.RowTemplate.Height = 24;
             this.grdPackagesforProdSupp.ShowEditingIcon = false;
-            this.grdPackagesforProdSupp.Size = new System.Drawing.Size(1154, 111);
+            this.grdPackagesforProdSupp.Size = new System.Drawing.Size(866, 90);
             this.grdPackagesforProdSupp.TabIndex = 27;
             // 
             // packageIdDataGridViewTextBoxColumn
@@ -629,11 +623,10 @@ namespace CMPP248_Workshop
             // 
             this.lblAssociatesPackages.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblAssociatesPackages.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAssociatesPackages.Location = new System.Drawing.Point(0, 351);
-            this.lblAssociatesPackages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAssociatesPackages.Location = new System.Drawing.Point(0, 285);
             this.lblAssociatesPackages.Name = "lblAssociatesPackages";
-            this.lblAssociatesPackages.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.lblAssociatesPackages.Size = new System.Drawing.Size(1154, 34);
+            this.lblAssociatesPackages.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lblAssociatesPackages.Size = new System.Drawing.Size(866, 28);
             this.lblAssociatesPackages.TabIndex = 28;
             this.lblAssociatesPackages.Text = "Associated Packages:";
             this.lblAssociatesPackages.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -646,21 +639,33 @@ namespace CMPP248_Workshop
             this.body.Controls.Add(this.grdProductSuppliers);
             this.body.Controls.Add(this.label2);
             this.body.Dock = System.Windows.Forms.DockStyle.Top;
-            this.body.Location = new System.Drawing.Point(23, 92);
-            this.body.Margin = new System.Windows.Forms.Padding(4);
+            this.body.Location = new System.Drawing.Point(17, 75);
             this.body.Name = "body";
-            this.body.Size = new System.Drawing.Size(1154, 666);
+            this.body.Size = new System.Drawing.Size(866, 541);
             this.body.TabIndex = 21;
             // 
             // productBindingSource1
             // 
             this.productBindingSource1.DataSource = typeof(TravelExpertDatabase.Product);
             // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 616);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label1.Size = new System.Drawing.Size(866, 28);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Other Actions:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // frmProdSupplierAddEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 884);
+            this.ClientSize = new System.Drawing.Size(900, 718);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.body);
             this.Controls.Add(this.mainRightBuff);
             this.Controls.Add(this.mainLeftBuff);
@@ -668,9 +673,11 @@ namespace CMPP248_Workshop
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnManageSupps);
             this.Controls.Add(this.btnManageProds);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProdSupplierAddEdit";
-            this.Text = "frmProdSupplierAddEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "View Products";
             this.Load += new System.EventHandler(this.frmProdSupplierAddEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
@@ -734,5 +741,6 @@ namespace CMPP248_Workshop
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
         private System.Windows.Forms.CheckBox checkBoxFilterSuppliers;
+        private System.Windows.Forms.Label label1;
     }
 }

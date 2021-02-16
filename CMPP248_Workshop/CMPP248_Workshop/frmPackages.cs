@@ -48,7 +48,32 @@ namespace CMPP248_Workshop
         {
             frmAddModify secondForm = new frmAddModify();
             secondForm.isAdd = true;
-            secondForm.currentPackage = null; // no current product when inserting
+
+            //
+            //
+            // Because we give the user the option to add products to the new package before saving it,
+            // We need to do a preliminary insert into the database in order to get a valid PackageID
+            // for the PackageProductsSuppliers table.
+            // We don't use the current highest PackageID + 1, in order to avoid concurrency issues.
+            Package newPackage = new Package
+            {
+                PkgName = "DEFAULT",
+                PkgStartDate = DateTime.Now,
+                PkgEndDate = DateTime.Now,
+                PkgDesc = "DEFAULT",
+                PkgBasePrice = 0,
+                PkgAgencyCommission = 0
+            };
+            // submit changes to database
+            using (travelexpertsDataContext db = new travelexpertsDataContext())
+            {
+                db.Packages.InsertOnSubmit(newPackage); // insert the new package through data context object
+                db.SubmitChanges(); //submit to database
+            }
+            secondForm.currentPackage = newPackage; // Now that the newpackage has been added to the database, the Object has an Id (magic!)
+            //
+            //
+
             DialogResult result = secondForm.ShowDialog(); // display second form modal
             if (result == DialogResult.OK) // new row got inserted
             {
