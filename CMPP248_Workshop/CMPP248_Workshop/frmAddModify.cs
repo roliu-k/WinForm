@@ -16,10 +16,13 @@ namespace CMPP248_Workshop
     public partial class frmAddModify : Form
     {
         // Class-level variables
-        public bool isAdd;
-        public Package currentPackage;
-        private DateTime? tmpStartDate;
-        private DateTime? tmpEndDate;
+        public bool isAdd; // Mode for the form (add or modify)
+        public Package currentPackage; // Package being modified, passed by parent form
+        List<Packages_Products_Supplier> ppsSnapshot = null; // snapshot of associated lines in Packages_Products_Suppliers
+                                                             // in case they are modified, then the user cancels
+        public bool didAddProducts = false; // toggle to see if products have been added (causing differences from the ppsSnapshot)
+        private DateTime? tmpStartDate; // temp variable for startdate input
+        private DateTime? tmpEndDate; // temp vairable for endate input
 
         public frmAddModify()
         {
@@ -43,6 +46,9 @@ namespace CMPP248_Workshop
                     dataGridView1.DataSource = TravelExpertsQueryManager.FindProdInfoByPackage(db, currentPackage.PackageId);
                 }
 
+                // Set up a snapshot of current associated package_product_suppliers entries
+                ppsSnapshot = TravelExpertsQueryManager.GetPackagesProductsSuppliersByPackageID(currentPackage.PackageId);
+
                 // handle nullable datetime
                 if (currentPackage.PkgStartDate == null)
                     EmptyDateTimePicker(pkgStartDateDateTimePicker);
@@ -63,87 +69,55 @@ namespace CMPP248_Workshop
                 EmptyDateTimePicker(pkgEndDateDateTimePicker);
             }
 
+    
+
 
         }
 
+        // Checks to ensure valid fields and then updates the current package entry in the database.
+        // Note: we insert a new Package with default properties when entering this form in add mode.
+        // As such, the save button functions the same in either mode. See Load and Cancel code for differences.
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (isAdd)
-            {//add validation at some point
-                if (Validator.IsPresent("Name", pkgNameTextBox) &&
-                    Validator.IsPresent("Description", pkgDescTextBox) &&
-                    Validator.IsPresent("Base Price", pkgBasePriceTextBox) &&
-                    IsValidEndDate() &&
-                    Validator.IsDecimal("Base Price", pkgBasePriceTextBox) &&
-                    Validator.IsDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
-                    Validator.IsNonNegativeDecimal("Base Price", pkgBasePriceTextBox) &&
-                    Validator.IsNonNegativeDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
-                    Validator.IsLEBasePrice(pkgBasePriceTextBox, pkgAgencyCommissionTextBox) 
-                    )
+            // VALIDATION
+            if (Validator.IsPresent("Name", pkgNameTextBox) &&
+                Validator.IsPresent("Description", pkgDescTextBox) &&
+                Validator.IsPresent("Base Price", pkgBasePriceTextBox) &&
+                IsValidEndDate() &&
+                Validator.IsDecimal("Base Price", pkgBasePriceTextBox) &&
+                Validator.IsDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
+                Validator.IsNonNegativeDecimal("Base Price", pkgBasePriceTextBox) &&
+                Validator.IsNonNegativeDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
+                Validator.IsLEBasePrice(pkgBasePriceTextBox, pkgAgencyCommissionTextBox)
+                )
+            {
+                try
                 {
-                    Package newPackage = new Package //create new package using the text box values
-                    {
-                        PkgName = pkgNameTextBox.Text,
-                        PkgStartDate = tmpStartDate,
-                        PkgEndDate = tmpEndDate,
-                        PkgDesc = pkgDescTextBox.Text,
-                        PkgBasePrice = Convert.ToDecimal(pkgBasePriceTextBox.Text),
-                        PkgAgencyCommission = Convert.ToDecimal(pkgAgencyCommissionTextBox.Text)
-                    };
-
-                    // submit changes to database
                     using (travelexpertsDataContext db = new travelexpertsDataContext())
                     {
-                        db.Packages.InsertOnSubmit(newPackage); // insert the new package through data context object
-                        db.SubmitChanges(); //submit to database
-                    }
-                    DialogResult = DialogResult.OK;
+                        // get the product with Code from the current text box
+                        Package packageFromDB = db.Packages.Single(p => p.PackageId.ToString() == packageIdTextBox.Text);
 
-                }
-            }
-            else // modify code
-            {
+                        //MessageBox.Show("Testing concurrency: update or delete current record from SSMS and click OK");
 
-                // VALIDATION
-                if (Validator.IsPresent("Name", pkgNameTextBox) &&
-                    Validator.IsPresent("Description", pkgDescTextBox) &&
-                    Validator.IsPresent("Base Price", pkgBasePriceTextBox) &&
-                    IsValidEndDate() &&
-                    Validator.IsDecimal("Base Price", pkgBasePriceTextBox) &&
-                    Validator.IsDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
-                    Validator.IsNonNegativeDecimal("Base Price", pkgBasePriceTextBox) &&
-                    Validator.IsNonNegativeDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
-                    Validator.IsLEBasePrice(pkgBasePriceTextBox, pkgAgencyCommissionTextBox)
-                    )
-                {
-                    try
-                    {
-                        using (travelexpertsDataContext db = new travelexpertsDataContext())
+                        if (packageFromDB != null)
                         {
-                            // get the product with Code from the current text box
-                            Package packageFromDB = db.Packages.Single(p => p.PackageId.ToString() == packageIdTextBox.Text);
-
-                            //MessageBox.Show("Testing concurrency: update or delete current record from SSMS and click OK");
-
-                            if (packageFromDB != null)
-                            {
-                                // make changes by copying values from text boxes
-                                packageFromDB.PkgName = pkgNameTextBox.Text;
-                                packageFromDB.PkgStartDate = tmpStartDate;
-                                packageFromDB.PkgEndDate = tmpEndDate;
-                                packageFromDB.PkgDesc = pkgDescTextBox.Text;
-                                packageFromDB.PkgBasePrice = Decimal.Parse(pkgBasePriceTextBox.Text, System.Globalization.NumberStyles.Currency);
-                                packageFromDB.PkgAgencyCommission = Decimal.Parse(pkgAgencyCommissionTextBox.Text, System.Globalization.NumberStyles.Currency);
-                                // submit changes 
-                                db.SubmitChanges();
-                                DialogResult = DialogResult.OK;
-                            }
+                            // make changes by copying values from text boxes
+                            packageFromDB.PkgName = pkgNameTextBox.Text;
+                            packageFromDB.PkgStartDate = tmpStartDate;
+                            packageFromDB.PkgEndDate = tmpEndDate;
+                            packageFromDB.PkgDesc = pkgDescTextBox.Text;
+                            packageFromDB.PkgBasePrice = Decimal.Parse(pkgBasePriceTextBox.Text, System.Globalization.NumberStyles.Currency);
+                            packageFromDB.PkgAgencyCommission = Decimal.Parse(pkgAgencyCommissionTextBox.Text, System.Globalization.NumberStyles.Currency);
+                            // submit changes 
+                            db.SubmitChanges();
+                            DialogResult = DialogResult.OK;
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, ex.GetType().ToString());
-                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
                 }
             }
             
@@ -241,50 +215,84 @@ namespace CMPP248_Workshop
             
             if (result == DialogResult.OK) // new row got inserted
             {
-                MessageBox.Show("Updated associated products");
+                // Toggle a switch noting that products were updated - checked in the event of cancel
+                didAddProducts = true;
 
                 // Show the updated list of products associated with this package
                 using (travelexpertsDataContext db = new travelexpertsDataContext())
                 {
-                    dataGridView1.DataSource =
-                        from Packages in db.Packages
-                        join Packages_Products_Suppliers in db.Packages_Products_Suppliers
-                        on Packages.PackageId equals Packages_Products_Suppliers.PackageId
-                        join Products_Suppliers in db.Products_Suppliers
-                        on Packages_Products_Suppliers.ProductSupplierId equals Products_Suppliers.ProductSupplierId
-                        join Products in db.Products
-                        on Products_Suppliers.ProductId equals Products.ProductId
-                        join Suppliers in db.Suppliers
-                        on Products_Suppliers.SupplierId equals Suppliers.SupplierId
-                        where Packages.PackageId == currentPackage.PackageId
-                        orderby Packages.PackageId
-                        select new
-                        {
-                            Packages.PackageId,
-                            Packages.PkgName,
-                            Products.ProductId,
-                            Products.ProdName,
-                            Suppliers.SupplierId,
-                            Supplier = Suppliers.SupName
-                        };
+                    dataGridView1.DataSource = TravelExpertsQueryManager.FindProdInfoByPackage(db, currentPackage.PackageId);
                 }
             }
         }
 
-        // Go back to last page
+        // Go back to last page without saving changes. This may involve some cleaning up, depending on the mode and if products were added
+        // Cancel code wrangled by [Eric]
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            // If in Add mode, we had to insert into the database already. So, if cancelling, we delete this.
-            if (isAdd)
+            using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
             {
-                using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
+                // First, we have to check to see if any products were added to the package before cancelling
+                if (didAddProducts) // this will be true if so - no need to spend time querying the db
                 {
+                    // Get the current PPS entries in the database corresponsind to this package
+                    List<Packages_Products_Supplier> ppsCurrent =
+                    TravelExpertsQueryManager.GetPackagesProductsSuppliersByPackageID(currentPackage.PackageId);
 
+                    // Next, we have to get the PPS entries to re-add (if they were deleted) and/or remove (if new ones were added)
+                    // This is not a super efficient process, but packages shouldn't have enough products for it to make much difference
+                    // First, get the ones to re-add
+                    List<Packages_Products_Supplier> ppsToAdd = ppsSnapshot // Creating a list of Package_Product_Suppliers where...
+                        .Where(ppsSnap => !ppsCurrent // ...for each snapshot entry, it is NOT the case that...
+                        .Any(ppsCurr => ppsCurr.ProductSupplierId == ppsSnap.ProductSupplierId)) // ...any current entry has that snapshot entry's ProductSupplierID
+                        .ToList();
 
+                    // Next, the ones to remove
+                    List<Packages_Products_Supplier> ppsToDelete = ppsCurrent // Creating a list of Package_Product_Suppliers where...
+                       .Where(ppsCurr => !ppsSnapshot // ...for each current entry, it is NOT the case that...
+                       .Any(ppsSnap => ppsCurr.ProductSupplierId == ppsSnap.ProductSupplierId)) // ...any snapshot entry has that current entry's ProductSupplierID
+                       .ToList();
+
+                    // Add the needed entries back
+                    foreach(Packages_Products_Supplier ppsA in ppsToAdd)
+                    {
+                        // LINQ to SQL doesn't let you re-add old entity objects, so we need to create copies to add back in place
+                        Packages_Products_Supplier clone = new Packages_Products_Supplier
+                        {
+                            PackageId = ppsA.PackageId,
+                            ProductSupplierId = ppsA.ProductSupplierId
+                        };
+
+                        dbContext.Packages_Products_Suppliers.InsertOnSubmit(clone);
+                    }
+
+                    // Delete the entries to undo
+                    foreach (Packages_Products_Supplier ppsD in ppsToDelete)
+                    {
+                        // Deleting only works on entities from the current context, so need to grab them
+                        // I'm sure this could be done in the ones-to-remove LINQ query above, but I couldn't manage it
+                        Packages_Products_Supplier deleteTarget = dbContext.Packages_Products_Suppliers // Search in the table...
+                            .Single(pps => // ...for the one entry, with...
+                            pps.ProductSupplierId == ppsD.ProductSupplierId //...the matching ProductSupplierID...
+                            && pps.PackageId == ppsD.PackageId); //... and the matching PackageID 
+
+                        dbContext.Packages_Products_Suppliers.DeleteOnSubmit(deleteTarget);
+                    }
+
+                    // Save changes. Phew!
+                    dbContext.SubmitChanges();
+
+                }
+
+                // One more step if in Add mode. 
+                // A package was inserted into the database initially (to get the add products to work). 
+                //So, if cancelling, we want to delete it.
+                if (isAdd)
+                {
 
                     // Delete package
                     Package packToDelete = dbContext.Packages
-                        .Single(p => p.PackageId == currentPackage.PackageId);
+                    .Single(p => p.PackageId == currentPackage.PackageId);
 
                     dbContext.Packages.DeleteOnSubmit(packToDelete);
                     dbContext.SubmitChanges(); // submit to the database

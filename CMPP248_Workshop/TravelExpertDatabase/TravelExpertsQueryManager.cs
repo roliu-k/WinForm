@@ -136,5 +136,23 @@ namespace TravelExpertDatabase
                     return true;
             }
         }
+
+        /// <summary>
+        /// Gets a list of all PackageProductSuppliers entries with a given package ID.
+        /// </summary>
+        /// <param name="packageID">Int ID of the desired package.</param>
+        /// <returns>List of PackageProductSuppliers</returns>
+        public static List<Packages_Products_Supplier> GetPackagesProductsSuppliersByPackageID(int packageID)
+        {
+            using (travelexpertsDataContext db = new travelexpertsDataContext())
+            {
+                List<Packages_Products_Supplier> ppsList = db.Packages_Products_Suppliers
+                    .Where(pps => pps.PackageId == packageID)
+                    .ToList();
+
+                return ppsList;
+            }
+
+        }
     }
 }
