@@ -96,7 +96,7 @@ namespace CMPP248_Workshop
                     using (travelexpertsDataContext db = new travelexpertsDataContext())
                     {
                         // get the product with Code from the current text box
-                        Package packageFromDB = db.Packages.Single(p => p.PackageId.ToString() == packageIdTextBox.Text);
+                        Package packageFromDB = db.Packages.Single(p => p.PackageId == currentPackage.PackageId);
 
                         //MessageBox.Show("Testing concurrency: update or delete current record from SSMS and click OK");
 
