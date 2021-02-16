@@ -101,3 +101,7 @@ C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Work
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProductsModify.resources
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmSupplierAdd.resources
 C:\Users\860234\Documents\GitHub\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmSupplierModify.resources
+C:\Users\811405\source\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProdAdd.resources
+C:\Users\811405\source\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmProductsModify.resources
+C:\Users\811405\source\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmSupplierAdd.resources
+C:\Users\811405\source\CMPP248-Workshop2\CMPP248_Workshop\CMPP248_Workshop\obj\Debug\CMPP248_Workshop.frmSupplierModify.resources
