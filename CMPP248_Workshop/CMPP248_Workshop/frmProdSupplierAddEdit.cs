@@ -32,15 +32,14 @@ namespace CMPP248_Workshop
 
             //get product_supplier data for top datagrid
             products_SupplierBindingSource.DataSource = TravelExpertsQueryManager.GetProductsSuppliersExtended(rootDB);
-         
+
             selectedProdID = Convert.ToInt32(grdProductSuppliers.Rows[0].Cells[0].Value); // set selectedProdID as ID of top row
             lblSelectedProdsTitle.Text = $"Modify details for selected product (ID #{selectedProdID})"; // Set display for that ID
 
             supplierIdComboBox.DataSource = rootDB.Suppliers; // get supplier data for suppliers details dropbox
             productIdComboBox.DataSource = rootDB.Products;  // get product data for products details dropbox
             RefreshPackagesByProdSuppGrid(); // get package data for selected product_supplier row (in this case, top one)
-
-
+            SetDataGridToFirstEntry(); // Selects the first row of the main datagrid
 
         }
 
@@ -72,7 +71,7 @@ namespace CMPP248_Workshop
             btnAddProdSupp.Enabled = true; //enable add button if disabled
 
            // Grab ID of the row currently selected in the Prod_Supp datagrid
-           selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
+           selectedProdID = Convert.ToInt32(grdProductSuppliers.SelectedRows[0].Cells[0].Value);
 
             // Set title for the products details below using that current id
             lblSelectedProdsTitle.Text = $"Modify details for selected product (ID #{selectedProdID})";
@@ -89,7 +88,7 @@ namespace CMPP248_Workshop
         private void RefreshPackagesByProdSuppGrid()
         {
             //// Grab ID of the row currently selected in the Prod_Supp datagrid
-            //selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
+            selectedProdID = Convert.ToInt32(grdProductSuppliers.SelectedRows[0].Cells[0].Value);
 
             // Set title for the products data using that current id
             lblAssociatesPackages.Text = $"Associated Packages for selected product (ID #{selectedProdID})";
@@ -137,7 +136,7 @@ namespace CMPP248_Workshop
                     else // there is a match for the product/supplier combo
                     {
                         //Give the user the option to change to this combination anyway (this will move all associated packages to the matching Product_Supplier)
-                        DialogResult result = MessageBox.Show($"That product/supplier combination already exists (ID #{matchingProps.ProductSupplierId} - {matchingProps.Product.ProdName} - {matchingProps.Supplier.SupName}), so this entry will not be changed. Would you like to change the this product for any associated packages?", 
+                        DialogResult result = MessageBox.Show($"That product/supplier combination already exists (ID #{matchingProps.ProductSupplierId} - {matchingProps.Product.ProdName} - {matchingProps.Supplier.SupName}). Would you like to change any associated packages to have the selected product?", 
                             "Existing Product/Supplier", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes )
                         {
@@ -176,7 +175,7 @@ namespace CMPP248_Workshop
                         }
                     }
                     // Reload data
-                    checkBoxFilterSuppliers_CheckedChanged(sender, e); //this updates the main datagrid based on whether the filter is on
+                    checkboxFilterProducts_CheckedChanged(sender, e);//this updates the main datagrid based on whether the filter is on
                     RefreshPackagesByProdSuppGrid();
                     RefreshProdSupId();
 
@@ -202,16 +201,19 @@ namespace CMPP248_Workshop
                         // Re-enable Add new button
                         btnAddProdSupp.Enabled = true;
 
-                        // Reload data
-                        travelexpertsDataContext dbContext = new travelexpertsDataContext(); // create a new context
-                        products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
-                        checkboxFilterProducts.Checked = false; // uncheck filter so new product can be seen
-                        RefreshPackagesByProdSuppGrid();
+                        // Reload main data
+                        checkboxFilterProducts_CheckedChanged(sender, e); //updates main datagrid based on status of filter checkbox
 
                         // Go to the new entry in the gridview
+                        checkboxFilterProducts.Checked = false; // uncheck filter so new product can be seen
                         int lastIndex = grdProductSuppliers.Rows.Count - 1; // get last row of the grid
                         grdProductSuppliers.Rows[lastIndex].Selected = true; // select it
                         grdProductSuppliers.FirstDisplayedScrollingRowIndex = lastIndex; // go down to it
+                        grdProductSuppliers_CellClick(sender, new DataGridViewCellEventArgs(1, lastIndex));
+
+                        // Reload related data
+                        RefreshPackagesByProdSuppGrid();
+                        productIdComboBox_SelectedIndexChanged(sender, e);
                         RefreshProdSupId();
                     }
                     else // if the combo already exists
@@ -231,7 +233,7 @@ namespace CMPP248_Workshop
 
             // Set up display for add mode
             lblAssociatesPackages.Text = "";
-            lblSelectedProdsTitle.Text = $"Add details for new product.";
+            lblSelectedProdsTitle.Text = $"*Add details for new product.*";
 
             btnAddProdSupp.Enabled = false; // disable button until leaving add mode to make things clearer for user
 
@@ -305,7 +307,15 @@ namespace CMPP248_Workshop
             {
                 products_SupplierBindingSource.DataSource = TravelExpertsQueryManager.GetProductsSuppliersExtended(rootDB);
             }
-            
+        }
+
+        // Major headaches getting the first row to select... it won't seem to do so unless we go to another row first. So, this code makes that happen
+        private void SetDataGridToFirstEntry()
+        {
+            grdProductSuppliers.CurrentCell = grdProductSuppliers.Rows[2].Cells[2];
+            grdProductSuppliers_CellClick(this.grdProductSuppliers, new DataGridViewCellEventArgs(2, 2));
+            grdProductSuppliers.CurrentCell = grdProductSuppliers.Rows[0].Cells[0];
+            grdProductSuppliers_CellClick(this.grdProductSuppliers, new DataGridViewCellEventArgs(0, 0));
         }
     }
 }
