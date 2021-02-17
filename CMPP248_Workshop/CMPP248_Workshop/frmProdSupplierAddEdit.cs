@@ -196,7 +196,7 @@ namespace CMPP248_Workshop
                     else // there is a match for the product/supplier combo
                     {
                         //Give the user the option to change to this combination anyway (this will move all associated packages to the matching Product_Supplier)
-                        DialogResult result = MessageBox.Show($"That product/supplier combination already exists (ID #{matchingProps.ProductSupplierId} - {matchingProps.Product.ProdName} - {matchingProps.Supplier.SupName}). Would you like to change to this combination for all associated packages?", 
+                        DialogResult result = MessageBox.Show($"That product/supplier combination already exists (ID #{matchingProps.ProductSupplierId} - {matchingProps.Product.ProdName} - {matchingProps.Supplier.SupName}), so this entry will not be changed. Would you like to change the this product for any associated packages?", 
                             "Existing Product/Supplier", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes )
                         {
@@ -231,7 +231,7 @@ namespace CMPP248_Workshop
                                     MessageBox.Show(ex.Message, ex.GetType().ToString());
                                 }                    
                             }
-                            MessageBox.Show($"Packages successfull transffered to ID# {matchingProps.ProductSupplierId} - {matchingProps.Product.ProdName} - {matchingProps.Supplier.SupName})");
+                            MessageBox.Show($"Any associated packages successfully transffered to ID# {matchingProps.ProductSupplierId} - {matchingProps.Product.ProdName} - {matchingProps.Supplier.SupName})");
                         }
                     }
                     // Reload data
