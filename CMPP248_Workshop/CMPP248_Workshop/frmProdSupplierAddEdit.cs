@@ -29,8 +29,10 @@ namespace CMPP248_Workshop
         {
             // On load, populate data for all data displays
             rootDB = new travelexpertsDataContext(); // create a new context
-            products_SupplierBindingSource.DataSource = rootDB.Products_Suppliers; //get product_supplier data for top datagrid
 
+            //get product_supplier data for top datagrid
+            products_SupplierBindingSource.DataSource = TravelExpertsQueryManager.GetProductsSuppliersExtended(rootDB);
+         
             selectedProdID = Convert.ToInt32(grdProductSuppliers.Rows[0].Cells[0].Value); // set selectedProdID as ID of top row
             lblSelectedProdsTitle.Text = $"Modify details for selected product (ID #{selectedProdID})"; // Set display for that ID
 
@@ -60,68 +62,7 @@ namespace CMPP248_Workshop
         {
             this.Close();
         }
-
-        // Whenever a cell is being formatted (during data bind), this will trigger,
-        // looking for cells where the DataProperty name includes a "." and running a custom function.
-        //  The result is the ability to display specific properties of a nested entity using dot notation.
-        // (ex. getting "Product.ProdName" from a Product_Supplier entity).
-        // Code with thanks from Antonio Bello on http://www.developer-corner.com/blog/2007/07/19/datagridview-how-to-bind-nested-objects/
-        // Clarifying comments by [Eric]
-        private void grdProductSuppliers_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            // Check to see if the currently formatted cell has a DataPropertyName with a dot in it.
-            // By default they will not, but this can be changed in the design mode of the datagrid.
-            if ((grdProductSuppliers.Rows[e.RowIndex].DataBoundItem != null) &&
-            (grdProductSuppliers.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
-            {
-                // instead of just giving it the value (which the datagrid won't accept, run a function to grab the notated property)
-                e.Value = BindProperty(
-                              grdProductSuppliers.Rows[e.RowIndex].DataBoundItem, //this is the actual property bound (going to be a nested entity)
-                              grdProductSuppliers.Columns[e.ColumnIndex].DataPropertyName // this is going to be the dot notation in the form of Entity.Property
-                            );
-            }
-        }
-
-        // The function associated with the CellFormatting event above, which actuall gets the associated property to display
-        // Thanks again to Antonio Bello on http://www.developer-corner.com/blog/2007/07/19/datagridview-how-to-bind-nested-objects/
-        private string BindProperty(object property, string propertyName)
-        {
-            string retValue = ""; // initialize value to return
-
-            // check if DataPropertyName is indeed in dot notation form
-            if (propertyName.Contains(".")) 
-            {
-                PropertyInfo[] arrayProperties;
-                string leftPropertyName;
-
-                leftPropertyName = propertyName.Substring(0, propertyName.IndexOf(".")); // get the property name defined in the dot notation
-                arrayProperties = property.GetType().GetProperties(); // get all properties in the entity 
-
-                // Iterate through all properties of the entity, looking for the one named in the DataPropertyName
-                foreach (PropertyInfo propertyInfo in arrayProperties)
-                {
-                    if (propertyInfo.Name == leftPropertyName) 
-                    {
-                        // With a match, set the return value to provide to the cell as that property
-                        retValue = BindProperty(
-                          propertyInfo.GetValue(property, null),
-                          propertyName.Substring(propertyName.IndexOf(".") + 1));
-                        break;
-                    }
-                }
-            }
-            else // In case the method is passed a DataPropertyName without dot notation. Thanks to the if clause in the event handler, it shouldn't
-            {
-                Type propertyType;
-                PropertyInfo propertyInfo;
-
-                propertyType = property.GetType();
-                propertyInfo = propertyType.GetProperty(propertyName);
-                retValue = propertyInfo.GetValue(property, null).ToString();
-            }
-
-            return retValue;
-        }
+   
 
         // Fires every time a cell is clicked in the product_suppliers datagrid
         private void grdProductSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -358,11 +299,11 @@ namespace CMPP248_Workshop
                     .ToList();
 
                 // Filter the datagrid to only show those entries
-                products_SupplierBindingSource.DataSource = rootDB.Products_Suppliers.Where(ps => prodSupIDsWithPackages.Contains(ps.ProductSupplierId)).ToList();
+                products_SupplierBindingSource.DataSource = TravelExpertsQueryManager.GetProductsSuppliersExtended(rootDB, prodSupIDsWithPackages);
             }
             else
             {
-                products_SupplierBindingSource.DataSource = rootDB.Products_Suppliers;
+                products_SupplierBindingSource.DataSource = TravelExpertsQueryManager.GetProductsSuppliersExtended(rootDB);
             }
             
         }

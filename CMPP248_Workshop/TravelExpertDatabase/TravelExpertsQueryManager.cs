@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,6 +51,60 @@ namespace TravelExpertDatabase
 
 
                 return ProdInfo.ToList();  
+        }
+
+        /// <summary>
+        /// Gets ProdSup data with associated Product Names and Supplier Names
+        /// </summary>
+        /// <param name="db">Database context to pull from</param>
+        /// <returns>Queryable list of ProductSupplier data</returns>
+        public static IQueryable GetProductsSuppliersExtended(travelexpertsDataContext db)
+        {
+            var ProdInfo =
+                   from Products_Suppliers in db.Products_Suppliers
+                   join Products in db.Products
+                   on Products_Suppliers.ProductId equals Products.ProductId
+                   join Suppliers in db.Suppliers
+                   on Products_Suppliers.SupplierId equals Suppliers.SupplierId
+                   orderby Products_Suppliers.ProductSupplierId
+                   select new
+                   {
+                       Products_Suppliers.ProductSupplierId,
+                       Products.ProductId,
+                       Products.ProdName,
+                       Suppliers.SupplierId,
+                       Supplier = Suppliers.SupName
+                   };
+            return ProdInfo;
+        }
+
+        /// <summary>
+        /// Overload that gets ProdSup data where only those that are associated with a list of package IDs (in Packages_Products_Suppliers)are used.
+        /// </summary>
+        /// <param name="db">Database context to pull from</param>
+        /// <param name="packageFilter">List of PackageIDs which we want to results to be associated to</param>
+        /// <returns>Sortable list of ProdSup data</returns>
+        public static IQueryable GetProductsSuppliersExtended(travelexpertsDataContext db, List<int> packageFilter)
+        {
+            var ProdInfo =
+                   from Products_Suppliers in db.Products_Suppliers
+                   join Products in db.Products
+                   on Products_Suppliers.ProductId equals Products.ProductId
+                   join Suppliers in db.Suppliers
+                   on Products_Suppliers.SupplierId equals Suppliers.SupplierId
+                   join Packages_Products_Suppliers in db.Packages_Products_Suppliers
+                   on Products_Suppliers.ProductSupplierId equals Packages_Products_Suppliers.ProductSupplierId
+                   where packageFilter.Contains(Packages_Products_Suppliers.ProductSupplierId)
+                   orderby Products_Suppliers.ProductSupplierId
+                   select new
+                   {
+                       Products_Suppliers.ProductSupplierId,
+                       Products.ProductId,
+                       Products.ProdName,
+                       Suppliers.SupplierId,
+                       Supplier = Suppliers.SupName
+                   };
+            return ProdInfo.Distinct(); //use distinct to cull out possibility of duplicates
         }
 
         /// <summary>

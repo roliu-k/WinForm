@@ -634,7 +634,13 @@ namespace TravelExpertDatabase
 			this.SendPropertyChanging();
 			entity.Product = null;
 		}
-	}
+
+        public override string ToString()
+        {
+            return ProdName.ToString();
+        }
+
+    }
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Products_Suppliers")]
 	public partial class Products_Supplier : INotifyPropertyChanging, INotifyPropertyChanged

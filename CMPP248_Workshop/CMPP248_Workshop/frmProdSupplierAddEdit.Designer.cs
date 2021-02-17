@@ -46,13 +46,11 @@ namespace CMPP248_Workshop
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnManageProds = new System.Windows.Forms.Button();
             this.btnManageSupps = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.packagesProductsSuppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Header = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
@@ -72,8 +70,10 @@ namespace CMPP248_Workshop
             this.leftbuff = new System.Windows.Forms.Panel();
             this.rightbuff = new System.Windows.Forms.Panel();
             this.productIdComboBox = new System.Windows.Forms.ComboBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productSupplierIdTextBox = new System.Windows.Forms.TextBox();
             this.supplierIdComboBox = new System.Windows.Forms.ComboBox();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.grdPackagesforProdSupp = new System.Windows.Forms.DataGridView();
             this.packageIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pkgNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,17 +86,17 @@ namespace CMPP248_Workshop
             this.lblAssociatesPackages = new System.Windows.Forms.Label();
             this.body = new System.Windows.Forms.Panel();
             this.checkboxFilterProducts = new System.Windows.Forms.CheckBox();
-            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             supplierIdLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
             this.Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdProductSuppliers)).BeginInit();
             this.pnlSubBody.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPackagesforProdSupp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
             this.body.SuspendLayout();
@@ -124,18 +124,6 @@ namespace CMPP248_Workshop
             productIdLabel.Size = new System.Drawing.Size(92, 16);
             productIdLabel.TabIndex = 1;
             productIdLabel.Text = "Product Type:";
-            // 
-            // products_SupplierBindingSource
-            // 
-            this.products_SupplierBindingSource.DataSource = typeof(TravelExpertDatabase.Products_Supplier);
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
-            // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
             // 
             // btnManageProds
             // 
@@ -177,6 +165,10 @@ namespace CMPP248_Workshop
             // 
             this.packagesProductsSuppliersBindingSource.DataMember = "Packages_Products_Suppliers";
             this.packagesProductsSuppliersBindingSource.DataSource = this.products_SupplierBindingSource;
+            // 
+            // products_SupplierBindingSource
+            // 
+            this.products_SupplierBindingSource.DataSource = typeof(TravelExpertDatabase.Products_Supplier);
             // 
             // Header
             // 
@@ -301,7 +293,6 @@ namespace CMPP248_Workshop
             this.grdProductSuppliers.TabIndex = 20;
             this.grdProductSuppliers.TabStop = false;
             this.grdProductSuppliers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProductSuppliers_CellClick);
-            this.grdProductSuppliers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdProductSuppliers_CellFormatting);
             // 
             // ProductSupplierId
             // 
@@ -315,7 +306,7 @@ namespace CMPP248_Workshop
             // Product
             // 
             this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Product.DataPropertyName = "Product.ProdName";
+            this.Product.DataPropertyName = "ProdName";
             this.Product.HeaderText = "Product Name";
             this.Product.MinimumWidth = 6;
             this.Product.Name = "Product";
@@ -334,7 +325,7 @@ namespace CMPP248_Workshop
             // Supplier
             // 
             this.Supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Supplier.DataPropertyName = "Supplier.SupName";
+            this.Supplier.DataPropertyName = "Supplier";
             this.Supplier.HeaderText = "Supplier Name";
             this.Supplier.MinimumWidth = 6;
             this.Supplier.Name = "Supplier";
@@ -441,6 +432,10 @@ namespace CMPP248_Workshop
             this.productIdComboBox.ValueMember = "ProductId";
             this.productIdComboBox.SelectedIndexChanged += new System.EventHandler(this.productIdComboBox_SelectedIndexChanged);
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
+            // 
             // productSupplierIdTextBox
             // 
             this.productSupplierIdTextBox.BackColor = System.Drawing.SystemColors.Control;
@@ -465,6 +460,10 @@ namespace CMPP248_Workshop
             this.supplierIdComboBox.Size = new System.Drawing.Size(241, 24);
             this.supplierIdComboBox.TabIndex = 6;
             this.supplierIdComboBox.ValueMember = "SupplierId";
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
             // 
             // grdPackagesforProdSupp
             // 
@@ -646,10 +645,6 @@ namespace CMPP248_Workshop
             this.checkboxFilterProducts.UseVisualStyleBackColor = true;
             this.checkboxFilterProducts.CheckedChanged += new System.EventHandler(this.checkboxFilterProducts_CheckedChanged);
             // 
-            // productBindingSource1
-            // 
-            this.productBindingSource1.DataSource = typeof(TravelExpertDatabase.Product);
-            // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -661,6 +656,10 @@ namespace CMPP248_Workshop
             this.label1.TabIndex = 30;
             this.label1.Text = "Other Actions:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // productBindingSource1
+            // 
+            this.productBindingSource1.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // frmProdSupplierAddEdit
             // 
@@ -681,14 +680,14 @@ namespace CMPP248_Workshop
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Products";
             this.Load += new System.EventHandler(this.frmProdSupplierAddEdit_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packagesProductsSuppliersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).EndInit();
             this.Header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdProductSuppliers)).EndInit();
             this.pnlSubBody.ResumeLayout(false);
             this.pnlSubBody.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdPackagesforProdSupp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
             this.body.ResumeLayout(false);
