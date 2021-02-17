@@ -19,6 +19,7 @@ namespace CMPP248_Workshop
         // Class - level variables
         int selectedProdID; // keeps track of the product_supplier ID in the row selected of the products_suppliers datagrid
         bool addMode = false; // bool that keeps track of whether the user is adding or updating a product_supplier
+        travelexpertsDataContext rootDB; //need one context that persists for data binding
 
         public frmProdSupplierAddEdit()
         {
@@ -27,14 +28,14 @@ namespace CMPP248_Workshop
         private void frmProdSupplierAddEdit_Load(object sender, EventArgs e)
         {
             // On load, populate data for all data displays
-            travelexpertsDataContext dbContext = new travelexpertsDataContext(); // create a new context
-            products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
+            rootDB = new travelexpertsDataContext(); // create a new context
+            products_SupplierBindingSource.DataSource = rootDB.Products_Suppliers; //get product_supplier data for top datagrid
 
             selectedProdID = Convert.ToInt32(grdProductSuppliers.Rows[0].Cells[0].Value); // set selectedProdID as ID of top row
             lblSelectedProdsTitle.Text = $"Modify details for selected product (ID #{selectedProdID})"; // Set display for that ID
 
-            supplierIdComboBox.DataSource = dbContext.Suppliers; // get supplier data for suppliers details dropbox
-            productIdComboBox.DataSource = dbContext.Products;  // get product data for products details dropbox
+            supplierIdComboBox.DataSource = rootDB.Suppliers; // get supplier data for suppliers details dropbox
+            productIdComboBox.DataSource = rootDB.Products;  // get product data for products details dropbox
             RefreshPackagesByProdSuppGrid(); // get package data for selected product_supplier row (in this case, top one)
 
 
@@ -137,7 +138,7 @@ namespace CMPP248_Workshop
 
             // re-bind data 
             RefreshPackagesByProdSuppGrid(); // for associated packages datagrid
-            DisplayProdSupId(); //for product_supplier ID
+            RefreshProdSupId(); //for product_supplier ID
 
 
         }
@@ -161,6 +162,13 @@ namespace CMPP248_Workshop
             // Get user inputs
             int newProdId = Convert.ToInt32(productIdComboBox.SelectedValue);
             int newSupID = Convert.ToInt32(supplierIdComboBox.SelectedValue);
+
+            // The user may not have selected a value for the supplierIDComboBox yet, if so, they want the visible (top) one 
+            if (newSupID == 0) {
+                supplierIdComboBox.SelectedIndex = 0;
+                newSupID = Convert.ToInt32(supplierIdComboBox.SelectedValue);  
+            }
+
             // grab data from dropdown selectedvalues & hidden id field (productSupplierIdTextBox)
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
@@ -175,13 +183,8 @@ namespace CMPP248_Workshop
                         .Single(ps => ps.ProductSupplierId == prodSupID);
 
                     // Validate by ensuring this unique combination isn't in the database
-                    var matchingProps = db.Products_Suppliers // search the Products_Suppliers table for entries...
-                        .Where(ps => ps.ProductId == newProdId) // ...matching the new product id...
-                        .Where(ps => ps.SupplierId == newSupID)// ... and matching the new supplier id...
-                        .Where(ps => ps.ProductSupplierId != prodSupID) //... but with a different prodsupplierID
-                        .FirstOrDefault(); // We can stop at the first, though there won't be more than one
+                    Products_Supplier matchingProps = Validator.prodSupComboAlreadyExists(db, newProdId, newSupID, prodSupID);
 
-                    // If no match was found, we're good
                     if(matchingProps == null)
                     {
                         // Update with inputted values
@@ -193,7 +196,7 @@ namespace CMPP248_Workshop
                     else // there is a match for the product/supplier combo
                     {
                         //Give the user the option to change to this combination anyway (this will move all associated packages to the matching Product_Supplier)
-                        DialogResult result = MessageBox.Show($"That product/supplier combination already exists (ID #{matchingProps.ProductSupplierId}). Would you like to change to this combination for all associated packages?", 
+                        DialogResult result = MessageBox.Show($"That product/supplier combination already exists (ID #{matchingProps.ProductSupplierId} - {matchingProps.Product.ProdName} - {matchingProps.Supplier.SupName}). Would you like to change to this combination for all associated packages?", 
                             "Existing Product/Supplier", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes )
                         {
@@ -223,31 +226,58 @@ namespace CMPP248_Workshop
                                         db2.SubmitChanges();
                                     }
                                 }
-                                catch { }                    
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                                }                    
                             }
+                            MessageBox.Show($"Packages successfull transffered to ID# {matchingProps.ProductSupplierId} - {matchingProps.Product.ProdName} - {matchingProps.Supplier.SupName})");
                         }
                     }
                     // Reload data
-                    travelexpertsDataContext dbContext = new travelexpertsDataContext(); // create a new context
-                    products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
+                    checkBoxFilterSuppliers_CheckedChanged(sender, e); //this updates the main datagrid based on whether the filter is on
                     RefreshPackagesByProdSuppGrid();
+                    RefreshProdSupId();
+
                 } // end modify   
 
                 else // if in add mode
                 {
-                    // create a new Product_Supplier with the data
-                    Products_Supplier newProdSup = new Products_Supplier
+                    // Validate to ensure the combo is new
+                    Products_Supplier match = Validator.prodSupComboAlreadyExists(db, newProdId, newSupID);
+                    if (match == null) //if new
                     {
-                        ProductId = newProdId,
-                        SupplierId = newSupID
-                    };
+                        // create a new Product_Supplier with the data
+                        Products_Supplier newProdSup = new Products_Supplier
+                        {
+                            ProductId = newProdId,
+                            SupplierId = newSupID
+                        };
 
-                    // insert into db and save
-                    db.Products_Suppliers.InsertOnSubmit(newProdSup);
-                    db.SubmitChanges();
+                        // insert into db and save
+                        db.Products_Suppliers.InsertOnSubmit(newProdSup);
+                        db.SubmitChanges();
 
-                    // Re-enable Add new button
-                    btnAddProdSupp.Enabled = true;
+                        // Re-enable Add new button
+                        btnAddProdSupp.Enabled = true;
+
+                        // Reload data
+                        travelexpertsDataContext dbContext = new travelexpertsDataContext(); // create a new context
+                        products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
+                        checkboxFilterProducts.Checked = false; // uncheck filter so new product can be seen
+                        RefreshPackagesByProdSuppGrid();
+
+                        // Go to the new entry in the gridview
+                        int lastIndex = grdProductSuppliers.Rows.Count - 1; // get last row of the grid
+                        grdProductSuppliers.Rows[lastIndex].Selected = true; // select it
+                        grdProductSuppliers.FirstDisplayedScrollingRowIndex = lastIndex; // go down to it
+                        RefreshProdSupId();
+                    }
+                    else // if the combo already exists
+                    {
+                        // Alert the user
+                        MessageBox.Show($"That product/supplier combination already exists (ID #{match.ProductSupplierId}).");
+                    }
                 }
             }
 
@@ -283,17 +313,21 @@ namespace CMPP248_Workshop
                     // Get the list of suppliers applicable with the selected product ID
                     supplierIdComboBox.DataSource = TravelExpertsQueryManager.GetSuppliersByProductID(db, Convert.ToInt32(productIdComboBox.SelectedValue));
 
-                    DisplayProdSupId();
+                    // Make top option of suppliers dropdown selected
+                    supplierIdComboBox.SelectedIndex = 0;
                 }
                 else
                 {
                     supplierIdComboBox.DataSource = db.Suppliers; // get supplier data for suppliers details dropbox
+
+                    // Make top option of suppliers dropdown selected
+                    supplierIdComboBox.SelectedIndex = 0;
                 }
             }
         }
 
         // Updates the display of the prodsuppID
-        private void DisplayProdSupId()
+        private void RefreshProdSupId()
         {
             using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
@@ -309,6 +343,28 @@ namespace CMPP248_Workshop
         private void checkBoxFilterSuppliers_CheckedChanged(object sender, EventArgs e)
         {
             productIdComboBox_SelectedIndexChanged(sender, e);
+        }
+
+        private void checkboxFilterProducts_CheckedChanged(object sender, EventArgs e)
+        {
+            rootDB = new travelexpertsDataContext();
+            
+            // If the user checks off the option to filter
+            if (checkboxFilterProducts.Checked == true)
+            {
+                // Query PPS to find all ProductSuppliers associated to packages
+                List<int> prodSupIDsWithPackages = rootDB.Packages_Products_Suppliers.Select(pps =>
+                    pps.ProductSupplierId) // just need ids
+                    .ToList();
+
+                // Filter the datagrid to only show those entries
+                products_SupplierBindingSource.DataSource = rootDB.Products_Suppliers.Where(ps => prodSupIDsWithPackages.Contains(ps.ProductSupplierId)).ToList();
+            }
+            else
+            {
+                products_SupplierBindingSource.DataSource = rootDB.Products_Suppliers;
+            }
+            
         }
     }
 }

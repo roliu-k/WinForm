@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelExpertDatabase;
 
 namespace CMPP248_Workshop
 {
@@ -97,6 +99,26 @@ namespace CMPP248_Workshop
                 return false;
             }
             return true;
+        }
+
+        /// <summary>
+        /// Validates whether or not a given product and supplier combination already exists in the database.
+        /// </summary>
+        /// <param name="db">Database context</param>
+        /// <param name="prodId">Int product ID to check</param>
+        /// <param name="supId">Int supplier ID to check</param>
+        /// <param name="prodSupId">Optional - An existing productsupplier entry to disregard (if modifying an exisiting one, in case it's left unchanged).</param>
+        /// <returns></returns>
+        public static Products_Supplier prodSupComboAlreadyExists(travelexpertsDataContext db, int prodId, int supId, int prodSupId = -1)
+        {
+            var matchingProps = db.Products_Suppliers // search the Products_Suppliers table for entries...
+                   .Where(ps => ps.ProductId == prodId) // ...matching the new product id...
+                   .Where(ps => ps.SupplierId == supId)// ... and matching the new supplier id...
+                   .Where(ps => ps.ProductSupplierId != prodSupId) //... but with a different prodsupplierID
+                   .FirstOrDefault(); // We can stop at the first, though there won't be more than one
+
+            // If no match was found, we're good
+            return matchingProps;
         }
     }
 }
