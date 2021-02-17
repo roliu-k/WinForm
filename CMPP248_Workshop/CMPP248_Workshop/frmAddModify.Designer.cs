@@ -246,8 +246,8 @@ namespace CMPP248_Workshop
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(279, 253);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Location = new System.Drawing.Point(543, 255);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(256, 36);
             this.btnCancel.TabIndex = 27;
@@ -258,8 +258,8 @@ namespace CMPP248_Workshop
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(543, 253);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Location = new System.Drawing.Point(279, 255);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(256, 36);
             this.btnSave.TabIndex = 26;
@@ -292,7 +292,7 @@ namespace CMPP248_Workshop
             // 
             this.btnEditAddProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditAddProducts.Location = new System.Drawing.Point(140, 185);
-            this.btnEditAddProducts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditAddProducts.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditAddProducts.Name = "btnEditAddProducts";
             this.btnEditAddProducts.Size = new System.Drawing.Size(256, 36);
             this.btnEditAddProducts.TabIndex = 25;
@@ -340,7 +340,7 @@ namespace CMPP248_Workshop
             this.dataGridView1.Enabled = false;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Location = new System.Drawing.Point(6, 32);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -438,7 +438,7 @@ namespace CMPP248_Workshop
             this.pkgStartDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pkgStartDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.pkgStartDateDateTimePicker.Location = new System.Drawing.Point(146, 114);
-            this.pkgStartDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pkgStartDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.pkgStartDateDateTimePicker.Name = "pkgStartDateDateTimePicker";
             this.pkgStartDateDateTimePicker.Size = new System.Drawing.Size(130, 22);
             this.pkgStartDateDateTimePicker.TabIndex = 13;
@@ -450,7 +450,7 @@ namespace CMPP248_Workshop
             this.pkgNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgName", true));
             this.pkgNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pkgNameTextBox.Location = new System.Drawing.Point(146, 59);
-            this.pkgNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pkgNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.pkgNameTextBox.Name = "pkgNameTextBox";
             this.pkgNameTextBox.Size = new System.Drawing.Size(363, 22);
             this.pkgNameTextBox.TabIndex = 11;
@@ -461,7 +461,7 @@ namespace CMPP248_Workshop
             this.pkgEndDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pkgEndDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.pkgEndDateDateTimePicker.Location = new System.Drawing.Point(146, 141);
-            this.pkgEndDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pkgEndDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.pkgEndDateDateTimePicker.Name = "pkgEndDateDateTimePicker";
             this.pkgEndDateDateTimePicker.Size = new System.Drawing.Size(130, 22);
             this.pkgEndDateDateTimePicker.TabIndex = 9;
@@ -473,7 +473,7 @@ namespace CMPP248_Workshop
             this.pkgDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgDesc", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.pkgDescTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pkgDescTextBox.Location = new System.Drawing.Point(146, 87);
-            this.pkgDescTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pkgDescTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.pkgDescTextBox.Name = "pkgDescTextBox";
             this.pkgDescTextBox.Size = new System.Drawing.Size(363, 22);
             this.pkgDescTextBox.TabIndex = 7;
@@ -483,7 +483,7 @@ namespace CMPP248_Workshop
             this.pkgBasePriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgBasePrice", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.pkgBasePriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pkgBasePriceTextBox.Location = new System.Drawing.Point(146, 168);
-            this.pkgBasePriceTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pkgBasePriceTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.pkgBasePriceTextBox.Name = "pkgBasePriceTextBox";
             this.pkgBasePriceTextBox.Size = new System.Drawing.Size(130, 22);
             this.pkgBasePriceTextBox.TabIndex = 5;
@@ -495,7 +495,7 @@ namespace CMPP248_Workshop
             this.pkgAgencyCommissionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgAgencyCommission", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
             this.pkgAgencyCommissionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pkgAgencyCommissionTextBox.Location = new System.Drawing.Point(146, 195);
-            this.pkgAgencyCommissionTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pkgAgencyCommissionTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.pkgAgencyCommissionTextBox.Name = "pkgAgencyCommissionTextBox";
             this.pkgAgencyCommissionTextBox.Size = new System.Drawing.Size(130, 22);
             this.pkgAgencyCommissionTextBox.TabIndex = 3;
@@ -507,7 +507,7 @@ namespace CMPP248_Workshop
             this.packageIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PackageId", true));
             this.packageIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.packageIdTextBox.Location = new System.Drawing.Point(146, 33);
-            this.packageIdTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.packageIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.packageIdTextBox.Name = "packageIdTextBox";
             this.packageIdTextBox.ReadOnly = true;
             this.packageIdTextBox.Size = new System.Drawing.Size(248, 15);
@@ -521,7 +521,8 @@ namespace CMPP248_Workshop
             this.ClientSize = new System.Drawing.Size(1079, 373);
             this.Controls.Add(this.body);
             this.Controls.Add(this.Header);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmAddModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Package Manager - Add/Modify";

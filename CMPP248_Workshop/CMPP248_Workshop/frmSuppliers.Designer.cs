@@ -333,6 +333,7 @@ namespace CMPP248_Workshop
             this.ClientSize = new System.Drawing.Size(838, 312);
             this.Controls.Add(this.body);
             this.Controls.Add(this.Header);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSuppliers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

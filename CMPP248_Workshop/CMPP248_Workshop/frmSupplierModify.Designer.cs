@@ -45,7 +45,7 @@ namespace CMPP248_Workshop
             // 
             this.btnModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModify.Location = new System.Drawing.Point(16, 156);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(2);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(176, 37);
             this.btnModify.TabIndex = 0;
@@ -57,7 +57,7 @@ namespace CMPP248_Workshop
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(293, 156);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(176, 37);
             this.btnClose.TabIndex = 1;
@@ -92,7 +92,7 @@ namespace CMPP248_Workshop
             this.supplierIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.supplierIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplierIdTextBox.Location = new System.Drawing.Point(115, 89);
-            this.supplierIdTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.supplierIdTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.supplierIdTextBox.Name = "supplierIdTextBox";
             this.supplierIdTextBox.ReadOnly = true;
             this.supplierIdTextBox.Size = new System.Drawing.Size(87, 15);
@@ -102,7 +102,7 @@ namespace CMPP248_Workshop
             // 
             this.supplierNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplierNameTextBox.Location = new System.Drawing.Point(115, 120);
-            this.supplierNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.supplierNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.supplierNameTextBox.Name = "supplierNameTextBox";
             this.supplierNameTextBox.Size = new System.Drawing.Size(354, 22);
             this.supplierNameTextBox.TabIndex = 5;
@@ -155,10 +155,11 @@ namespace CMPP248_Workshop
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnModify);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSupplierModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmSupplierModify";
+            this.Text = "Modify Supplier";
             this.Load += new System.EventHandler(this.frmSupplierModify_Load);
             this.Header.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -135,5 +135,10 @@ namespace CMPP248_Workshop
         {
             RefreshProductGrid();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

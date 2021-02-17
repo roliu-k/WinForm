@@ -482,10 +482,11 @@ namespace CMPP248_Workshop
             this.ClientSize = new System.Drawing.Size(1118, 381);
             this.Controls.Add(this.body);
             this.Controls.Add(this.Header);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProdSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmProdSupplier";
+            this.Text = "Package Manager - Add/Edit Packages";
             this.Load += new System.EventHandler(this.frmProdSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();

@@ -60,6 +60,10 @@ namespace CMPP248_Workshop
             this.mainRightBuff = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.grdProductSuppliers = new System.Windows.Forms.DataGridView();
+            this.ProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlSubBody = new System.Windows.Forms.Panel();
             this.checkBoxFilterSuppliers = new System.Windows.Forms.CheckBox();
             this.btnAddProdSupp = new System.Windows.Forms.Button();
@@ -81,13 +85,9 @@ namespace CMPP248_Workshop
             this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblAssociatesPackages = new System.Windows.Forms.Label();
             this.body = new System.Windows.Forms.Panel();
+            this.checkboxFilterProducts = new System.Windows.Forms.CheckBox();
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.checkboxFilterProducts = new System.Windows.Forms.CheckBox();
-            this.ProductSupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             supplierIdLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
@@ -302,6 +302,43 @@ namespace CMPP248_Workshop
             this.grdProductSuppliers.TabStop = false;
             this.grdProductSuppliers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProductSuppliers_CellClick);
             this.grdProductSuppliers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grdProductSuppliers_CellFormatting);
+            // 
+            // ProductSupplierId
+            // 
+            this.ProductSupplierId.DataPropertyName = "ProductSupplierId";
+            this.ProductSupplierId.HeaderText = "Product/Supplier ID";
+            this.ProductSupplierId.MinimumWidth = 6;
+            this.ProductSupplierId.Name = "ProductSupplierId";
+            this.ProductSupplierId.ReadOnly = true;
+            this.ProductSupplierId.Width = 170;
+            // 
+            // Product
+            // 
+            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Product.DataPropertyName = "Product.ProdName";
+            this.Product.HeaderText = "Product Name";
+            this.Product.MinimumWidth = 6;
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            this.Product.Width = 230;
+            // 
+            // supplierIdDataGridViewTextBoxColumn
+            // 
+            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
+            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "Supplier ID";
+            this.supplierIdDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
+            this.supplierIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.supplierIdDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Supplier
+            // 
+            this.Supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Supplier.DataPropertyName = "Supplier.SupName";
+            this.Supplier.HeaderText = "Supplier Name";
+            this.Supplier.MinimumWidth = 6;
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
             // 
             // pnlSubBody
             // 
@@ -597,6 +634,18 @@ namespace CMPP248_Workshop
             this.body.Size = new System.Drawing.Size(866, 541);
             this.body.TabIndex = 21;
             // 
+            // checkboxFilterProducts
+            // 
+            this.checkboxFilterProducts.AutoSize = true;
+            this.checkboxFilterProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkboxFilterProducts.Location = new System.Drawing.Point(133, 0);
+            this.checkboxFilterProducts.Name = "checkboxFilterProducts";
+            this.checkboxFilterProducts.Size = new System.Drawing.Size(253, 19);
+            this.checkboxFilterProducts.TabIndex = 29;
+            this.checkboxFilterProducts.Text = "Only show products currently in packages.";
+            this.checkboxFilterProducts.UseVisualStyleBackColor = true;
+            this.checkboxFilterProducts.CheckedChanged += new System.EventHandler(this.checkboxFilterProducts_CheckedChanged);
+            // 
             // productBindingSource1
             // 
             this.productBindingSource1.DataSource = typeof(TravelExpertDatabase.Product);
@@ -612,55 +661,6 @@ namespace CMPP248_Workshop
             this.label1.TabIndex = 30;
             this.label1.Text = "Other Actions:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // checkboxFilterProducts
-            // 
-            this.checkboxFilterProducts.AutoSize = true;
-            this.checkboxFilterProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxFilterProducts.Location = new System.Drawing.Point(133, 0);
-            this.checkboxFilterProducts.Name = "checkboxFilterProducts";
-            this.checkboxFilterProducts.Size = new System.Drawing.Size(253, 19);
-            this.checkboxFilterProducts.TabIndex = 29;
-            this.checkboxFilterProducts.Text = "Only show products currently in packages.";
-            this.checkboxFilterProducts.UseVisualStyleBackColor = true;
-            this.checkboxFilterProducts.CheckedChanged += new System.EventHandler(this.checkboxFilterProducts_CheckedChanged);
-            // 
-            // ProductSupplierId
-            // 
-            this.ProductSupplierId.DataPropertyName = "ProductSupplierId";
-            this.ProductSupplierId.HeaderText = "Product/Supplier ID";
-            this.ProductSupplierId.MinimumWidth = 6;
-            this.ProductSupplierId.Name = "ProductSupplierId";
-            this.ProductSupplierId.ReadOnly = true;
-            this.ProductSupplierId.Width = 170;
-            // 
-            // Product
-            // 
-            this.Product.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Product.DataPropertyName = "Product.ProdName";
-            this.Product.HeaderText = "Product Name";
-            this.Product.MinimumWidth = 6;
-            this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
-            this.Product.Width = 230;
-            // 
-            // supplierIdDataGridViewTextBoxColumn
-            // 
-            this.supplierIdDataGridViewTextBoxColumn.DataPropertyName = "SupplierId";
-            this.supplierIdDataGridViewTextBoxColumn.HeaderText = "Supplier ID";
-            this.supplierIdDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.supplierIdDataGridViewTextBoxColumn.Name = "supplierIdDataGridViewTextBoxColumn";
-            this.supplierIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.supplierIdDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // Supplier
-            // 
-            this.Supplier.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Supplier.DataPropertyName = "Supplier.SupName";
-            this.Supplier.HeaderText = "Supplier Name";
-            this.Supplier.MinimumWidth = 6;
-            this.Supplier.Name = "Supplier";
-            this.Supplier.ReadOnly = true;
             // 
             // frmProdSupplierAddEdit
             // 
