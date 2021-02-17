@@ -335,7 +335,8 @@ namespace CMPP248_Workshop
             this.Controls.Add(this.Header);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSuppliers";
-            this.Text = "frmSuppliers";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Manage Suppliers";
             this.Load += new System.EventHandler(this.frmSuppliers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.Header.ResumeLayout(false);

@@ -35,8 +35,9 @@ namespace CMPP248_Workshop
 
             supplierIdComboBox.DataSource = dbContext.Suppliers; // get supplier data for suppliers details dropbox
             productIdComboBox.DataSource = dbContext.Products;  // get product data for products details dropbox
-            RefreshPackagesByProdSuppGrid(); // get package data for selected product_supplier row (in this case, top one
-            
+            RefreshPackagesByProdSuppGrid(); // get package data for selected product_supplier row (in this case, top one)
+
+
 
         }
 
@@ -126,15 +127,17 @@ namespace CMPP248_Workshop
         {
             // Put form in modify mode
             addMode = false;
+            btnAddProdSupp.Enabled = true; //enable add button if disabled
 
-            // Grab ID of the row currently selected in the Prod_Supp datagrid
-            selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
+           // Grab ID of the row currently selected in the Prod_Supp datagrid
+           selectedProdID = Convert.ToInt32(grdProductSuppliers.CurrentRow.Cells[0].Value);
 
             // Set title for the products details below using that current id
             lblSelectedProdsTitle.Text = $"Modify details for selected product (ID #{selectedProdID})";
 
-            // re-bind data for associated packages datagrid
-            RefreshPackagesByProdSuppGrid(); 
+            // re-bind data 
+            RefreshPackagesByProdSuppGrid(); // for associated packages datagrid
+            DisplayProdSupId(); //for product_supplier ID
 
 
         }
@@ -155,28 +158,98 @@ namespace CMPP248_Workshop
 
         private void btnModifyProdSupp_Click(object sender, EventArgs e)
         {
-            if(addMode == false) // if modifying
+            // Get user inputs
+            int newProdId = Convert.ToInt32(productIdComboBox.SelectedValue);
+            int newSupID = Convert.ToInt32(supplierIdComboBox.SelectedValue);
+            // grab data from dropdown selectedvalues & hidden id field (productSupplierIdTextBox)
+            using (travelexpertsDataContext db = new travelexpertsDataContext())
             {
-                // grab data from dropdown selectedvalues & hidden id field (productSupplierIdTextBox)
+                if (addMode == false) // if modifying
+                {
 
-                // update entry in Product_Suppliers with the current ID using that data
+                    // Get current product supplier ID
+                    int prodSupID = Convert.ToInt32(productSupplierIdTextBox.Text);
 
-                
+                    // Grab the current entry from the database
+                    Products_Supplier prodSup = db.Products_Suppliers
+                        .Single(ps => ps.ProductSupplierId == prodSupID);
+
+                    // Validate by ensuring this unique combination isn't in the database
+                    var matchingProps = db.Products_Suppliers // search the Products_Suppliers table for entries...
+                        .Where(ps => ps.ProductId == newProdId) // ...matching the new product id...
+                        .Where(ps => ps.SupplierId == newSupID)// ... and matching the new supplier id...
+                        .Where(ps => ps.ProductSupplierId != prodSupID) //... but with a different prodsupplierID
+                        .FirstOrDefault(); // We can stop at the first, though there won't be more than one
+
+                    // If no match was found, we're good
+                    if(matchingProps == null)
+                    {
+                        // Update with inputted values
+                        prodSup.ProductId = newProdId;
+                        prodSup.SupplierId = newSupID;
+                        db.SubmitChanges();
+
+                    }
+                    else // there is a match for the product/supplier combo
+                    {
+                        //Give the user the option to change to this combination anyway (this will move all associated packages to the matching Product_Supplier)
+                        DialogResult result = MessageBox.Show($"That product/supplier combination already exists (ID #{matchingProps.ProductSupplierId}). Would you like to change to this combination for all associated packages?", 
+                            "Existing Product/Supplier", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes )
+                        {
+                            // Get all Package_Product_Suppliers entries that refer to the current ProdSup ID (these will need to be modified)
+                            List<Packages_Products_Supplier> ppsWithCurrentProdSupID = db.Packages_Products_Suppliers.Where(pps => pps.ProductSupplierId == prodSupID).ToList();
+
+                            // Go through each, updating the ProdSupID to the existing combination
+                            foreach(Packages_Products_Supplier pps in ppsWithCurrentProdSupID)
+                            {
+                                // We can't directly update ProdSupID in an existing entry as it is part of the entry's Primary key. 
+                                //Instead, we have to delete it and create a new one.
+                                int currentPackageId = pps.PackageId; // to keep track of the package ID
+                                db.Packages_Products_Suppliers.DeleteOnSubmit(pps);
+                                db.SubmitChanges(); // have to submit changes here otherwise we can't create a new one
+
+                                try
+                                {
+                                    using (travelexpertsDataContext db2 = new travelexpertsDataContext())
+                                    {
+                                        // Now, create a new PPS using the PPS and the new ProdSupID
+                                        Packages_Products_Supplier newPps = new Packages_Products_Supplier
+                                        {
+                                            PackageId = currentPackageId, // the same package id
+                                            ProductSupplierId = matchingProps.ProductSupplierId // the prod_sup id that matches what the user wants to change it to
+                                        };
+                                        db2.Packages_Products_Suppliers.InsertOnSubmit(newPps);
+                                        db2.SubmitChanges();
+                                    }
+                                }
+                                catch { }                    
+                            }
+                        }
+                    }
+                    // Reload data
+                    travelexpertsDataContext dbContext = new travelexpertsDataContext(); // create a new context
+                    products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
+                    RefreshPackagesByProdSuppGrid();
+                } // end modify   
+
+                else // if in add mode
+                {
+                    // create a new Product_Supplier with the data
+                    Products_Supplier newProdSup = new Products_Supplier
+                    {
+                        ProductId = newProdId,
+                        SupplierId = newSupID
+                    };
+
+                    // insert into db and save
+                    db.Products_Suppliers.InsertOnSubmit(newProdSup);
+                    db.SubmitChanges();
+
+                    // Re-enable Add new button
+                    btnAddProdSupp.Enabled = true;
+                }
             }
-            else // if in add mode
-            {
-                // grab dropdown data
-
-                // create a new Product_Supplier with that data
-
-                // insert into db and save
-            }
-
-            // reload data
-
-            travelexpertsDataContext dbContext = new travelexpertsDataContext(); // create a new context
-            products_SupplierBindingSource.DataSource = dbContext.Products_Suppliers; //get product_supplier data for top datagrid
-            RefreshPackagesByProdSuppGrid();
 
         }
 
@@ -188,6 +261,8 @@ namespace CMPP248_Workshop
             // Set up display for add mode
             lblAssociatesPackages.Text = "";
             lblSelectedProdsTitle.Text = $"Add details for new product.";
+
+            btnAddProdSupp.Enabled = false; // disable button until leaving add mode to make things clearer for user
 
 
             // Put combo boxes in default state
