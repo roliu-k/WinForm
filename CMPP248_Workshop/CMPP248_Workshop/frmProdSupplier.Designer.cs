@@ -258,7 +258,7 @@ namespace CMPP248_Workshop
             this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
             this.lblTitle.Size = new System.Drawing.Size(1118, 51);
             this.lblTitle.TabIndex = 19;
-            this.lblTitle.Text = "Package Manager - Add or Edit Package";
+            this.lblTitle.Text = "Package Manager - Add or Remove Products";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // body
