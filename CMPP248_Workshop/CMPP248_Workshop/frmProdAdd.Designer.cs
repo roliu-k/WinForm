@@ -54,7 +54,7 @@ namespace CMPP248_Workshop
             // 
             this.prodNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prodNameTextBox.Location = new System.Drawing.Point(156, 115);
-            this.prodNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.prodNameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.prodNameTextBox.Name = "prodNameTextBox";
             this.prodNameTextBox.Size = new System.Drawing.Size(281, 22);
             this.prodNameTextBox.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace CMPP248_Workshop
             // 
             this.btnSubmitProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSubmitProd.Location = new System.Drawing.Point(40, 160);
-            this.btnSubmitProd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmitProd.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmitProd.Name = "btnSubmitProd";
             this.btnSubmitProd.Size = new System.Drawing.Size(176, 37);
             this.btnSubmitProd.TabIndex = 2;
@@ -75,7 +75,7 @@ namespace CMPP248_Workshop
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(261, 160);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(176, 37);
             this.btnClose.TabIndex = 3;
@@ -116,7 +116,7 @@ namespace CMPP248_Workshop
             this.lblTitle.Padding = new System.Windows.Forms.Padding(0, 10, 0, 5);
             this.lblTitle.Size = new System.Drawing.Size(480, 51);
             this.lblTitle.TabIndex = 19;
-            this.lblTitle.Text = "Add New Product";
+            this.lblTitle.Text = "Add New Product Type";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // frmProdAdd
@@ -130,7 +130,7 @@ namespace CMPP248_Workshop
             this.Controls.Add(this.prodNameTextBox);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmProdAdd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add a Product";

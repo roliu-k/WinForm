@@ -526,6 +526,7 @@ namespace CMPP248_Workshop
             this.Name = "frmAddModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Package Manager - Add/Modify";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddModify_FormClosing);
             this.Load += new System.EventHandler(this.frmAddModify_Load);
             ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource)).EndInit();

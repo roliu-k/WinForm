@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace CMPP248_Workshop
         // Class-level variables
         public bool isAdd; // Mode for the form (add or modify)
         public Package currentPackage; // Package being modified, passed by parent form
-        List<Packages_Products_Supplier> ppsSnapshot = null; // snapshot of associated lines in Packages_Products_Suppliers
+        List<Packages_Products_Supplier> ppsSnapshot = new List<Packages_Products_Supplier>(); // snapshot of associated lines in Packages_Products_Suppliers
                                                              // in case they are modified, then the user cancels
         public bool didAddProducts = false; // toggle to see if products have been added (causing differences from the ppsSnapshot)
         private DateTime? tmpStartDate; // temp variable for startdate input
@@ -124,6 +125,7 @@ namespace CMPP248_Workshop
                             // submit changes 
                             db.SubmitChanges();
                             DialogResult = DialogResult.OK;
+                            this.Close();
                         }
                     }
                 }
@@ -313,6 +315,15 @@ namespace CMPP248_Workshop
             }
 
             DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        // If the user hits the X button, we want to make sure nothing in the database gets saved
+        private void frmAddModify_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Checks to see if a normal close route happened
+            if (!(new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close")))
+                btnCancel_Click(sender, e);
         }
     }
 }

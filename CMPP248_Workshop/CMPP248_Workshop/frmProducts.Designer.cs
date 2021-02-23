@@ -51,9 +51,9 @@ namespace CMPP248_Workshop
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             this.productIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prodNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
             prodNameLabel = new System.Windows.Forms.Label();
             productIdLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -298,24 +298,6 @@ namespace CMPP248_Workshop
             this.productDataGridView.TabIndex = 30;
             this.productDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellClick);
             // 
-            // productIdDataGridViewTextBoxColumn1
-            // 
-            this.productIdDataGridViewTextBoxColumn1.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn1.HeaderText = "Product ID";
-            this.productIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.productIdDataGridViewTextBoxColumn1.Name = "productIdDataGridViewTextBoxColumn1";
-            this.productIdDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.productIdDataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // prodNameDataGridViewTextBoxColumn1
-            // 
-            this.prodNameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.prodNameDataGridViewTextBoxColumn1.DataPropertyName = "ProdName";
-            this.prodNameDataGridViewTextBoxColumn1.HeaderText = "Product Type";
-            this.prodNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.prodNameDataGridViewTextBoxColumn1.Name = "prodNameDataGridViewTextBoxColumn1";
-            this.prodNameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -325,6 +307,24 @@ namespace CMPP248_Workshop
             this.label2.Size = new System.Drawing.Size(150, 20);
             this.label2.TabIndex = 15;
             this.label2.Text = "Current Products:";
+            // 
+            // productIdDataGridViewTextBoxColumn1
+            // 
+            this.productIdDataGridViewTextBoxColumn1.DataPropertyName = "ProductId";
+            this.productIdDataGridViewTextBoxColumn1.HeaderText = "Product ID";
+            this.productIdDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.productIdDataGridViewTextBoxColumn1.Name = "productIdDataGridViewTextBoxColumn1";
+            this.productIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.productIdDataGridViewTextBoxColumn1.Width = 90;
+            // 
+            // prodNameDataGridViewTextBoxColumn1
+            // 
+            this.prodNameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.prodNameDataGridViewTextBoxColumn1.DataPropertyName = "ProdName";
+            this.prodNameDataGridViewTextBoxColumn1.HeaderText = "Product Type";
+            this.prodNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.prodNameDataGridViewTextBoxColumn1.Name = "prodNameDataGridViewTextBoxColumn1";
+            this.prodNameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // frmProducts
             // 
