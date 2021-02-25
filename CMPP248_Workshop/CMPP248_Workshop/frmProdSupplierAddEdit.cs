@@ -13,6 +13,8 @@ using TravelExpertDatabase;
 namespace CMPP248_Workshop
 {
     //Create a new ProductSupplier ID through a product Id and supplier Id
+    // Foundation by Holly.
+    // Fleshed-out functionality and layout by Eric.
 
     public partial class frmProdSupplierAddEdit : Form
     {
@@ -25,6 +27,8 @@ namespace CMPP248_Workshop
         {
             InitializeComponent();
         }
+
+        // Initial form setup
         private void frmProdSupplierAddEdit_Load(object sender, EventArgs e)
         {
             // On load, populate data for all data displays
@@ -97,6 +101,7 @@ namespace CMPP248_Workshop
             grdPackagesforProdSupp.DataSource = TravelExpertsQueryManager.GetPackagesByProdSuppID(selectedProdID);
         }
 
+        // Modifies the ProductSupplier associated with the selected row of the datagrid using the user inputs [Eric]
         private void btnModifyProdSupp_Click(object sender, EventArgs e)
         {
             // Get user inputs
@@ -226,6 +231,7 @@ namespace CMPP248_Workshop
 
         }
 
+        // Sets up the form for adding a new ProductSupplier [Eric]
         private void btnAddProdSupp_Click(object sender, EventArgs e)
         {
             // put form in add mode
@@ -237,7 +243,6 @@ namespace CMPP248_Workshop
 
             btnAddProdSupp.Enabled = false; // disable button until leaving add mode to make things clearer for user
 
-
             // Put combo boxes in default state
             productIdComboBox.SelectedIndex = 0;
             supplierIdComboBox.SelectedIndex = 0;
@@ -246,6 +251,7 @@ namespace CMPP248_Workshop
             grdPackagesforProdSupp.DataSource = null;
         }
 
+        // Whenever the user selects a product from the dropdown, update the suppliers dropdown with appropriate data [Eric]
         private void productIdComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             using (travelexpertsDataContext db = new travelexpertsDataContext())
@@ -288,8 +294,10 @@ namespace CMPP248_Workshop
             productIdComboBox_SelectedIndexChanged(sender, e);
         }
 
+        // Checking off the top filter button will toggle filtering all products in the product_supplier datagrid (either all of them, or just those with packages)
         private void checkboxFilterProducts_CheckedChanged(object sender, EventArgs e)
         {
+            // Update the persisting db image (used as a data source)
             rootDB = new travelexpertsDataContext();
             
             // If the user checks off the option to filter
@@ -309,11 +317,22 @@ namespace CMPP248_Workshop
             }
         }
 
-        // Major headaches getting the first row to select... it won't seem to do so unless we go to another row first. So, this code makes that happen
+        // Major headaches getting the first row to select... it won't seem to do so unless we go to another row first. So, this code makes that happen [Eric]
         private void SetDataGridToFirstEntry()
         {
-            grdProductSuppliers.CurrentCell = grdProductSuppliers.Rows[2].Cells[2];
-            grdProductSuppliers_CellClick(this.grdProductSuppliers, new DataGridViewCellEventArgs(2, 2));
+            // Both the default form load, and trying to initially select the top row, resist firing the events we want. So, first, select an arbitrary row
+            // In theory, this will crash if there are less than 2 product_suppliers in the database (shouldn't happen, but we'll throw in a try block)
+            try
+            {
+                grdProductSuppliers.CurrentCell = grdProductSuppliers.Rows[2].Cells[2];
+                grdProductSuppliers_CellClick(this.grdProductSuppliers, new DataGridViewCellEventArgs(2, 2));
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("An error occured retrieving product_supplier data. Please check to ensure you are connected to the database - " + ex.Message, ex.GetType().ToString());
+            }
+
+            // Then, select the top row as desired
             grdProductSuppliers.CurrentCell = grdProductSuppliers.Rows[0].Cells[0];
             grdProductSuppliers_CellClick(this.grdProductSuppliers, new DataGridViewCellEventArgs(0, 0));
         }

@@ -11,12 +11,14 @@ using TravelExpertDatabase;
 
 namespace CMPP248_Workshop
 {
-    // This should allow adding a Product Supplier ID from a combination of Product ID and Supplier to the Package.
+    // This form allows adding a Product Supplier ID from a combination of Product ID and Supplier to the Package.
     // All IDs should already exist - if not, they are added on their respective forms.
+    // Form began with team working together in live session. Anything unattributed can be assumed a team effort.
+    // Much of code formed by Ronnie.
+    // Layout by Eric.
 
     public partial class frmProdSupplier : Form
     {
-
         // Class-level variables
         public Package currentPackage;
 
@@ -26,6 +28,7 @@ namespace CMPP248_Workshop
 
         }
 
+        //  Takes current selected Product_Supplier and adds it to the package [Ronnie]
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Get ProductSupplierID from combobox
@@ -59,7 +62,7 @@ namespace CMPP248_Workshop
             }
         }
 
-        //Delete from GridView so it won't add to database
+        //Delete from GridView so it won't add to database [Ronnie]
         private void btnDelete_Click(object sender, EventArgs e)
         {
             // Grab data from selected cell on gridview
@@ -106,10 +109,8 @@ namespace CMPP248_Workshop
             }
 
             lblDesc.Text = $"Add or remove associated products from this package (ID#{currentPackage.PackageId}: {currentPackage.PkgName})";
-            
-            
+   
         }
-
 
 
         private void refreshDataGrid()

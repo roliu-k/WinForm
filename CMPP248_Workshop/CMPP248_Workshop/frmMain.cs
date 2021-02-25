@@ -10,6 +10,12 @@ using System.Windows.Forms;
 
 namespace CMPP248_Workshop
 {
+    /*
+     * Start page for the form.
+     * Initial design and structure by Holly.
+     * Layout fixes by Eric.
+     */
+
     public partial class frmMain : Form
     {
         public frmMain()

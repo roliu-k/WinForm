@@ -9,16 +9,16 @@ namespace TravelExpertDatabase
 {
 
     /*
-     * 
      * Helper functions to abstract complex queries out of
      * presentation.
-     * 
+     * These methods were initially worked on by the whole team.
+     * Extra mention to Ronnie and Eric for sorting out some of the bigger queries.
      */
 
     public static class TravelExpertsQueryManager
     {
         /// <summary>
-        /// Gets related product data pertaining to a specific Package from the database.
+        /// Gets related product data pertaining to a specific Package from the database. [Team, special thanks to Ronnie]
         /// Created as a team, with special mention to Ronnie and Eric for a little extra solving.
         /// </summary>
         /// <param name="db">A context from the database</param>
@@ -54,7 +54,7 @@ namespace TravelExpertDatabase
         }
 
         /// <summary>
-        /// Gets ProdSup data with associated Product Names and Supplier Names
+        /// Gets ProdSup data with associated Product Names and Supplier Names [Team, special thanks to Ronnie and Eric]
         /// </summary>
         /// <param name="db">Database context to pull from</param>
         /// <returns>Queryable list of ProductSupplier data</returns>
@@ -79,7 +79,7 @@ namespace TravelExpertDatabase
         }
 
         /// <summary>
-        /// Overload that gets ProdSup data where only those that are associated with a list of package IDs (in Packages_Products_Suppliers)are used.
+        /// Overload that gets ProdSup data where only those that are associated with a list of package IDs (in Packages_Products_Suppliers)are used. [Eric]
         /// </summary>
         /// <param name="db">Database context to pull from</param>
         /// <param name="packageFilter">List of PackageIDs which we want to results to be associated to</param>
@@ -108,7 +108,7 @@ namespace TravelExpertDatabase
         }
 
         /// <summary>
-        /// Gets data for all packages which contain a particular Product/Supplier pair. Added by Eric.
+        /// Gets data for all packages which contain a particular Product/Supplier pair. [Eric]
         /// </summary>
         /// <param name="prodSuppID">The ID of the Product_Supplier pair being queried.</param>
         /// <returns>A list of Packages using this product/supplier.</returns>
@@ -152,7 +152,7 @@ namespace TravelExpertDatabase
         }
 
         /// <summary>
-        /// Get a subset of suppliers with associations to one given product in the ProductSuppliers table.
+        /// Get a subset of suppliers with associations to one given product in the ProductSuppliers table. [Eric]
         /// </summary>
         /// <param name="db">DB context</param>
         /// <param name="productID">Int with ID for given product.</param>
@@ -173,7 +173,7 @@ namespace TravelExpertDatabase
 
 
         /// <summary>
-        /// Determine whether the combination of package ID and ProductSupplier ID exists
+        /// Determine whether the combination of package ID and ProductSupplier ID exists [Ronnie]
         /// </summary>
         /// <param name="packageID">Package ID</param>
         /// <param name="prodSuppID">Product Supplier ID</param>
@@ -193,7 +193,7 @@ namespace TravelExpertDatabase
         }
 
         /// <summary>
-        /// Gets a list of all PackageProductSuppliers entries with a given package ID.
+        /// Gets a list of all PackageProductSuppliers entries with a given package ID. [Eric]
         /// </summary>
         /// <param name="packageID">Int ID of the desired package.</param>
         /// <returns>List of PackageProductSuppliers</returns>

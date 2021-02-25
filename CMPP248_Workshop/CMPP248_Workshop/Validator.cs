@@ -102,7 +102,7 @@ namespace CMPP248_Workshop
         }
 
         /// <summary>
-        /// Validates whether or not a given product and supplier combination already exists in the database.
+        /// Validates whether or not a given product and supplier combination already exists in the database. [Eric]
         /// </summary>
         /// <param name="db">Database context</param>
         /// <param name="prodId">Int product ID to check</param>
@@ -119,6 +119,42 @@ namespace CMPP248_Workshop
 
             // If no match was found, we're good
             return matchingProps;
+        }
+
+        // add a validation to make sure end date does not occur before start date [Ronnie]
+        public static bool IsValidEndDate(DateTimePicker pkgStartDateDateTimePicker, DateTimePicker pkgEndDateDateTimePicker, ref DateTime? tmpEndDate)
+        {
+            bool valid = false;
+            DateTime? startDate = null;
+            DateTime? endDate = null;
+
+            if (pkgStartDateDateTimePicker.Text != " ")
+            {
+                startDate = pkgStartDateDateTimePicker.Value;
+            }
+            if (pkgEndDateDateTimePicker.Text != " ")
+            {
+                endDate = pkgEndDateDateTimePicker.Value;
+            }
+
+            if (endDate != null)
+            {
+                if (endDate > startDate || startDate == null)
+                {
+                    pkgEndDateDateTimePicker.Enabled = true;
+                    pkgEndDateDateTimePicker.Format = DateTimePickerFormat.Short;
+                    tmpEndDate = endDate;
+                    valid = true;
+                }
+                else
+                    MessageBox.Show("The package end date should be later than package start date", "Input Error");
+            }
+
+            // when both fields are empty, return true
+            if (endDate == null && startDate == null)
+                valid = true;
+
+            return valid;
         }
     }
 }

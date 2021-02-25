@@ -12,7 +12,11 @@ using TravelExpertDatabase;
 
 namespace CMPP248_Workshop
 {
-    // This form is to Create/Modify Packages in the Package Database. 
+    /* This form is to Create/Modify Packages in the Package Database. 
+    Groundwork done by the full team in live sessions any unattributed blocks can be assumed to be a team effort.
+    Validation by Ronnie.
+    Layout, cancel management, refactoring by Eric.
+     */
 
     public partial class frmAddModify : Form
     {
@@ -20,7 +24,7 @@ namespace CMPP248_Workshop
         public bool isAdd; // Mode for the form (add or modify)
         public Package currentPackage; // Package being modified, passed by parent form
         List<Packages_Products_Supplier> ppsSnapshot = new List<Packages_Products_Supplier>(); // snapshot of associated lines in Packages_Products_Suppliers
-                                                             // in case they are modified, then the user cancels
+                                                                                               // in case they are modified, then the user cancels
         public bool didAddProducts = false; // toggle to see if products have been added (causing differences from the ppsSnapshot)
         private DateTime? tmpStartDate; // temp variable for startdate input
         private DateTime? tmpEndDate; // temp vairable for endate input
@@ -29,6 +33,7 @@ namespace CMPP248_Workshop
         {
             InitializeComponent();
         }
+
         //If Modify Button was clicked on Form1
         private void frmAddModify_Load(object sender, EventArgs e)
         {
@@ -77,11 +82,11 @@ namespace CMPP248_Workshop
         // As such, the save button functions the same in either mode. See Load and Cancel code for differences.
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // VALIDATION
+            // VALIDATION [Ronnie]
             if (Validator.IsPresent("Name", pkgNameTextBox) &&
                 Validator.IsPresent("Description", pkgDescTextBox) &&
                 Validator.IsPresent("Base Price", pkgBasePriceTextBox) &&
-                IsValidEndDate() &&
+                Validator.IsValidEndDate(pkgStartDateDateTimePicker, pkgEndDateDateTimePicker, ref tmpEndDate) &&
                 Validator.IsDecimal("Base Price", pkgBasePriceTextBox) &&
                 (pkgAgencyCommissionTextBox.Text == "" ||
                     (Validator.IsDecimal("Agency Commission", pkgAgencyCommissionTextBox) &&
@@ -137,6 +142,9 @@ namespace CMPP248_Workshop
             
         }
 
+        /*
+         * The following event listeners handle the DateTimePickers and their ability to accept null value
+         */
         private void pkgEndDateDateTimePicker_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Delete)
@@ -184,42 +192,6 @@ namespace CMPP248_Workshop
             dt.Format = DateTimePickerFormat.Custom;
         }
 
-        // add a validation to make sure end date does not occur before start date
-        private bool IsValidEndDate()
-        {
-            bool valid = false;
-            DateTime? startDate = null;
-            DateTime? endDate = null;
-
-            if (pkgStartDateDateTimePicker.Text != " ")
-            {
-                startDate = pkgStartDateDateTimePicker.Value;
-            }
-            if (pkgEndDateDateTimePicker.Text != " ")
-            {
-                endDate = pkgEndDateDateTimePicker.Value;
-            }
-
-            if (endDate != null)
-            {
-                if (endDate > startDate || startDate == null) 
-                {
-                    pkgEndDateDateTimePicker.Enabled = true;
-                    pkgEndDateDateTimePicker.Format = DateTimePickerFormat.Short;
-                    tmpEndDate = endDate;
-                    valid = true;
-                }
-                else
-                    MessageBox.Show("The package end date should be later than package start date", "Input Error");
-            }
-
-            // when both fields are empty, return true
-            if (endDate == null && startDate == null)
-                valid = true;
-
-            return valid;
-        }
-
         //To add Products to a Package - calls form ProdSuppliers
         private void btnEditAddProducts_Click(object sender, EventArgs e)
         {
@@ -240,8 +212,7 @@ namespace CMPP248_Workshop
             }
         }
 
-        // Go back to last page without saving changes. This may involve some cleaning up, depending on the mode and if products were added
-        // Cancel code wrangled by [Eric]
+        // Go back to last page without saving changes. This may involve some cleaning up, depending on the mode and if products were added [Eric]
         private void btnCancel_Click(object sender, EventArgs e)
         {
             using (travelexpertsDataContext dbContext = new travelexpertsDataContext())
@@ -251,7 +222,7 @@ namespace CMPP248_Workshop
                 {
                     // Get the current PPS entries in the database corresponsind to this package
                     List<Packages_Products_Supplier> ppsCurrent =
-                    TravelExpertsQueryManager.GetPackagesProductsSuppliersByPackageID(currentPackage.PackageId);
+                        TravelExpertsQueryManager.GetPackagesProductsSuppliersByPackageID(currentPackage.PackageId);
 
                     // Next, we have to get the PPS entries to re-add (if they were deleted) and/or remove (if new ones were added)
                     // This is not a super efficient process, but packages shouldn't have enough products for it to make much difference
@@ -299,26 +270,26 @@ namespace CMPP248_Workshop
                 }
 
                 // One more step if in Add mode. 
-                // A package was inserted into the database initially (to get the add products to work). 
-                //So, if cancelling, we want to delete it.
+                // A package was inserted into the database initially (to get the add products half to work). 
+                // So, if cancelling, we want to delete it this created package.
                 if (isAdd)
                 {
-
                     // Delete package
                     Package packToDelete = dbContext.Packages
                     .Single(p => p.PackageId == currentPackage.PackageId);
 
                     dbContext.Packages.DeleteOnSubmit(packToDelete);
                     dbContext.SubmitChanges(); // submit to the database
-
                 }
             }
 
+            // Exit the form
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        // If the user hits the X button, we want to make sure nothing in the database gets saved
+        // Ensures data isn't partway saved in the event the user clicks 'X' to exit the program partway 
+        // (or the application ends in other unexpected ways) [Eric]
         private void frmAddModify_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Checks to see if a normal close route happened

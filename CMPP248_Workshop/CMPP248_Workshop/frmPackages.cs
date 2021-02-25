@@ -49,12 +49,11 @@ namespace CMPP248_Workshop
             frmAddModify secondForm = new frmAddModify();
             secondForm.isAdd = true;
 
-            //
-            //
             // Because we give the user the option to add products to the new package before saving it,
-            // We need to do a preliminary insert into the database in order to get a valid PackageID
+            // we need to do a preliminary insert into the database in order to get a valid PackageID
             // for the PackageProductsSuppliers table.
             // We don't use the current highest PackageID + 1, in order to avoid concurrency issues.
+            // These alterations done by [Eric]
             Package newPackage = new Package
             {
                 PkgName = "DEFAULT",
@@ -70,9 +69,8 @@ namespace CMPP248_Workshop
                 db.Packages.InsertOnSubmit(newPackage); // insert the new package through data context object
                 db.SubmitChanges(); //submit to database
             }
-            secondForm.currentPackage = newPackage; // Now that the newpackage has been added to the database, the Object has an Id (magic!)
-            //
-            //
+            secondForm.currentPackage = newPackage; // Now that the new package has been added to the database, the Object has an Id (magic!)
+      
 
             DialogResult result = secondForm.ShowDialog(); // display second form modal
             if (result == DialogResult.OK) // new row got inserted
@@ -105,16 +103,17 @@ namespace CMPP248_Workshop
             }
         }
 
+        // Gets an updated version of the data for all displays
         public void RefreshView()
         {
-
-            // Populate data in Packages gridview [Eric - changed from details view to gridview, to allow easier browsing]
+            // Populate data in Packages gridview
             grdPackages.DataSource = new travelexpertsDataContext().Packages;
 
             // Populate data in Product Info gridview
             RefreshProductGrid();
         }
 
+        // Updates the data and display just for the grid of associated products, based on current selection of package datagrid
         private void RefreshProductGrid()
         {
             // Grab ID of the row currently selected in the Packages Datagrid. [Eric]
@@ -131,6 +130,7 @@ namespace CMPP248_Workshop
             }
         }
 
+        // Whenever package grid is clicked, we update the display of associated products
         private void grdPackages_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             RefreshProductGrid();
