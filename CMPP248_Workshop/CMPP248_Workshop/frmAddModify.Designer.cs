@@ -41,12 +41,8 @@ namespace CMPP248_Workshop
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.packages_Products_SuppliersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.packages_Products_SuppliersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Header = new System.Windows.Forms.Panel();
             this.lblDesc = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -57,11 +53,6 @@ namespace CMPP248_Workshop
             this.label2 = new System.Windows.Forms.Label();
             this.btnEditAddProducts = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packageRelatedTableDataStructureBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pkgStartDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -71,6 +62,15 @@ namespace CMPP248_Workshop
             this.pkgBasePriceTextBox = new System.Windows.Forms.TextBox();
             this.pkgAgencyCommissionTextBox = new System.Windows.Forms.TextBox();
             this.packageIdTextBox = new System.Windows.Forms.TextBox();
+            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packageRelatedTableDataStructureBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.packageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.products_SupplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             packageIdLabel = new System.Windows.Forms.Label();
             pkgAgencyCommissionLabel = new System.Windows.Forms.Label();
             pkgBasePriceLabel = new System.Windows.Forms.Label();
@@ -78,18 +78,18 @@ namespace CMPP248_Workshop
             pkgEndDateLabel = new System.Windows.Forms.Label();
             pkgNameLabel = new System.Windows.Forms.Label();
             pkgStartDateLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.Header.SuspendLayout();
             this.body.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packageRelatedTableDataStructureBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.packageRelatedTableDataStructureBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // packageIdLabel
@@ -169,31 +169,15 @@ namespace CMPP248_Workshop
             pkgStartDateLabel.TabIndex = 12;
             pkgStartDateLabel.Text = "Start Date:";
             // 
-            // packageBindingSource
-            // 
-            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
-            // 
             // packages_Products_SuppliersBindingSource
             // 
             this.packages_Products_SuppliersBindingSource.DataMember = "Packages_Products_Suppliers";
             this.packages_Products_SuppliersBindingSource.DataSource = this.packageBindingSource;
             // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
-            // 
-            // products_SupplierBindingSource
-            // 
-            this.products_SupplierBindingSource.DataSource = typeof(TravelExpertDatabase.Products_Supplier);
-            // 
             // packages_Products_SuppliersBindingSource1
             // 
             this.packages_Products_SuppliersBindingSource1.DataMember = "Packages_Products_Suppliers";
             this.packages_Products_SuppliersBindingSource1.DataSource = this.products_SupplierBindingSource;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // Header
             // 
@@ -359,6 +343,126 @@ namespace CMPP248_Workshop
             this.dataGridView1.Size = new System.Drawing.Size(510, 135);
             this.dataGridView1.TabIndex = 24;
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pkgStartDateDateTimePicker);
+            this.panel1.Controls.Add(pkgStartDateLabel);
+            this.panel1.Controls.Add(this.pkgNameTextBox);
+            this.panel1.Controls.Add(pkgNameLabel);
+            this.panel1.Controls.Add(this.pkgEndDateDateTimePicker);
+            this.panel1.Controls.Add(pkgEndDateLabel);
+            this.panel1.Controls.Add(this.pkgDescTextBox);
+            this.panel1.Controls.Add(pkgDescLabel);
+            this.panel1.Controls.Add(this.pkgBasePriceTextBox);
+            this.panel1.Controls.Add(pkgBasePriceLabel);
+            this.panel1.Controls.Add(this.pkgAgencyCommissionTextBox);
+            this.panel1.Controls.Add(pkgAgencyCommissionLabel);
+            this.panel1.Controls.Add(this.packageIdTextBox);
+            this.panel1.Controls.Add(packageIdLabel);
+            this.panel1.Location = new System.Drawing.Point(10, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(525, 242);
+            this.panel1.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(9, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 20);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Package Details:";
+            // 
+            // pkgStartDateDateTimePicker
+            // 
+            this.pkgStartDateDateTimePicker.CausesValidation = false;
+            this.pkgStartDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.packageBindingSource, "PkgStartDate", true));
+            this.pkgStartDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pkgStartDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.pkgStartDateDateTimePicker.Location = new System.Drawing.Point(146, 114);
+            this.pkgStartDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.pkgStartDateDateTimePicker.Name = "pkgStartDateDateTimePicker";
+            this.pkgStartDateDateTimePicker.Size = new System.Drawing.Size(130, 22);
+            this.pkgStartDateDateTimePicker.TabIndex = 13;
+            this.pkgStartDateDateTimePicker.ValueChanged += new System.EventHandler(this.pkgStartDateDateTimePicker_ValueChanged);
+            this.pkgStartDateDateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pkgStartDateDateTimePicker_KeyPress);
+            // 
+            // pkgNameTextBox
+            // 
+            this.pkgNameTextBox.CausesValidation = false;
+            this.pkgNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgName", true));
+            this.pkgNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pkgNameTextBox.Location = new System.Drawing.Point(146, 59);
+            this.pkgNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.pkgNameTextBox.Name = "pkgNameTextBox";
+            this.pkgNameTextBox.Size = new System.Drawing.Size(363, 22);
+            this.pkgNameTextBox.TabIndex = 11;
+            // 
+            // pkgEndDateDateTimePicker
+            // 
+            this.pkgEndDateDateTimePicker.CausesValidation = false;
+            this.pkgEndDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.packageBindingSource, "PkgEndDate", true));
+            this.pkgEndDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pkgEndDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.pkgEndDateDateTimePicker.Location = new System.Drawing.Point(146, 141);
+            this.pkgEndDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.pkgEndDateDateTimePicker.Name = "pkgEndDateDateTimePicker";
+            this.pkgEndDateDateTimePicker.Size = new System.Drawing.Size(130, 22);
+            this.pkgEndDateDateTimePicker.TabIndex = 9;
+            this.pkgEndDateDateTimePicker.ValueChanged += new System.EventHandler(this.pkgEndDateDateTimePicker_ValueChanged);
+            this.pkgEndDateDateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pkgEndDateDateTimePicker_KeyPress);
+            // 
+            // pkgDescTextBox
+            // 
+            this.pkgDescTextBox.CausesValidation = false;
+            this.pkgDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgDesc", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
+            this.pkgDescTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pkgDescTextBox.Location = new System.Drawing.Point(146, 87);
+            this.pkgDescTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.pkgDescTextBox.Name = "pkgDescTextBox";
+            this.pkgDescTextBox.Size = new System.Drawing.Size(363, 22);
+            this.pkgDescTextBox.TabIndex = 7;
+            // 
+            // pkgBasePriceTextBox
+            // 
+            this.pkgBasePriceTextBox.CausesValidation = false;
+            this.pkgBasePriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgBasePrice", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
+            this.pkgBasePriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pkgBasePriceTextBox.Location = new System.Drawing.Point(146, 168);
+            this.pkgBasePriceTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.pkgBasePriceTextBox.Name = "pkgBasePriceTextBox";
+            this.pkgBasePriceTextBox.Size = new System.Drawing.Size(130, 22);
+            this.pkgBasePriceTextBox.TabIndex = 5;
+            this.pkgBasePriceTextBox.Tag = "Base Price";
+            // 
+            // pkgAgencyCommissionTextBox
+            // 
+            this.pkgAgencyCommissionTextBox.CausesValidation = false;
+            this.pkgAgencyCommissionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgAgencyCommission", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
+            this.pkgAgencyCommissionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pkgAgencyCommissionTextBox.Location = new System.Drawing.Point(146, 195);
+            this.pkgAgencyCommissionTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.pkgAgencyCommissionTextBox.Name = "pkgAgencyCommissionTextBox";
+            this.pkgAgencyCommissionTextBox.Size = new System.Drawing.Size(130, 22);
+            this.pkgAgencyCommissionTextBox.TabIndex = 3;
+            this.pkgAgencyCommissionTextBox.Tag = "Agency Commission";
+            // 
+            // packageIdTextBox
+            // 
+            this.packageIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.packageIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PackageId", true));
+            this.packageIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.packageIdTextBox.Location = new System.Drawing.Point(146, 33);
+            this.packageIdTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.packageIdTextBox.Name = "packageIdTextBox";
+            this.packageIdTextBox.ReadOnly = true;
+            this.packageIdTextBox.Size = new System.Drawing.Size(248, 15);
+            this.packageIdTextBox.TabIndex = 1;
+            this.packageIdTextBox.TabStop = false;
+            // 
             // productIdDataGridViewTextBoxColumn
             // 
             this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
@@ -399,120 +503,21 @@ namespace CMPP248_Workshop
             // 
             this.packageRelatedTableDataStructureBindingSource.DataSource = typeof(TravelExpertDatabase.PackageRelatedTableDataStructure);
             // 
-            // panel1
+            // packageBindingSource
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pkgStartDateDateTimePicker);
-            this.panel1.Controls.Add(pkgStartDateLabel);
-            this.panel1.Controls.Add(this.pkgNameTextBox);
-            this.panel1.Controls.Add(pkgNameLabel);
-            this.panel1.Controls.Add(this.pkgEndDateDateTimePicker);
-            this.panel1.Controls.Add(pkgEndDateLabel);
-            this.panel1.Controls.Add(this.pkgDescTextBox);
-            this.panel1.Controls.Add(pkgDescLabel);
-            this.panel1.Controls.Add(this.pkgBasePriceTextBox);
-            this.panel1.Controls.Add(pkgBasePriceLabel);
-            this.panel1.Controls.Add(this.pkgAgencyCommissionTextBox);
-            this.panel1.Controls.Add(pkgAgencyCommissionLabel);
-            this.panel1.Controls.Add(this.packageIdTextBox);
-            this.panel1.Controls.Add(packageIdLabel);
-            this.panel1.Location = new System.Drawing.Point(10, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(525, 242);
-            this.panel1.TabIndex = 25;
+            this.packageBindingSource.DataSource = typeof(TravelExpertDatabase.Package);
             // 
-            // label1
+            // supplierBindingSource
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 20);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Package Details:";
+            this.supplierBindingSource.DataSource = typeof(TravelExpertDatabase.Supplier);
             // 
-            // pkgStartDateDateTimePicker
+            // products_SupplierBindingSource
             // 
-            this.pkgStartDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.packageBindingSource, "PkgStartDate", true));
-            this.pkgStartDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pkgStartDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.pkgStartDateDateTimePicker.Location = new System.Drawing.Point(146, 114);
-            this.pkgStartDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.pkgStartDateDateTimePicker.Name = "pkgStartDateDateTimePicker";
-            this.pkgStartDateDateTimePicker.Size = new System.Drawing.Size(130, 22);
-            this.pkgStartDateDateTimePicker.TabIndex = 13;
-            this.pkgStartDateDateTimePicker.ValueChanged += new System.EventHandler(this.pkgStartDateDateTimePicker_ValueChanged);
-            this.pkgStartDateDateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pkgStartDateDateTimePicker_KeyPress);
+            this.products_SupplierBindingSource.DataSource = typeof(TravelExpertDatabase.Products_Supplier);
             // 
-            // pkgNameTextBox
+            // productBindingSource
             // 
-            this.pkgNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgName", true));
-            this.pkgNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pkgNameTextBox.Location = new System.Drawing.Point(146, 59);
-            this.pkgNameTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.pkgNameTextBox.Name = "pkgNameTextBox";
-            this.pkgNameTextBox.Size = new System.Drawing.Size(363, 22);
-            this.pkgNameTextBox.TabIndex = 11;
-            // 
-            // pkgEndDateDateTimePicker
-            // 
-            this.pkgEndDateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.packageBindingSource, "PkgEndDate", true));
-            this.pkgEndDateDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pkgEndDateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.pkgEndDateDateTimePicker.Location = new System.Drawing.Point(146, 141);
-            this.pkgEndDateDateTimePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.pkgEndDateDateTimePicker.Name = "pkgEndDateDateTimePicker";
-            this.pkgEndDateDateTimePicker.Size = new System.Drawing.Size(130, 22);
-            this.pkgEndDateDateTimePicker.TabIndex = 9;
-            this.pkgEndDateDateTimePicker.ValueChanged += new System.EventHandler(this.pkgEndDateDateTimePicker_ValueChanged);
-            this.pkgEndDateDateTimePicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pkgEndDateDateTimePicker_KeyPress);
-            // 
-            // pkgDescTextBox
-            // 
-            this.pkgDescTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgDesc", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
-            this.pkgDescTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pkgDescTextBox.Location = new System.Drawing.Point(146, 87);
-            this.pkgDescTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.pkgDescTextBox.Name = "pkgDescTextBox";
-            this.pkgDescTextBox.Size = new System.Drawing.Size(363, 22);
-            this.pkgDescTextBox.TabIndex = 7;
-            // 
-            // pkgBasePriceTextBox
-            // 
-            this.pkgBasePriceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgBasePrice", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
-            this.pkgBasePriceTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pkgBasePriceTextBox.Location = new System.Drawing.Point(146, 168);
-            this.pkgBasePriceTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.pkgBasePriceTextBox.Name = "pkgBasePriceTextBox";
-            this.pkgBasePriceTextBox.Size = new System.Drawing.Size(130, 22);
-            this.pkgBasePriceTextBox.TabIndex = 5;
-            this.pkgBasePriceTextBox.Tag = "Base Price";
-            // 
-            // pkgAgencyCommissionTextBox
-            // 
-            this.pkgAgencyCommissionTextBox.CausesValidation = false;
-            this.pkgAgencyCommissionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PkgAgencyCommission", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "C2"));
-            this.pkgAgencyCommissionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pkgAgencyCommissionTextBox.Location = new System.Drawing.Point(146, 195);
-            this.pkgAgencyCommissionTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.pkgAgencyCommissionTextBox.Name = "pkgAgencyCommissionTextBox";
-            this.pkgAgencyCommissionTextBox.Size = new System.Drawing.Size(130, 22);
-            this.pkgAgencyCommissionTextBox.TabIndex = 3;
-            this.pkgAgencyCommissionTextBox.Tag = "Agency Commission";
-            // 
-            // packageIdTextBox
-            // 
-            this.packageIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.packageIdTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.packageBindingSource, "PackageId", true));
-            this.packageIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.packageIdTextBox.Location = new System.Drawing.Point(146, 33);
-            this.packageIdTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.packageIdTextBox.Name = "packageIdTextBox";
-            this.packageIdTextBox.ReadOnly = true;
-            this.packageIdTextBox.Size = new System.Drawing.Size(248, 15);
-            this.packageIdTextBox.TabIndex = 1;
-            this.packageIdTextBox.TabStop = false;
+            this.productBindingSource.DataSource = typeof(TravelExpertDatabase.Product);
             // 
             // frmAddModify
             // 
@@ -528,20 +533,20 @@ namespace CMPP248_Workshop
             this.Text = "Package Manager - Add/Modify";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddModify_FormClosing);
             this.Load += new System.EventHandler(this.frmAddModify_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.packages_Products_SuppliersBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.Header.ResumeLayout(false);
             this.body.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packageRelatedTableDataStructureBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.packageRelatedTableDataStructureBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.packageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.products_SupplierBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
