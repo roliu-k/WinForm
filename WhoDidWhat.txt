@@ -1,0 +1,12 @@
+﻿This workshop was started in live sessions, with the whole team working in tandem.
+Much of the code providing core functionality was completed in this way by the whole team.
+Please see the code for more specifics on who added what beyond this point. As a rough indication:
+
+- Ronnie provided much of the functionality to add and remove products from packages, 
+	handled validation, and played a big role in query building.
+- Holly provided organization for the overall app, particularly mapping out what was needed for the
+	non-packages side of things. She also designed the intial main page.
+- Eric handled advanced layout and design of the pages, added extra functionality to the add/modify forms for 
+	packages and product/suppliers, and played a role in query building.
+- Chris handled the building of functionality for adding and modifying the Products and Suppliers tables,
+	including their validation.
