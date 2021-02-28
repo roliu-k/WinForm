@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*
+ * This class incorporates the most commonly used validations
+ */
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -88,6 +91,7 @@ namespace CMPP248_Workshop
             return true;
         }
 
+        // add a validation to make sure the agency commission is less than the base price [Ronnie]
         public static bool IsLEBasePrice(TextBox txtBasePrice, TextBox txtAgencyCommission)
         {
             decimal commission = Decimal.Parse(txtAgencyCommission.Text, NumberStyles.Currency);

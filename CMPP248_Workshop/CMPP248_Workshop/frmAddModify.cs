@@ -143,7 +143,7 @@ namespace CMPP248_Workshop
         }
 
         /*
-         * The following event listeners handle the DateTimePickers and their ability to accept null value
+         * The following event listeners handle the DateTimePickers and their ability to accept null value [Ronnie]
          */
         private void pkgEndDateDateTimePicker_KeyPress(object sender, KeyPressEventArgs e)
         {
